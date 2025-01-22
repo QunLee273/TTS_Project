@@ -1,43 +1,34 @@
-using System;
+using __Data.Script;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerMove : ObjMovement
 {
-    [SerializeField] protected float moveSpeed = 5f;
     [SerializeField] protected float jumpForce = 15f;
     
     [SerializeField] protected LayerMask groundLayer;
     [SerializeField] protected Transform groundCheck;
     [SerializeField] protected bool isGround;
     [SerializeField] protected bool doubleJump;
-    
-    [SerializeField] protected Animator animator;
-    [SerializeField] protected Rigidbody2D rb;
 
-    protected void Awake()
+    protected override void FixedUpdate()
     {
-        animator = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
-    }
-
-    void Update()
-    {
-        HandleMovement();
+        base.FixedUpdate();
+        
         HandleJump();
         UpdateAnimation();
     }
 
-    private void HandleMovement()
+    protected override void Move()
     {
         // Di chyuển
         float moveInput = Input.GetAxis("Horizontal");
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
         
         // Lật ảnh
-        if (moveInput > 0) transform.localScale = new Vector3(1, 1, 1);
-        else if (moveInput < 0) transform.localScale = new Vector3(-1, 1, 1);
+        if (moveInput > 0) transform.parent.localScale = new Vector3(1, 1, 1);
+        else if (moveInput < 0) transform.parent.localScale = new Vector3(-1, 1, 1);
     }
-
+    
     private void HandleJump()
     {
         if (isGround && Input.GetButtonDown("Jump"))
@@ -62,8 +53,8 @@ public class PlayerController : MonoBehaviour
         bool isJumping = rb.linearVelocity.y > 0.1f && !isGround;
         bool isFalling = rb.linearVelocity.y < -0.1f && !isGround;
         
-        animator.SetBool("isRunning", isRunning);
-        animator.SetBool("isJumping", isJumping);
-        animator.SetBool("isFalling", isFalling);
+        animator.SetBool(AnimString.isRun, isRunning);
+        animator.SetBool(AnimString.isJump, isJumping);
+        animator.SetBool(AnimString.isFall, isFalling);
     }
 }
