@@ -1,0 +1,37 @@
+﻿using UnityEngine;
+
+namespace __Data
+{
+    public class GameBehaviour : MonoBehaviour
+    {
+        protected virtual void Awake()
+        {
+            this.LoadComponents();
+        }
+
+        protected virtual void Start()
+        {
+            //For override
+        }
+
+        protected virtual void Reset()
+        {
+            this.LoadComponents();
+        }
+
+        protected virtual void LoadComponents()
+        {
+            //For override
+        }
+
+        protected virtual void OnEnable()
+        {
+            //For override
+        }
+
+        protected virtual void OnDisable()
+        {
+            //For override
+        }
+    }
+}

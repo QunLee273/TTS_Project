@@ -1,17 +1,19 @@
+using __Data;
 using UnityEngine;
 
-public class BackgroundController : MonoBehaviour
+public class BackgroundController : GameBehaviour
 {
     private float _posStart;
     [SerializeField] protected GameObject cam;
     [SerializeField] protected float parallaxEffect;
     
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         _posStart = transform.position.x;
     }
     
-    void FixedUpdate()
+    protected void FixedUpdate()
     {
         float distance = cam.transform.position.x * parallaxEffect;
         
