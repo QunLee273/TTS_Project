@@ -18,14 +18,14 @@ public class ObjController : GameBehaviour
         LoadObjMovements();
     }
 
-    protected void LoadModels()
+    private void LoadModels()
     {
         if (model != null) return;
         model = GameObject.Find("Model");
         Debug.LogWarning(transform.name + ": LoadModel", gameObject);
     }
 
-    protected void LoadObjMovements()
+    private void LoadObjMovements()
     {
         if (objMovement != null) return;
         objMovement = GetComponentInChildren<ObjMovement>();
