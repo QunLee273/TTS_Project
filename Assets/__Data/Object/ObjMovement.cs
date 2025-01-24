@@ -1,7 +1,7 @@
 ﻿using __Data;
 using UnityEngine;
 
-public abstract class ObjMovement : GameBehaviour
+public class ObjMovement : GameBehaviour
 {
     [SerializeField] protected float moveSpeed = 5f;
     [SerializeField] protected Rigidbody2D rb;
@@ -15,11 +15,6 @@ public abstract class ObjMovement : GameBehaviour
         
         LoadRigidBody2D();
         LoadAnimator();
-    }
-
-    protected virtual void FixedUpdate()
-    {
-        Move();
     }
 
     private void LoadRigidBody2D()
@@ -36,6 +31,4 @@ public abstract class ObjMovement : GameBehaviour
         animator = objParent.GetComponentInChildren<Animator>();
         Debug.LogWarning(transform.name + ": LoadAnimator", gameObject);
     }
-
-    protected abstract void Move();
 }

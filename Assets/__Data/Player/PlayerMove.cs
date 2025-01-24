@@ -4,57 +4,80 @@ using UnityEngine;
 public class PlayerMove : ObjMovement
 {
     [SerializeField] protected float jumpForce = 15f;
-    
-    [SerializeField] protected LayerMask groundLayer;
-    [SerializeField] protected Transform groundCheck;
-    [SerializeField] protected bool isGround;
     [SerializeField] protected bool doubleJump;
-
-    protected override void FixedUpdate()
+    
+    [SerializeField] protected bool isGround;
+    public bool IsGround
     {
-        base.FixedUpdate();
+        get => isGround;
+        private set
+        {
+            isGround = value;
+            animator.SetBool(AnimString.isGround, value);
+        }
+    }
+    
+    private bool CanMove => animator.GetBool(AnimString.canMove);
+    private bool IsAlive => animator.GetBool(AnimString.isAlive);
+
+    protected void FixedUpdate()
+    {
+        if (IsAlive)
+        {
+            HandleMovement();
+            HandleJump();
+        }
+        else
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
         
-        HandleJump();
         UpdateAnimation();
     }
 
-    protected override void Move()
+    private void HandleMovement()
     {
-        // Di chyuển
-        float moveInput = Input.GetAxis("Horizontal");
-        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
-        
-        // Lật ảnh
-        if (moveInput > 0) transform.parent.localScale = new Vector3(1, 1, 1);
-        else if (moveInput < 0) transform.parent.localScale = new Vector3(-1, 1, 1);
+        if (CanMove)
+        {
+            float moveInput = Input.GetAxis("Horizontal");
+            rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+
+            if (moveInput > 0)
+                transform.parent.localScale = new Vector3(1, 1, 1);
+            else if (moveInput < 0)
+                transform.parent.localScale = new Vector3(-1, 1, 1);
+        }
     }
-    
+
     private void HandleJump()
     {
-        if (isGround && Input.GetButtonDown("Jump"))
-            doubleJump = false;
+        IsGround = Physics2D.Raycast(transform.position, Vector2.down,
+            1f, LayerMask.GetMask("Ground"));
+        Debug.DrawRay(transform.position, Vector2.down * 1f, Color.green);
         
-        if (Input.GetButtonDown("Jump"))
+        if (IsGround) doubleJump = true;
+        
+        if (Input.GetButtonDown("Jump") && CanMove)
         {
-            if (isGround || doubleJump)
+            if (IsGround)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-                
-                doubleJump = !doubleJump;
+            }
+            if (doubleJump && !IsGround)
+            {
+                rb.linearVelocity = Vector2.zero;
+                rb.angularVelocity = 0;
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                doubleJump = false;
             }
         }
-        
-        isGround = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
+    
 
     private void UpdateAnimation()
     {
-        bool isRunning = Mathf.Abs(rb.linearVelocity.x) > 0.1f;
-        bool isJumping = rb.linearVelocity.y > 0.1f && !isGround;
-        bool isFalling = rb.linearVelocity.y < -0.1f && !isGround;
-        
-        animator.SetBool(AnimString.isRun, isRunning);
-        animator.SetBool(AnimString.isJump, isJumping);
-        animator.SetBool(AnimString.isFall, isFalling);
+        bool isMoving = Mathf.Abs(rb.linearVelocity.x) > 0.1f;
+        animator.SetBool(AnimString.isMove, isMoving);
+        animator.SetFloat(AnimString.yVelocity, rb.linearVelocity.y);
     }
 }
