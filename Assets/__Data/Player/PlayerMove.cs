@@ -4,36 +4,35 @@ using UnityEngine;
 public class PlayerMove : ObjMovement
 {
     [SerializeField] protected float jumpForce = 15f;
+    [SerializeField] protected bool doubleJump;
+    
     [SerializeField] protected bool isGround;
-    public bool IsGround {
+    public bool IsGround
+    {
         get => isGround;
         private set
         {
             isGround = value;
             animator.SetBool(AnimString.isGround, value);
-        } 
-        
+        }
     }
-    [SerializeField] protected bool doubleJump;
-    [SerializeField] protected ContactFilter2D contactFilter;
-    [SerializeField] protected CapsuleCollider2D touchCol;
-    private readonly RaycastHit2D[] _groundHit = new RaycastHit2D[5];
-
+    
     private bool CanMove => animator.GetBool(AnimString.canMove);
-    public bool IsAlive => animator.GetBool(AnimString.isAlive);
-
-    protected override void Awake()
-    {
-        base.Awake();
-        touchCol = GetComponentInParent<CapsuleCollider2D>();
-    }
+    private bool IsAlive => animator.GetBool(AnimString.isAlive);
 
     protected void FixedUpdate()
     {
-        HandleMovement();
-        HandleJump();
-        UpdateAnimation();
+        if (IsAlive)
+        {
+            HandleMovement();
+            HandleJump();
+        }
+        else
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
         
+        UpdateAnimation();
     }
 
     private void HandleMovement()
@@ -42,41 +41,43 @@ public class PlayerMove : ObjMovement
         {
             float moveInput = Input.GetAxis("Horizontal");
             rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
-            
-            if (moveInput > 0) 
+
+            if (moveInput > 0)
                 transform.parent.localScale = new Vector3(1, 1, 1);
-            else if (moveInput < 0) 
+            else if (moveInput < 0)
                 transform.parent.localScale = new Vector3(-1, 1, 1);
         }
-        else
-        {
-            rb.linearVelocity = Vector2.zero;
-        }
     }
-    
+
     private void HandleJump()
     {
-        IsGround = touchCol.Cast(Vector2.down, contactFilter, _groundHit, 0.2f) > 0;
+        IsGround = Physics2D.Raycast(transform.position, Vector2.down,
+            1f, LayerMask.GetMask("Ground"));
+        Debug.DrawRay(transform.position, Vector2.down * 1f, Color.green);
         
-        if (isGround && Input.GetButtonDown("Jump"))
-            doubleJump = false;
+        if (IsGround) doubleJump = true;
         
         if (Input.GetButtonDown("Jump") && CanMove)
         {
-            if (isGround || doubleJump)
+            if (IsGround)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-                doubleJump = !doubleJump;
+            }
+            if (doubleJump && !IsGround)
+            {
+                rb.linearVelocity = Vector2.zero;
+                rb.angularVelocity = 0;
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                doubleJump = false;
             }
         }
     }
+    
 
     private void UpdateAnimation()
     {
         bool isMoving = Mathf.Abs(rb.linearVelocity.x) > 0.1f;
-        
         animator.SetBool(AnimString.isMove, isMoving);
         animator.SetFloat(AnimString.yVelocity, rb.linearVelocity.y);
-        animator.SetBool(AnimString.isAlive, PlayerController._isAlive);
     }
 }

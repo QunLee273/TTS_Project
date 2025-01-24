@@ -1,29 +1,52 @@
-using System;
 using __Data.Script;
 using UnityEngine;
 
 public class PlayerController : ObjController
 {
-    [SerializeField] public static bool _isAlive = true;
+    [SerializeField] protected Transform respawnPoint;
+    private bool _isAlive = true; 
+
     public bool IsAlive
     {
-        get
-        {
-            return _isAlive;
-        }
-        set
+        get => _isAlive;
+        private set
         {
             _isAlive = value;
-            ObjMovement.Animator.GetBool(AnimString.isAlive);
-        } 
+            ObjMovement.Animator.SetBool(AnimString.isAlive, _isAlive);
+            ObjMovement.Animator.SetBool(AnimString.canMove, _isAlive);
+        }
     }
+
     private void OnTriggerEnter2D(Collider2D collide)
     {
-        if (collide.CompareTag("Trap"))
+        if (collide.CompareTag("Trap") || collide.CompareTag("Holder"))
         {
-            Debug.Log(collide.gameObject.name);
-            ObjMovement.Animator.Play("Player_Death");
-            _isAlive = false;
+            Debug.Log($"Player hit: {collide.gameObject.name}");
+            HandleDeath();
         }
+        
+        if (collide.CompareTag("Checkpoint"))
+        {
+            Debug.Log($"Checkpoint reached: {collide.gameObject.name}");
+            respawnPoint.position = collide.transform.position;
+        }
+    }
+
+    private void HandleDeath()
+    {
+        if (IsAlive)
+        {
+            IsAlive = false;
+            ObjMovement.Animator.Play("Player_Death");
+            Invoke(nameof(Respawn), 2f);
+        }
+    }
+
+    private void Respawn()
+    {
+        Debug.Log("Respawning...");
+        IsAlive = true;
+        transform.position = respawnPoint.position; 
+        ObjMovement.Animator.Play("Player_Idle"); 
     }
 }
