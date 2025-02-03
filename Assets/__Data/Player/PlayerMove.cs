@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerMove : ObjMovement
 {
+    [Header("PlayerMove")]
     [SerializeField] protected float jumpForce = 15f;
     [SerializeField] protected bool doubleJump;
     

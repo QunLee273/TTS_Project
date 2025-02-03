@@ -9,6 +9,8 @@ public class ObjController : GameBehaviour
     public GameObject Model => model;
     [SerializeField] protected ObjMovement objMovement;
     public ObjMovement ObjMovement => objMovement;
+    [SerializeField] protected ObjAbility objAbility;
+    public ObjAbility ObjAbility => objAbility;
 
     protected override void LoadComponents()
     {
@@ -16,6 +18,7 @@ public class ObjController : GameBehaviour
         
         LoadModels();
         LoadObjMovements();
+        LoadObjAbility();
     }
 
     private void LoadModels()
@@ -30,5 +33,12 @@ public class ObjController : GameBehaviour
         if (objMovement != null) return;
         objMovement = GetComponentInChildren<ObjMovement>();
         Debug.LogWarning(transform.name + ": LoadObjMovement", gameObject);
+    }
+    
+    private void LoadObjAbility()
+    {
+        if (objAbility != null) return;
+        objAbility = GetComponentInChildren<ObjAbility>();
+        Debug.LogWarning(transform.name + ": LoadObjAbility", gameObject);
     }
 }
