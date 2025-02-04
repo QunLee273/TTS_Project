@@ -1,5 +1,6 @@
 using __Data.Script;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerAttack : AbilityAttack
 {
@@ -10,10 +11,7 @@ public class PlayerAttack : AbilityAttack
     
     private void OnAttack()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            animator.SetTrigger(AnimString.attackTrigger);
-            animator.Play("Player_Atk1");
-        }
+        // animator.SetTrigger(AnimString.attackTrigger);
+        // animator.Play("Player_Atk1");
     }
 }

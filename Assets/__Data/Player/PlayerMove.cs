@@ -4,7 +4,9 @@ using UnityEngine;
 public class PlayerMove : ObjMovement
 {
     [Header("PlayerMove")]
+    [SerializeField] protected bool isMoveLeft, isMoveRight;
     [SerializeField] protected float jumpForce = 15f;
+    [SerializeField] protected bool isJumping;
     [SerializeField] protected bool doubleJump;
     
     [SerializeField] protected bool isGround;
@@ -25,7 +27,10 @@ public class PlayerMove : ObjMovement
     {
         if (IsAlive)
         {
-            HandleMovement();
+            if (isMoveLeft) HandleMovement(-1);
+            else if (isMoveRight) HandleMovement(1);
+            else HandleMovement(0);
+            
             HandleJump();
         }
         else
@@ -36,20 +41,19 @@ public class PlayerMove : ObjMovement
         UpdateAnimation();
     }
 
-    private void HandleMovement()
+    private void HandleMovement(float direction )
     {
         if (CanMove)
         {
-            float moveInput = Input.GetAxis("Horizontal");
-            rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+            rb.linearVelocity = new Vector2(direction * moveSpeed, rb.linearVelocity.y);
 
-            if (moveInput > 0)
+            if (direction > 0)
                 transform.parent.localScale = new Vector3(1, 1, 1);
-            else if (moveInput < 0)
+            else if (direction < 0)
                 transform.parent.localScale = new Vector3(-1, 1, 1);
         }
     }
-
+    
     private void HandleJump()
     {
         IsGround = Physics2D.Raycast(transform.position, Vector2.down,
@@ -58,7 +62,9 @@ public class PlayerMove : ObjMovement
         
         if (IsGround) doubleJump = true;
         
-        if (Input.GetButtonDown("Jump") && CanMove)
+        bool jumpPress = isJumping || Input.GetKeyDown(KeyCode.Space);
+        
+        if (jumpPress && CanMove)
         {
             if (IsGround)
             {
@@ -71,9 +77,15 @@ public class PlayerMove : ObjMovement
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 doubleJump = false;
             }
+            isJumping = false;
         }
     }
     
+    public void OnPointerDownLeft()  { isMoveLeft = true; }
+    public void OnPointerUpLeft()    { isMoveLeft = false; }
+    public void OnPointerDownRight() { isMoveRight = true; }
+    public void OnPointerUpRight()   { isMoveRight = false; }
+    public void OnClick() { isJumping = true; }
 
     private void UpdateAnimation()
     {
