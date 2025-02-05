@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using __Data.Script;
 using UnityEngine;
 
 public class EnemyMove : ObjMovement
@@ -5,6 +7,10 @@ public class EnemyMove : ObjMovement
     [Header("EnemyMove")]
     [SerializeField] protected bool isGround;
     [SerializeField] protected bool isWall;
+    [SerializeField] protected float walkStopRate = 0.05f;
+    
+    [SerializeField] protected float moveDetection = 0f;
+    [SerializeField] protected float detectionDistance = 5f;
     
     public enum MoveableDirection
     {
@@ -16,6 +22,7 @@ public class EnemyMove : ObjMovement
     private Vector2 _directionVector2;
     
     [SerializeField] protected LayerMask groundLayer;
+    [SerializeField] protected LayerMask detectionLayer;
 
     public MoveableDirection MoveDirection
     {
@@ -33,23 +40,24 @@ public class EnemyMove : ObjMovement
             _moveDirection = value;
         }
     }
+    
+    public bool CanMove => animator.GetBool(AnimString.canMove);
 
-    protected override void Awake()
+    protected override void LoadComponents()
     {
-        base.Awake();
+        base.LoadComponents();
         int randomValue = Random.Range(0, 2);
         _moveDirection = (MoveableDirection)randomValue;
-        
         _directionVector2 = (_moveDirection == MoveableDirection.Right) ? Vector2.right : Vector2.left;
     }
 
     protected void FixedUpdate()
     {
-        CheckForObstacles();
+        CheckMove();
         EnemysMove();
     }
 
-    private void CheckForObstacles()
+    private void CheckMove()
     {
         Vector2 downDiagonal = Quaternion.Euler(0, 0, _moveDirection == MoveableDirection.Right ? 45 : -45) * Vector2.down;
         
@@ -67,11 +75,17 @@ public class EnemyMove : ObjMovement
 
     private void EnemysMove()
     {
-        if (_directionVector2 == Vector2.right)
-            transform.parent.localScale = new Vector3(1, 1, 1);
-        else if (_directionVector2 == Vector2.left)
-            transform.parent.localScale = new Vector3(-1, 1, 1);
+        if (_directionVector2 == Vector2.right) transform.parent.localScale = new Vector3(1, 1, 1);
+        else if (_directionVector2 == Vector2.left) transform.parent.localScale = new Vector3(-1, 1, 1);
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, _directionVector2, detectionDistance, detectionLayer);
+        Debug.DrawRay(transform.position, _directionVector2 * 5f, Color.blue);
         
-        rb.linearVelocity = new Vector2(moveSpeed * _directionVector2.x, rb.linearVelocity.y);
+        float speed = (hit.collider) ? moveDetection : moveSpeed;
+        
+        if (CanMove)
+            rb.linearVelocity = new Vector2(speed * _directionVector2.x, rb.linearVelocity.y);
+        else
+            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
     }
 }
