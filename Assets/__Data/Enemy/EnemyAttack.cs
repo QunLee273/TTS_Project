@@ -1,8 +1,6 @@
-using System;
 using System.Collections.Generic;
 using __Data.Script;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class EnemyAttack : AbilityAttack
 {
@@ -23,6 +21,18 @@ public class EnemyAttack : AbilityAttack
         }
     }
     
+    [SerializeField] protected bool canMove;
+
+    public bool CanMove
+    {
+        get => canMove;
+        private set
+        {
+            canMove = value;
+            animator.SetBool(AnimString.canMove, value);
+        }
+    }
+    
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -33,6 +43,7 @@ public class EnemyAttack : AbilityAttack
     protected void FixedUpdate()
     {
         HasTarget = detectedAttack.Count > 0;
+        CanMove = !HasTarget;
     }
 
     private void LoadCollider2D()
@@ -42,13 +53,13 @@ public class EnemyAttack : AbilityAttack
         Debug.LogWarning(transform.name + ": LoadCollider2D", gameObject);
     }
 
-    protected void OnTriggerEnter2D(Collider2D collider)
+    protected void OnTriggerEnter2D(Collider2D other)
     {
-        detectedAttack.Add(collider);
+        detectedAttack.Add(other);
     }
 
-    protected void OnTriggerExit2D(Collider2D collider)
+    protected void OnTriggerExit2D(Collider2D other)
     {
-        detectedAttack.Remove(collider);
+        detectedAttack.Remove(other);
     }
 }

@@ -22,7 +22,7 @@ public class PlayerController : ObjController
         if (collide.CompareTag("Trap") || collide.CompareTag("Holder"))
         {
             Debug.Log($"Player hit: {collide.gameObject.name}");
-            HandleDeath();
+            Death();
         }
         
         if (collide.CompareTag("Checkpoint"))
@@ -32,14 +32,16 @@ public class PlayerController : ObjController
         }
     }
 
-    private void HandleDeath()
+    private void Death()
     {
-        if (IsAlive)
-        {
-            IsAlive = false;
-            ObjMovement.Animator.Play("Player_Death");
+        if (!IsAlive) return;
+        
+        DamageReceiver.Deduct(1);
+        IsAlive = false;
+        ObjMovement.Animator.Play("Player_Death"); 
+        
+        if (DamageReceiver.Hp > 0)
             Invoke(nameof(Respawn), 2f);
-        }
     }
 
     private void Respawn()
@@ -48,5 +50,10 @@ public class PlayerController : ObjController
         IsAlive = true;
         transform.position = respawnPoint.position; 
         ObjMovement.Animator.Play("Player_Idle"); 
+    }
+
+    protected override string GetObjectTypeString()
+    {
+        return ObjectType.Player.ToString();
     }
 }

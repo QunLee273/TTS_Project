@@ -1,14 +1,17 @@
 ﻿using __Data;
 using UnityEngine;
 
-
-public class ObjController : GameBehaviour
+public abstract class ObjController : GameBehaviour
 {
     [Header("ObjController")]
     [SerializeField] protected GameObject model;
     public GameObject Model => model;
+    [SerializeField] protected GameObjectSO gameObjectSo;
+    public GameObjectSO GameObjectSo => gameObjectSo;
     [SerializeField] protected ObjMovement objMovement;
     public ObjMovement ObjMovement => objMovement;
+    [SerializeField] protected DamageReceiver damageReceiver;
+    public DamageReceiver DamageReceiver => damageReceiver;
     [SerializeField] protected ObjAbility objAbility;
     public ObjAbility ObjAbility => objAbility;
 
@@ -17,7 +20,9 @@ public class ObjController : GameBehaviour
         base.LoadComponents();
         
         LoadModels();
+        LoadSo();
         LoadObjMovements();
+        LoadDameReciver();
         LoadObjAbility();
     }
 
@@ -26,6 +31,21 @@ public class ObjController : GameBehaviour
         if (model != null) return;
         model = GameObject.Find("Model");
         Debug.LogWarning(transform.name + ": LoadModel", gameObject);
+    }
+    
+    protected virtual void LoadSo()
+    {
+        if (gameObjectSo != null) return;
+        string resPath = "GameObject/" + this.GetObjectTypeString() + "/" + transform.name;
+        this.gameObjectSo = Resources.Load<GameObjectSO>(resPath);
+        Debug.LogWarning(transform.name + ": LoadSO " + resPath, gameObject);
+    }
+
+    private void LoadDameReciver()
+    {
+        if (this.damageReceiver != null) return;
+        this.damageReceiver = transform.GetComponentInChildren<DamageReceiver>();
+        Debug.LogWarning(transform.name + ": LoadDamageReceiver", gameObject);
     }
 
     private void LoadObjMovements()
@@ -41,4 +61,6 @@ public class ObjController : GameBehaviour
         objAbility = GetComponentInChildren<ObjAbility>();
         Debug.LogWarning(transform.name + ": LoadObjAbility", gameObject);
     }
+    
+    protected abstract string GetObjectTypeString();
 }
