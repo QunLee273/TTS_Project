@@ -1,23 +1,24 @@
 using __Data;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public abstract class DamageReceiver : GameBehaviour
 {
     [Header("Damage Receiver")]
     [SerializeField] protected CapsuleCollider2D capsuleCollider;
     [SerializeField] protected ObjController objController;
-    [SerializeField] protected int hp = 1;
+    [SerializeField] protected int lifes = 1;
     [SerializeField] protected bool isDead = false;
 
-    public int Hp
+    public int Lifes
     {
-        get => hp;
-        set => hp = value;
+        get => lifes;
+        set => lifes = value;
     }
 
     protected override void OnEnable()
     {
-        this.Reborn();
+        Reborn();
     }
 
     protected override void LoadComponents()
@@ -44,36 +45,36 @@ public abstract class DamageReceiver : GameBehaviour
 
     public  void Reborn()
     {
-        hp = objController.GameObjectSo.life;
+        lifes = objController.GameObjectSo.life;
         isDead = false;
     }
 
     public  void Add(int add)
     {
-        if (this.isDead) return;
+        if (isDead) return;
 
-        this.hp += add;
+        lifes += add;
     }
 
-    public  void Deduct(int deduct)
+    public virtual void Deduct(int deduct)
     {
-        if (this.isDead) return;
+        if (isDead) return;
 
-        this.hp -= deduct;
+        lifes -= deduct;
         
         CheckIsDead();
     }
 
     private bool IsDead()
     {
-        return this.hp <= 0;
+        return lifes <= 0;
     }
 
     private void CheckIsDead()
     {
-        if (!this.IsDead()) return;
-        this.isDead = true;
-        this.OnDead();
+        if (!IsDead()) return;
+        isDead = true;
+        OnDead();
     }
 
     protected abstract void OnDead();

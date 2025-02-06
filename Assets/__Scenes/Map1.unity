@@ -12379,7 +12379,7 @@ MonoBehaviour:
   isWall: 0
   moveDetection: 2.5
   detectionDistance: 7
-  walkRate: 0.1
+  walkStopRate: 0.1
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -13373,6 +13373,8 @@ MonoBehaviour:
   col: {fileID: 770712149}
   detectedAttack: []
   hasTarget: 0
+  isAttacking: 0
+  currentTarget: {fileID: 0}
   canMove: 0
 --- !u!61 &770712149
 BoxCollider2D:
@@ -14543,7 +14545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   capsuleCollider: {fileID: 129862710}
   objController: {fileID: 129862709}
-  hp: 1
+  lifes: 1
   isDead: 0
 --- !u!1 &1318396385
 GameObject:
@@ -14760,6 +14762,7 @@ GameObject:
   - component: {fileID: 1392866183}
   - component: {fileID: 1392866181}
   - component: {fileID: 1392866182}
+  - component: {fileID: 1392866184}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -14859,6 +14862,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 908708335}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1392866184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1392866180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adac9c56f72a53e4a9fa04765caa6520, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objController: {fileID: 908708339}
+  enemyAttack: {fileID: 770712148}
 --- !u!4 &1617434633 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2935585490249426833, guid: 6399847c1c2392c47a3bd083c72d83e1, type: 3}
@@ -15159,7 +15176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   capsuleCollider: {fileID: 908708338}
   objController: {fileID: 908708339}
-  hp: 1
+  lifes: 1
   isDead: 0
 --- !u!1 &1868159786
 GameObject:

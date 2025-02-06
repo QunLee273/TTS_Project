@@ -31,8 +31,7 @@ public class AbilityAttack : GameBehaviour
     private void LoadAnimator()
     {
         if (animator != null) return;
-        GameObject objParent = transform.parent.parent.gameObject;
-        animator = objParent.GetComponentInChildren<Animator>();
+        animator = transform.parent.parent.Find("Model").GetComponent<Animator>();
         Debug.LogWarning(transform.name + ": LoadAnimator", gameObject);
     }
 

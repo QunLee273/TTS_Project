@@ -1,3 +1,4 @@
+using __Data.Script;
 using UnityEngine;
 
 public class EnemyMove : ObjMovement
@@ -9,7 +10,7 @@ public class EnemyMove : ObjMovement
     
     [SerializeField] protected float moveDetection = 5f;
     [SerializeField] protected float detectionDistance = 5f;
-    [SerializeField] protected float walkRate = 0.05f;
+    [SerializeField] protected float walkStopRate = 0.1f;
     
     public enum MoveableDirection
     {
@@ -19,7 +20,8 @@ public class EnemyMove : ObjMovement
 
     private MoveableDirection _moveDirection;
     private Vector2 _directionVector2;
-    
+    private bool CanMove => animator.GetBool(AnimString.canMove);
+
     [SerializeField] protected LayerMask groundLayer;
     [SerializeField] protected LayerMask detectionLayer;
 
@@ -53,7 +55,8 @@ public class EnemyMove : ObjMovement
     protected void FixedUpdate()
     {
         CheckMove();
-        EnemysMove();
+        if (CanMove)
+            EnemysMove();
     }
 
     private void LoadEnemyAttack()
@@ -91,6 +94,6 @@ public class EnemyMove : ObjMovement
         if (enemyAttack.CanMove)
             rb.linearVelocity = new Vector2(speed * _directionVector2.x, rb.linearVelocity.y);
         else
-            rb.linearVelocity = new Vector2(Mathf.Lerp(rb.linearVelocity.x, 0, walkRate), rb.linearVelocity.y);
+            rb.linearVelocity = new Vector2(Mathf.Lerp(rb.linearVelocity.x, 0, walkStopRate), rb.linearVelocity.y);
     }
 }

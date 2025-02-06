@@ -32,7 +32,7 @@ public class PlayerController : ObjController
         }
     }
 
-    private void Death()
+    public void Death()
     {
         if (!IsAlive) return;
         
@@ -40,11 +40,11 @@ public class PlayerController : ObjController
         IsAlive = false;
         ObjMovement.Animator.Play("Player_Death"); 
         
-        if (DamageReceiver.Hp > 0)
+        if (DamageReceiver.Lifes > 0)
             Invoke(nameof(Respawn), 2f);
     }
 
-    private void Respawn()
+    public void Respawn()
     {
         Debug.Log("Respawning...");
         IsAlive = true;
