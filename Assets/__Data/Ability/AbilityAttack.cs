@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using __Data;
 using __Data.Script;
 using UnityEngine;
@@ -10,6 +11,11 @@ public class AbilityAttack : GameBehaviour
     public Rigidbody2D Rb => rb;
     [SerializeField] protected Animator animator;
     public Animator Animator => animator;
+    
+    [SerializeField] protected Collider2D col;
+    [SerializeField] protected List<Collider2D> detectedAttack = new List<Collider2D>();
+    
+    [SerializeField] protected bool hasTarget;
 
     protected override void LoadComponents()
     {
@@ -17,9 +23,8 @@ public class AbilityAttack : GameBehaviour
         
         LoadRigidBody2D();
         LoadAnimator();
+        LoadCollider2D();
     }
-
-    
 
     private void LoadRigidBody2D()
     {
@@ -35,5 +40,20 @@ public class AbilityAttack : GameBehaviour
         Debug.LogWarning(transform.name + ": LoadAnimator", gameObject);
     }
 
+    private void LoadCollider2D()
+    {
+        if (col != null) return;
+        col = GetComponent<Collider2D>();
+        Debug.LogWarning(transform.name + ": LoadCollider2D", gameObject);
+    }
     
+    protected void OnTriggerEnter2D(Collider2D other)
+    {
+        detectedAttack.Add(other);
+    }
+
+    protected void OnTriggerExit2D(Collider2D other)
+    {
+        detectedAttack.Remove(other);
+    }
 }

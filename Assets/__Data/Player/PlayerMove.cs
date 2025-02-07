@@ -27,8 +27,8 @@ public class PlayerMove : ObjMovement
     {
         if (IsAlive)
         {
-            if (isMoveLeft) HandleMovement(-1);
-            else if (isMoveRight) HandleMovement(1);
+            if (isMoveLeft || Input.GetAxis("Horizontal") < 0) HandleMovement(-1);
+            else if (isMoveRight || Input.GetAxis("Horizontal") > 0) HandleMovement(1);
             else HandleMovement(0);
             
             HandleJump();

@@ -1,10 +1,9 @@
-using System;
 using __Data.Script;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class PlayerAttack : AbilityAttack
 {
+    [Header("Player Attack")]
     [SerializeField] protected float delay = 0.5f;
     [SerializeField] protected float countTime;
 
@@ -13,6 +12,7 @@ public class PlayerAttack : AbilityAttack
         base.Start();
         countTime = delay;
     }
+    
     protected void FixedUpdate()
     {
         if (countTime > 0)
@@ -21,21 +21,53 @@ public class PlayerAttack : AbilityAttack
             if (countTime <= 0)
                 countTime = 0;
         }
-    }
 
-    private void OnAttack()
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            if (countTime <= 0f && animator.GetBool(AnimString.isAlive))
+            {
+                if (detectedAttack.Count > 0) 
+                    MeleeAttack();
+                else
+                    RangedAttack();
+                
+                countTime = delay;
+            }
+        }
+    }
+    
+    private void MeleeAttack()
     {
         animator.SetTrigger(AnimString.attackTrigger);
-        animator.Play("Player_Atk1");
+        animator.Play("Player_Melee");
     }
 
+    private void RangedAttack()
+    {
+        animator.SetTrigger(AnimString.attackTrigger);
+        animator.Play("Player_Ranged");
+    }
+    
     public void OnClick()
     {
-        if (countTime <= 0f)
+        if (countTime <= 0f && animator.GetBool(AnimString.isAlive))
         {
-            OnAttack();
+            if (detectedAttack.Count > 0) 
+                MeleeAttack();
+            else
+                RangedAttack();
             
             countTime = delay;
+        }
+    }
+    
+    public void PlayerSenderDamage()
+    {
+        foreach (Collider2D enemy in detectedAttack.ToArray())
+        {
+            EnemyCtrl enemyCtrl = enemy.GetComponentInChildren<EnemyCtrl>();
+            
+            enemyCtrl.HitEnemy();
         }
     }
 }

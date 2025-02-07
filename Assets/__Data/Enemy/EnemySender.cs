@@ -22,6 +22,6 @@ public class EnemySender : DamageSender
 
     public void TriggerDealDamage()
     {
-        EnemyAttack.DealDamage();
+        EnemyAttack.EnemySenderDamage();
     }
 }

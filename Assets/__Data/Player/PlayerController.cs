@@ -1,19 +1,21 @@
 using __Data.Script;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerController : ObjController
 {
+    [Header("Player Controller")]
     [SerializeField] protected Transform respawnPoint;
-    private bool _isAlive = true; 
+    [SerializeField] protected bool isAlive = true; 
 
     public bool IsAlive
     {
-        get => _isAlive;
+        get => isAlive;
         private set
         {
-            _isAlive = value;
-            ObjMovement.Animator.SetBool(AnimString.isAlive, _isAlive);
-            ObjMovement.Animator.SetBool(AnimString.canMove, _isAlive);
+            isAlive = value;
+            ObjMovement.Animator.SetBool(AnimString.isAlive, isAlive);
+            ObjMovement.Animator.SetBool(AnimString.canMove, isAlive);
         }
     }
 
@@ -22,7 +24,7 @@ public class PlayerController : ObjController
         if (collide.CompareTag("Trap") || collide.CompareTag("Holder"))
         {
             Debug.Log($"Player hit: {collide.gameObject.name}");
-            Death();
+            HitPlayer();
         }
         
         if (collide.CompareTag("Checkpoint"))
@@ -32,13 +34,12 @@ public class PlayerController : ObjController
         }
     }
 
-    public void Death()
+    public void HitPlayer()
     {
         if (!IsAlive) return;
         
-        DamageReceiver.Deduct(1);
+       DamageReceiver.Deduct(1);
         IsAlive = false;
-        ObjMovement.Animator.Play("Player_Death"); 
         
         if (DamageReceiver.Lifes > 0)
             Invoke(nameof(Respawn), 2f);

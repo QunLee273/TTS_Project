@@ -7,11 +7,6 @@ using UnityEngine.Serialization;
 public class EnemyAttack : AbilityAttack
 {
     [Header("EnemyAttack")]
-    [SerializeField] protected Collider2D col;
-    
-    [SerializeField] protected List<Collider2D> detectedAttack = new List<Collider2D>();
-    
-    [SerializeField] protected bool hasTarget;
     [SerializeField] protected bool isAttacking = false;
     
     [SerializeField] protected Collider2D currentTarget = null;
@@ -37,13 +32,6 @@ public class EnemyAttack : AbilityAttack
             animator.SetBool(AnimString.canMove, value);
         }
     }
-    
-    protected override void LoadComponents()
-    {
-        base.LoadComponents();
-        
-        LoadCollider2D();
-    }
 
     protected void FixedUpdate()
     {
@@ -63,36 +51,17 @@ public class EnemyAttack : AbilityAttack
             }
         }
     }
-
-    private void LoadCollider2D()
-    {
-        if (col != null) return;
-        col = GetComponent<Collider2D>();
-        Debug.LogWarning(transform.name + ": LoadCollider2D", gameObject);
-    }
     
-    public void DealDamage()
+    public void EnemySenderDamage()
     {
         foreach (Collider2D player in detectedAttack.ToArray())
         {
             PlayerController playerController = currentTarget.GetComponentInChildren<PlayerController>();
             
-            playerController.Death();
-            col.enabled = false;
+            playerController.HitPlayer();
         }
         
-        col.enabled = true;
         currentTarget = null;
         isAttacking = false;
-    }
-
-    protected void OnTriggerEnter2D(Collider2D other)
-    {
-        detectedAttack.Add(other);
-    }
-
-    protected void OnTriggerExit2D(Collider2D other)
-    {
-        detectedAttack.Remove(other);
     }
 }
