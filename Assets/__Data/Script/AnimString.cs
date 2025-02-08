@@ -7,5 +7,7 @@ namespace __Data.Script
         internal static string yVelocity = "yVelocity";
         internal static string isAlive = "isAlive";
         internal static string canMove = "canMove";
+        internal static string attackTrigger = "attacks";
+        internal static string hasTarget = "hasTarget";
     }
 }

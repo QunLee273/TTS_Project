@@ -1,28 +1,32 @@
 using __Data.Script;
 using UnityEngine;
+using System.Collections;
 
 public class PlayerController : ObjController
 {
+    [Header("Player Controller")]
     [SerializeField] protected Transform respawnPoint;
-    private bool _isAlive = true; 
-
+    [SerializeField] protected bool isAlive = true; 
     public bool IsAlive
     {
-        get => _isAlive;
+        get => isAlive;
         private set
         {
-            _isAlive = value;
-            ObjMovement.Animator.SetBool(AnimString.isAlive, _isAlive);
-            ObjMovement.Animator.SetBool(AnimString.canMove, _isAlive);
+            isAlive = value;
+            ObjMovement.Animator.SetBool(AnimString.isAlive, isAlive);
+            ObjMovement.Animator.SetBool(AnimString.canMove, isAlive);
         }
     }
-
+    
+    [SerializeField] private float damageCooldown = 1f; 
+    private bool _isInvulnerable = false;
+    
     private void OnTriggerEnter2D(Collider2D collide)
     {
         if (collide.CompareTag("Trap") || collide.CompareTag("Holder"))
         {
             Debug.Log($"Player hit: {collide.gameObject.name}");
-            HandleDeath();
+            TakeDamage(1);
         }
         
         if (collide.CompareTag("Checkpoint"))
@@ -31,22 +35,38 @@ public class PlayerController : ObjController
             respawnPoint.position = collide.transform.position;
         }
     }
-
-    private void HandleDeath()
+    
+    public void TakeDamage(int damage)
     {
-        if (IsAlive)
-        {
-            IsAlive = false;
-            ObjMovement.Animator.Play("Player_Death");
+        if (_isInvulnerable) return;
+        
+        DamageReceiver.Deduct(damage);
+        
+        IsAlive = false;
+    
+        if (DamageReceiver.Lifes > 0)
             Invoke(nameof(Respawn), 2f);
-        }
+        
+        StartCoroutine(DamageCooldownCoroutine());
+    }
+    
+    private IEnumerator DamageCooldownCoroutine()
+    {
+        _isInvulnerable = true;
+        yield return new WaitForSeconds(damageCooldown);
+        _isInvulnerable = false;
     }
 
-    private void Respawn()
+    public void Respawn()
     {
         Debug.Log("Respawning...");
         IsAlive = true;
         transform.position = respawnPoint.position; 
         ObjMovement.Animator.Play("Player_Idle"); 
+    }
+
+    protected override string GetObjectTypeString()
+    {
+        return ObjectType.Player.ToString();
     }
 }
