@@ -4,36 +4,35 @@ using UnityEngine;
 public class PlayerAttack : AbilityAttack
 {
     [Header("Player Attack")]
-    [SerializeField] protected float delay = 0.5f;
-    [SerializeField] protected float countTime;
-
-    protected override void Start()
-    {
-        base.Start();
-        countTime = delay;
-    }
+    [SerializeField] protected float attackCooldown = 0.5f;
+    [SerializeField] protected float attackTimer = 0f;
+        
+    [SerializeField] protected bool isAttacking = false;
     
-    protected void FixedUpdate()
+    protected void Update()
     {
-        if (countTime > 0)
-        {
-            countTime -= Time.deltaTime;
-            if (countTime <= 0)
-                countTime = 0;
-        }
+        if (!animator.GetBool(AnimString.isAlive)) return;
 
-        if (Input.GetKeyDown(KeyCode.S))
+        if (attackTimer < attackCooldown) attackTimer += Time.deltaTime;
+        
+        if (!isAttacking && attackTimer >= attackCooldown)
         {
-            if (countTime <= 0f && animator.GetBool(AnimString.isAlive))
+            if (Input.GetKeyDown(KeyCode.S))
             {
-                if (detectedAttack.Count > 0) 
-                    MeleeAttack();
-                else
-                    RangedAttack();
-                
-                countTime = delay;
+                Attack();
             }
         }
+    }
+    
+    private void Attack()
+    {
+        isAttacking = true;
+        attackTimer = 0f;
+
+        if (detectedAttack.Count > 0)
+            MeleeAttack();
+        else
+            RangedAttack();
     }
     
     private void MeleeAttack()
@@ -41,7 +40,7 @@ public class PlayerAttack : AbilityAttack
         animator.SetTrigger(AnimString.attackTrigger);
         animator.Play("Player_Melee");
     }
-
+    
     private void RangedAttack()
     {
         animator.SetTrigger(AnimString.attackTrigger);
@@ -50,24 +49,38 @@ public class PlayerAttack : AbilityAttack
     
     public void OnClick()
     {
-        if (countTime <= 0f && animator.GetBool(AnimString.isAlive))
+        if (animator.GetBool(AnimString.isAlive) && !isAttacking && attackTimer >= attackCooldown)
         {
-            if (detectedAttack.Count > 0) 
-                MeleeAttack();
-            else
-                RangedAttack();
-            
-            countTime = delay;
+            Attack();
         }
     }
     
-    public void PlayerSenderDamage()
+    public void StartMelee()
     {
         foreach (Collider2D enemy in detectedAttack.ToArray())
         {
             EnemyCtrl enemyCtrl = enemy.GetComponentInChildren<EnemyCtrl>();
-            
-            enemyCtrl.HitEnemy();
+            if (enemyCtrl != null)
+                enemyCtrl.DamageReceiver.Deduct(1);
         }
+    }
+    
+    public void StartRanged()
+    {
+        Vector3 spawnPos = transform.position;
+        Quaternion spawnRot = transform.parent.rotation;
+
+        Transform newBullet = BulletSpawner.Instance.Spawn(BulletSpawner.bullet1, spawnPos, spawnRot);
+        if (newBullet == null) return;
+
+        newBullet.gameObject.SetActive(true);
+        BulletCtrl bulletCtrl = newBullet.GetComponent<BulletCtrl>();
+        if (bulletCtrl != null)
+            bulletCtrl.SetShooter(transform.parent);
+    }
+
+    public void EndAttacking()
+    {
+        isAttacking = false;
     }
 }

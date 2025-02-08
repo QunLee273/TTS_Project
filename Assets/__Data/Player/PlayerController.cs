@@ -1,13 +1,12 @@
 using __Data.Script;
 using UnityEngine;
-using UnityEngine.Serialization;
+using System.Collections;
 
 public class PlayerController : ObjController
 {
     [Header("Player Controller")]
     [SerializeField] protected Transform respawnPoint;
     [SerializeField] protected bool isAlive = true; 
-
     public bool IsAlive
     {
         get => isAlive;
@@ -18,13 +17,16 @@ public class PlayerController : ObjController
             ObjMovement.Animator.SetBool(AnimString.canMove, isAlive);
         }
     }
-
+    
+    [SerializeField] private float damageCooldown = 1f; 
+    private bool _isInvulnerable = false;
+    
     private void OnTriggerEnter2D(Collider2D collide)
     {
         if (collide.CompareTag("Trap") || collide.CompareTag("Holder"))
         {
             Debug.Log($"Player hit: {collide.gameObject.name}");
-            HitPlayer();
+            TakeDamage(1);
         }
         
         if (collide.CompareTag("Checkpoint"))
@@ -33,16 +35,26 @@ public class PlayerController : ObjController
             respawnPoint.position = collide.transform.position;
         }
     }
-
-    public void HitPlayer()
+    
+    public void TakeDamage(int damage)
     {
-        if (!IsAlive) return;
+        if (_isInvulnerable) return;
         
-       DamageReceiver.Deduct(1);
+        DamageReceiver.Deduct(damage);
+        
         IsAlive = false;
-        
+    
         if (DamageReceiver.Lifes > 0)
             Invoke(nameof(Respawn), 2f);
+        
+        StartCoroutine(DamageCooldownCoroutine());
+    }
+    
+    private IEnumerator DamageCooldownCoroutine()
+    {
+        _isInvulnerable = true;
+        yield return new WaitForSeconds(damageCooldown);
+        _isInvulnerable = false;
     }
 
     public void Respawn()

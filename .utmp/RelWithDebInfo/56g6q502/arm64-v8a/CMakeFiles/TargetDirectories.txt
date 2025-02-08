@@ -1,0 +1,8 @@
+D:/_Unity/Create/SOTM_TTS&DA/.utmp/RelWithDebInfo/56g6q502/arm64-v8a/CMakeFiles/edit_cache.dir
+D:/_Unity/Create/SOTM_TTS&DA/.utmp/RelWithDebInfo/56g6q502/arm64-v8a/CMakeFiles/rebuild_cache.dir
+D:/_Unity/Create/SOTM_TTS&DA/.utmp/RelWithDebInfo/56g6q502/arm64-v8a/GameActivity/CMakeFiles/game.dir
+D:/_Unity/Create/SOTM_TTS&DA/.utmp/RelWithDebInfo/56g6q502/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+D:/_Unity/Create/SOTM_TTS&DA/.utmp/RelWithDebInfo/56g6q502/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir
+D:/_Unity/Create/SOTM_TTS&DA/.utmp/RelWithDebInfo/56g6q502/arm64-v8a/FramePacing/CMakeFiles/swappywrapper.dir
+D:/_Unity/Create/SOTM_TTS&DA/.utmp/RelWithDebInfo/56g6q502/arm64-v8a/FramePacing/CMakeFiles/edit_cache.dir
+D:/_Unity/Create/SOTM_TTS&DA/.utmp/RelWithDebInfo/56g6q502/arm64-v8a/FramePacing/CMakeFiles/rebuild_cache.dir

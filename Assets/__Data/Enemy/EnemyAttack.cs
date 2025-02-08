@@ -58,7 +58,8 @@ public class EnemyAttack : AbilityAttack
         {
             PlayerController playerController = currentTarget.GetComponentInChildren<PlayerController>();
             
-            playerController.HitPlayer();
+            playerController.TakeDamage(1);
+            Debug.Log(player.gameObject.name + playerController.DamageReceiver.Lifes);
         }
         
         currentTarget = null;

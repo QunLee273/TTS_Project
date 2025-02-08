@@ -17,9 +17,15 @@ namespace __Data
         protected virtual void Reset()
         {
             this.LoadComponents();
+            this.ResetValue();
         }
 
         protected virtual void LoadComponents()
+        {
+            //For override
+        }
+        
+        protected virtual void ResetValue()
         {
             //For override
         }

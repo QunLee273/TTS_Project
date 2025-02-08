@@ -4,20 +4,24 @@ using UnityEngine;
 public class DamageSender : GameBehaviour
 {
     [Header("Damage Sender")]
-    [SerializeField] protected ObjController objController;
-    public ObjController ObjController => objController;
-
-    protected override void LoadComponents()
+    
+    [SerializeField] public int damage = 1;
+    
+    public virtual void Send(Transform obj)
     {
-        base.LoadComponents();
-
-        LoadObjCtrl();
+        DamageReceiver damageReceiver = obj.GetComponentInChildren<DamageReceiver>();
+        if (damageReceiver == null) return;
+        Send(damageReceiver);
     }
 
-    private void LoadObjCtrl()
+    public virtual void Send(DamageReceiver damageReceiver)
     {
-        if (objController != null) return;
-        objController = transform.parent.GetComponent<ObjController>();
-        Debug.LogWarning(transform.name + ": LoadObjCtrl", gameObject);
+        damageReceiver.Deduct(damage);
+        DestroyObject();
+    }
+
+    protected virtual void DestroyObject()
+    {
+        Destroy(transform.parent.gameObject);
     }
 }

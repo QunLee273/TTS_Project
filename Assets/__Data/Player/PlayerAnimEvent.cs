@@ -1,9 +1,9 @@
 using __Data;
 using UnityEngine;
 
-public class PlayerSender : DamageSender
+public class PlayerAnimEvent : GameBehaviour
 {
-    [Header("Player Sender")]
+    [Header("Player Animation Event")]
     [SerializeField] protected PlayerAttack playerAttack;
     public PlayerAttack PlayerAttack => playerAttack;
 
@@ -17,12 +17,23 @@ public class PlayerSender : DamageSender
     private void LoadPlayerAtk()
     {
         if (playerAttack != null) return;
-        playerAttack = objController.ObjAbility.GetComponentInChildren<PlayerAttack>();
+        GameObject obj = transform.parent.gameObject;
+        playerAttack = obj.GetComponentInChildren<PlayerAttack>();
         Debug.LogWarning(transform.name + ": LoadPlayerAtk", gameObject);
     }
 
-    public void TriggerDealDamage()
+    public void MeleeDamage()
     {
-        playerAttack.PlayerSenderDamage();
+        playerAttack.StartMelee();
+    }
+
+    public void RangedDamage()
+    {
+        playerAttack.StartRanged();
+    }
+
+    public void EndAttack()
+    {
+        playerAttack.EndAttacking();
     }
 }

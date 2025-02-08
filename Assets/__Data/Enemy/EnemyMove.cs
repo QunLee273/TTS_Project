@@ -9,6 +9,8 @@ public class EnemyMove : ObjMovement
     [SerializeField] protected bool isWall;
     
     [SerializeField] protected float moveDetection = 5f;
+    [SerializeField] protected float detectionGround = 5f;
+    [SerializeField] protected float detectionWall = 5f;
     [SerializeField] protected float detectionDistance = 5f;
     [SerializeField] protected float walkStopRate = 0.1f;
     
@@ -71,11 +73,11 @@ public class EnemyMove : ObjMovement
     {
         Vector2 downDiagonal = Quaternion.Euler(0, 0, _moveDirection == MoveableDirection.Right ? 45 : -45) * Vector2.down;
         
-        isGround = Physics2D.Raycast(transform.position, downDiagonal, 1f, groundLayer);
-        isWall = Physics2D.Raycast(transform.position, _directionVector2, 0.5f, groundLayer);
+        isGround = Physics2D.Raycast(transform.position, downDiagonal, detectionGround, groundLayer);
+        isWall = Physics2D.Raycast(transform.position, _directionVector2, detectionWall, groundLayer);
         
-        /*Debug.DrawRay(transform.position, _directionVector2 * 0.5f, Color.red);
-        Debug.DrawRay(transform.position, downDiagonal * 1f, Color.green);*/
+        Debug.DrawRay(transform.position, _directionVector2 * detectionWall, Color.red);
+        Debug.DrawRay(transform.position, downDiagonal * detectionGround, Color.green);
         
         if (!isGround || isWall)
             MoveDirection = (_moveDirection == MoveableDirection.Right) ? MoveableDirection.Left : MoveableDirection.Right;
@@ -87,7 +89,7 @@ public class EnemyMove : ObjMovement
         else if (_directionVector2 == Vector2.left) transform.parent.localScale = new Vector3(-1, 1, 1);
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, _directionVector2, detectionDistance, detectionLayer);
-        Debug.DrawRay(transform.position, _directionVector2 * 5f, Color.blue);
+        Debug.DrawRay(transform.position, _directionVector2 * detectionDistance, Color.blue);
         
         float speed = (hit.collider) ? moveDetection : moveSpeed;
         

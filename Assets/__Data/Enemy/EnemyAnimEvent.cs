@@ -1,8 +1,9 @@
+using __Data;
 using UnityEngine;
 
-public class EnemySender : DamageSender
+public class EnemyAnimEvent : GameBehaviour
 {
-    [Header("Enemy Sender")]
+    [Header("Enemy Animation Event")]
     [SerializeField] protected EnemyAttack enemyAttack;
     public EnemyAttack EnemyAttack => enemyAttack;
 
@@ -16,7 +17,8 @@ public class EnemySender : DamageSender
     private void LoadEnemyAtk()
     {
         if (enemyAttack != null) return;
-        enemyAttack = objController.ObjAbility.GetComponentInChildren<EnemyAttack>();
+        GameObject obj = transform.parent.gameObject;
+        enemyAttack = obj.GetComponentInChildren<EnemyAttack>();
         Debug.LogWarning(transform.name + ": LoadEnemyAtk", gameObject);
     }
 

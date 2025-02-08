@@ -36,8 +36,8 @@ public abstract class ObjController : GameBehaviour
     protected virtual void LoadSo()
     {
         if (gameObjectSo != null) return;
-        string resPath = "GameObject/" + this.GetObjectTypeString() + "/" + transform.name;
-        this.gameObjectSo = Resources.Load<GameObjectSO>(resPath);
+        string resPath = "GameObject/" + GetObjectTypeString() + "/" + transform.name;
+        gameObjectSo = Resources.Load<GameObjectSO>(resPath);
         Debug.LogWarning(transform.name + ": LoadSO " + resPath, gameObject);
     }
 

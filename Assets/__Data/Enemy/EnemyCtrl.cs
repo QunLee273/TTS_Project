@@ -15,13 +15,14 @@ public class EnemyCtrl : ObjController
             ObjMovement.Animator.SetBool(AnimString.canMove, isAlive);
         }
     }
-    
-    public void HitEnemy()
+
+    protected void Update()
     {
-        if (!IsAlive) return;
-        
-        DamageReceiver.Deduct(1);
-        Debug.Log(DamageReceiver.Lifes);
+        CheckIsAlive();
+    }
+
+    private void CheckIsAlive()
+    {
         if (DamageReceiver.IsDead())
             IsAlive = false;
     }
