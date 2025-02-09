@@ -4,11 +4,11 @@ using UnityEngine;
 public class PlayerMove : ObjMovement
 {
     [Header("PlayerMove")]
-    [SerializeField] protected bool isMoveLeft, isMoveRight;
     [SerializeField] protected float jumpForce = 15f;
     [SerializeField] protected bool isJumping;
     [SerializeField] protected bool doubleJump;
-    
+    private bool _isMoveLeft, _isMoveRight;
+
     [SerializeField] protected bool isGround;
     public bool IsGround
     {
@@ -27,8 +27,8 @@ public class PlayerMove : ObjMovement
     {
         if (IsAlive)
         {
-            if (isMoveLeft || Input.GetAxis("Horizontal") < 0) HandleMovement(-1);
-            else if (isMoveRight || Input.GetAxis("Horizontal") > 0) HandleMovement(1);
+            if (_isMoveLeft || Input.GetAxis("Horizontal") < 0) HandleMovement(-1);
+            else if (_isMoveRight || Input.GetAxis("Horizontal") > 0) HandleMovement(1);
             else HandleMovement(0);
             
             HandleJump();
@@ -56,9 +56,10 @@ public class PlayerMove : ObjMovement
     
     private void HandleJump()
     {
-        IsGround = Physics2D.Raycast(transform.position, Vector2.down,
-            1f, LayerMask.GetMask("Ground"));
-        Debug.DrawRay(transform.position, Vector2.down * 1f, Color.green);
+        IsGround = Physics2D.Raycast( new Vector2(transform.position.x - 0.9f ,transform.position.y), 
+            Vector2.down, 1.5f, LayerMask.GetMask("Ground"));
+        Debug.DrawRay(new Vector2(transform.position.x - 0.9f,transform.position.y), 
+            Vector2.down * 1.5f, Color.green);
         
         if (IsGround) doubleJump = true;
         
@@ -81,10 +82,10 @@ public class PlayerMove : ObjMovement
         }
     }
     
-    public void OnPointerDownLeft()  { isMoveLeft = true; }
-    public void OnPointerUpLeft()    { isMoveLeft = false; }
-    public void OnPointerDownRight() { isMoveRight = true; }
-    public void OnPointerUpRight()   { isMoveRight = false; }
+    public void OnPointerDownLeft()  { _isMoveLeft = true; }
+    public void OnPointerUpLeft()    { _isMoveLeft = false; }
+    public void OnPointerDownRight() { _isMoveRight = true; }
+    public void OnPointerUpRight()   { _isMoveRight = false; }
     public void OnClick() { isJumping = true; }
 
     private void UpdateAnimation()

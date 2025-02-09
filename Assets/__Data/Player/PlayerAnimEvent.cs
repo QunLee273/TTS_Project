@@ -6,12 +6,15 @@ public class PlayerAnimEvent : GameBehaviour
     [Header("Player Animation Event")]
     [SerializeField] protected PlayerAttack playerAttack;
     public PlayerAttack PlayerAttack => playerAttack;
+    [SerializeField] protected AbilityDash abilityDash;
+    public AbilityDash AbilityDash => abilityDash;
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
 
         LoadPlayerAtk();
+        LoadAbilityDash();
     }
 
     private void LoadPlayerAtk()
@@ -20,6 +23,14 @@ public class PlayerAnimEvent : GameBehaviour
         GameObject obj = transform.parent.gameObject;
         playerAttack = obj.GetComponentInChildren<PlayerAttack>();
         Debug.LogWarning(transform.name + ": LoadPlayerAtk", gameObject);
+    }
+    
+    private void LoadAbilityDash()
+    {
+        if (abilityDash != null) return;
+        GameObject obj = transform.parent.gameObject;
+        abilityDash = obj.GetComponentInChildren<AbilityDash>();
+        Debug.LogWarning(transform.name + ": LoadAbilityDash", gameObject);
     }
 
     public void MeleeDamage()
@@ -32,8 +43,8 @@ public class PlayerAnimEvent : GameBehaviour
         playerAttack.StartRanged();
     }
 
-    public void EndAttack()
+    public void DashDamage()
     {
-        playerAttack.EndAttacking();
+        abilityDash.DashAttack();
     }
 }

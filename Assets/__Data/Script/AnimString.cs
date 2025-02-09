@@ -9,5 +9,6 @@ namespace __Data.Script
         internal static string canMove = "canMove";
         internal static string attackTrigger = "attacks";
         internal static string hasTarget = "hasTarget";
+        internal static string isDash = "isDashing";
     }
 }

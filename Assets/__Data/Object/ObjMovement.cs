@@ -5,6 +5,12 @@ public class ObjMovement : GameBehaviour
 {
     [Header("ObjMovement")]
     [SerializeField] protected float moveSpeed = 5f;
+
+    public float MoveSpeed
+    {
+        get => moveSpeed;
+        set => moveSpeed = value;
+    }
     
     [SerializeField] protected Rigidbody2D rb;
     public Rigidbody2D Rb => rb;

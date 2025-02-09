@@ -4,14 +4,9 @@ using __Data;
 using __Data.Script;
 using UnityEngine;
 
-public class AbilityAttack : GameBehaviour
+public class AbilityAttack : AbilityAbstract
 {
     [Header("Ability Attack")]
-    [SerializeField] protected Rigidbody2D rb;
-    public Rigidbody2D Rb => rb;
-    [SerializeField] protected Animator animator;
-    public Animator Animator => animator;
-    
     [SerializeField] protected Collider2D col;
     [SerializeField] protected List<Collider2D> detectedAttack = new List<Collider2D>();
     
@@ -21,23 +16,7 @@ public class AbilityAttack : GameBehaviour
     {
         base.LoadComponents();
         
-        LoadRigidBody2D();
-        LoadAnimator();
         LoadCollider2D();
-    }
-
-    private void LoadRigidBody2D()
-    {
-        if (rb != null) return;
-        rb = gameObject.GetComponentInParent<Rigidbody2D>();
-        Debug.LogWarning(transform.name + ": LoadRigidBody2D", gameObject);
-    }
-
-    private void LoadAnimator()
-    {
-        if (animator != null) return;
-        animator = transform.parent.parent.Find("Model").GetComponent<Animator>();
-        Debug.LogWarning(transform.name + ": LoadAnimator", gameObject);
     }
 
     private void LoadCollider2D()

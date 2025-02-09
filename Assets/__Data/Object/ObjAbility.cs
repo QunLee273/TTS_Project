@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class ObjAbility : GameBehaviour
 {
+    [Header("ObjAbility")]
     [SerializeField] protected AbilityAttack abilityAttack;
     public AbilityAttack AbilityAttack => abilityAttack;
 
