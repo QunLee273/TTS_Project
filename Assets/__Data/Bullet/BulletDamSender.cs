@@ -29,8 +29,7 @@ public class BulletDamSender : DamageSender
         string fxName = GetImpactFX();
 
         Vector3 hitPos = transform.position;
-        Quaternion hitRot = transform.rotation;
-        Transform fxImpact = FXSpawner.Instance.Spawn(fxName, hitPos, hitRot);
+        Transform fxImpact = FXSpawner.Instance.Spawn(fxName, hitPos, Quaternion.identity);
         fxImpact.gameObject.SetActive(true);
     }
 
