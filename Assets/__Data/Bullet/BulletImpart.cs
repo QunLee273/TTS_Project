@@ -11,6 +11,8 @@ public class BulletImpart : GameBehaviour
     [SerializeField] protected BulletCtrl bulletCtrl;
     public BulletCtrl BulletCtrl => bulletCtrl;
     
+    protected bool IsDestroyed = false;
+    
     [SerializeField] protected CircleCollider2D circleCollider2D;
     [SerializeField] protected Rigidbody2D rb;
     
@@ -42,15 +44,18 @@ public class BulletImpart : GameBehaviour
     {
         if (rb != null) return;
         rb = GetComponent<Rigidbody2D>();
+        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         Debug.Log(transform.name + ": LoadRigibody", gameObject);
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
+        if (IsDestroyed) return;
         if (other.transform.parent == bulletCtrl.Shooter) return;
 
         if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
+            IsDestroyed = true;
             Destroy(bulletCtrl.gameObject);
             return;
         }

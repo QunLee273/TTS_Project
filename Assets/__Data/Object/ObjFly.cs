@@ -4,7 +4,7 @@ using UnityEngine;
 public class ObjFly : GameBehaviour
 {
     [SerializeField] protected float moveSpeed = 1f;
-    [SerializeField] protected Vector3 direction = Vector3.right;
+    public Vector3 direction;
 
     void Update()
     {

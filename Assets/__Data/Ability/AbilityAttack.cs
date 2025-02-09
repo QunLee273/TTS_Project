@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class AbilityAttack : GameBehaviour
 {
-    [Header("AbilityAttack")]
+    [Header("Ability Attack")]
     [SerializeField] protected Rigidbody2D rb;
     public Rigidbody2D Rb => rb;
     [SerializeField] protected Animator animator;

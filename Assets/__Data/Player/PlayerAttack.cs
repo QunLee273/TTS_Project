@@ -20,6 +20,7 @@ public class PlayerAttack : AbilityAttack
             if (Input.GetKeyDown(KeyCode.S))
             {
                 Attack();
+                isAttacking = false;
             }
         }
     }
@@ -49,9 +50,11 @@ public class PlayerAttack : AbilityAttack
     
     public void OnClick()
     {
+        Debug.Log("Click attack");
         if (animator.GetBool(AnimString.isAlive) && !isAttacking && attackTimer >= attackCooldown)
         {
             Attack();
+            isAttacking = false;
         }
     }
     
@@ -68,15 +71,21 @@ public class PlayerAttack : AbilityAttack
     public void StartRanged()
     {
         Vector3 spawnPos = transform.position;
-        Quaternion spawnRot = transform.parent.rotation;
 
-        Transform newBullet = BulletSpawner.Instance.Spawn(BulletSpawner.bullet1, spawnPos, spawnRot);
+        Transform newBullet = BulletSpawner.Instance.Spawn(BulletSpawner.bullet1, spawnPos, Quaternion.identity);
         if (newBullet == null) return;
 
         newBullet.gameObject.SetActive(true);
         BulletCtrl bulletCtrl = newBullet.GetComponent<BulletCtrl>();
+        ObjFly objFly = newBullet.GetComponentInChildren<BulletFly>();
         if (bulletCtrl != null)
+        {
             bulletCtrl.SetShooter(transform.parent);
+            
+            float shooterDirection = bulletCtrl.Shooter.parent.localScale.x;
+            objFly.direction = (shooterDirection >= 0) ? Vector3.right : Vector3.left;
+        }
+            
     }
 
     public void EndAttacking()
