@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 
 public class EnemyAttack : AbilityAttack
 {
-    [Header("EnemyAttack")]
+    [Header("Enemy Attack")]
     [SerializeField] protected bool isAttacking = false;
     
     [SerializeField] protected Collider2D currentTarget = null;
@@ -35,32 +35,48 @@ public class EnemyAttack : AbilityAttack
 
     protected void FixedUpdate()
     {
-        if (!isAttacking)
-        {
-            HasTarget = detectedAttack.Count > 0;
-            CanMove = !HasTarget;
+        if (isAttacking) return;
+        HasTarget = detectedAttack.Count > 0;
+        CanMove = !HasTarget;
 
-            if (HasTarget)
-            {
-                if (!currentTarget && detectedAttack.Count > 0)
-                {
-                    currentTarget = detectedAttack[0];
-                }
-                animator.SetTrigger(AnimString.attackTrigger);
-                isAttacking = true;
-            }
+        if (!HasTarget) return;
+        if (!currentTarget && detectedAttack.Count > 0)
+        {
+            currentTarget = detectedAttack[0];
         }
+        animator.SetTrigger(AnimString.attackTrigger);
+        isAttacking = true;
     }
     
-    public void EnemySenderDamage()
+    public void EnemyMeleeSenderDam()
     {
         foreach (Collider2D player in detectedAttack.ToArray())
         {
             PlayerController playerController = currentTarget.GetComponentInChildren<PlayerController>();
             
-            playerController.TakeDamage(1);
+            playerController.TakeDamage();
             Debug.Log(player.gameObject.name + playerController.DamageReceiver.Lifes);
         }
+        
+        currentTarget = null;
+        isAttacking = false;
+    }
+    
+    public void EnemyRangedSenderDam()
+    {
+        Vector3 spawnPos = transform.position;
+
+        Transform newBullet = BulletSpawner.Instance.Spawn(BulletSpawner.bullet2, spawnPos, Quaternion.identity);
+        if (newBullet == null) return;
+
+        newBullet.gameObject.SetActive(true);
+        BulletCtrl bulletCtrl = newBullet.GetComponent<BulletCtrl>();
+        ObjFly objFly = newBullet.GetComponentInChildren<BulletFly>();
+        if (bulletCtrl == null) return;
+        bulletCtrl.SetShooter(transform.parent);
+        
+        float shooterDirection = bulletCtrl.Shooter.parent.localScale.x;
+        objFly.direction = (shooterDirection >= 0) ? Vector3.right : Vector3.left;
         
         currentTarget = null;
         isAttacking = false;

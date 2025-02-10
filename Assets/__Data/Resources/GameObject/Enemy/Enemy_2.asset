@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9750fcbe069f46a4abab00a56cce2efa, type: 3}
   m_Name: Enemy_2
   m_EditorClassIdentifier: 
-  objName: Game Object
-  objType: 0
-  life: 0
+  objName: Enemy_2
+  objType: 2
+  life: 1

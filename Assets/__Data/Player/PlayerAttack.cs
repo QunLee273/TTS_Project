@@ -50,7 +50,6 @@ public class PlayerAttack : AbilityAttack
     
     public void OnClick()
     {
-        Debug.Log("Click attack");
         if (animator.GetBool(AnimString.isAlive) && !isAttacking && attackTimer >= attackCooldown)
         {
             Attack();
@@ -86,10 +85,5 @@ public class PlayerAttack : AbilityAttack
             objFly.direction = (shooterDirection >= 0) ? Vector3.right : Vector3.left;
         }
             
-    }
-
-    public void EndAttacking()
-    {
-        isAttacking = false;
     }
 }

@@ -7,7 +7,7 @@ public abstract class DamageReceiver : GameBehaviour
     [Header("Damage Receiver")]
     [SerializeField] protected CapsuleCollider2D capsuleCollider;
     [SerializeField] protected ObjController objController;
-    [SerializeField] protected int lifes = 1;
+    [SerializeField] protected int lifes;
     [SerializeField] protected bool isDead;
 
     public int Lifes

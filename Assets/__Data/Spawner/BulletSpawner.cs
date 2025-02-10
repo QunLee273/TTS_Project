@@ -6,6 +6,7 @@ public class BulletSpawner : Spawner
     public static BulletSpawner Instance => instance;
 
     public static string bullet1 = "Bullet_1";
+    public static string bullet2 = "Bullet_2";
 
     protected override void Awake()
     {

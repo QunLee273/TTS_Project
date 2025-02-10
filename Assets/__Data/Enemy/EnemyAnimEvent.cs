@@ -22,8 +22,13 @@ public class EnemyAnimEvent : GameBehaviour
         Debug.LogWarning(transform.name + ": LoadEnemyAtk", gameObject);
     }
 
-    public void TriggerDealDamage()
+    public void EnemyMeleeDam()
     {
-        EnemyAttack.EnemySenderDamage();
+        EnemyAttack.EnemyMeleeSenderDam();
+    }
+    
+    public void EnemyRangedDam()
+    {
+        EnemyAttack.EnemyRangedSenderDam();
     }
 }

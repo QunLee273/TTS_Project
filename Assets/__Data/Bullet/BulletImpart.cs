@@ -60,5 +60,7 @@ public class BulletImpart : GameBehaviour
             return;
         }
         bulletCtrl.BulletDamSender.Send(other.transform);
+        
+        Debug.Log("Send: " +other.transform.name);
     }
 }
