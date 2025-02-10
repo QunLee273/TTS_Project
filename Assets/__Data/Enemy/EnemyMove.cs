@@ -64,8 +64,8 @@ public class EnemyMove : ObjMovement
     private void LoadEnemyAttack()
     {
         if (enemyAttack != null) return;
-        GameObject obj = GameObject.Find("AbilityAttack");
-        enemyAttack = obj.GetComponent<EnemyAttack>();
+        GameObject obj = transform.parent.gameObject;
+        enemyAttack = obj.GetComponentInChildren<EnemyAttack>();
         Debug.LogWarning(transform.name + ": LoadEnemyAttack", gameObject);
     }
 

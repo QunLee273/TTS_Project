@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5842922706825788487}
   - component: {fileID: 4065451147025984221}
   m_Layer: 10
-  m_Name: ObjMoveInput
+  m_Name: ObjMove
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -377,8 +377,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adac9c56f72a53e4a9fa04765caa6520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objController: {fileID: 43430478808409976}
-  damage: 1
   enemyAttack: {fileID: 7608970634957629354}
 --- !u!1 &7417418690478532620
 GameObject:
