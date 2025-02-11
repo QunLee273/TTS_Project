@@ -7,7 +7,7 @@ public class AbilityDash : AbilityAttack
 {
     [FormerlySerializedAs("dashSpeed")]
     [Header("Ability Dash")]
-    [SerializeField] protected float dashPower = 20f;
+    [SerializeField] protected float dashPower = 5f;
     [SerializeField] protected float dashDuration = 0.2f;
     [SerializeField] protected float dashCooldown = 1f;
     [SerializeField] protected SpriteRenderer dashRenderer;

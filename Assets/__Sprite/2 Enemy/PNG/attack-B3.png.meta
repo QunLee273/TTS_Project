@@ -40,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -54,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -119,34 +119,12 @@ TextureImporter:
       name: attack-B3_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 28
-        width: 16
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 77332c43549766180800000000000000
-      internalID: -9122470657047514249
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: attack-B3_1
-      rect:
-        serializedVersion: 2
-        x: 16
+        x: 5
         y: 0
-        width: 51
-        height: 69
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 62
+        height: 68
+      alignment: 9
+      pivot: {x: 0.64, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -163,7 +141,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: fc00532203f8aa6458614923312d0535
     internalID: 0
     vertices: []
     indices: 
@@ -173,8 +151,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      attack-B3_0: -9122470657047514249
-      attack-B3_1: -790330029231606431
+      attack-B3_0: -790330029231606431
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

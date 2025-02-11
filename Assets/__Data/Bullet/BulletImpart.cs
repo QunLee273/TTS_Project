@@ -53,7 +53,8 @@ public class BulletImpart : GameBehaviour
         if (IsDestroyed) return;
         if (other.transform.parent == bulletCtrl.Shooter) return;
 
-        if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Ground") 
+            || other.gameObject.layer == LayerMask.NameToLayer("Shield"))
         {
             IsDestroyed = true;
             Destroy(bulletCtrl.gameObject);

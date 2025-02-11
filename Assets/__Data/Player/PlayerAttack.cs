@@ -63,7 +63,7 @@ public class PlayerAttack : AbilityAttack
         {
             EnemyCtrl enemyCtrl = enemy.GetComponentInChildren<EnemyCtrl>();
             if (enemyCtrl != null)
-                enemyCtrl.DamageReceiver.Deduct(1);
+                enemyCtrl.DamageReceiver.Deduct(enemyCtrl.DamageReceiver.Lifes);
         }
     }
     
