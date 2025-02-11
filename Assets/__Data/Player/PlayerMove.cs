@@ -56,9 +56,9 @@ public class PlayerMove : ObjMovement
     
     private void HandleJump()
     {
-        IsGround = Physics2D.Raycast( new Vector2(transform.position.x - 0.9f ,transform.position.y), 
+        IsGround = Physics2D.Raycast( new Vector2(transform.position.x,transform.position.y), 
             Vector2.down, 1.5f, LayerMask.GetMask("Ground"));
-        Debug.DrawRay(new Vector2(transform.position.x - 0.9f,transform.position.y), 
+        Debug.DrawRay(new Vector2(transform.position.x,transform.position.y), 
             Vector2.down * 1.5f, Color.green);
         
         if (IsGround) doubleJump = true;
