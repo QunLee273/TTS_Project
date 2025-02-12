@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: d98a3cdd99cdc6f4a8103682c9ae7324
+guid: 178632b4207eb7c4f86bc356e83a11f3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2022914009284353524
-    second: ninja-arashi-9_0
+      213: 7488405056792857466
+    second: trap lua_0
+  - first:
+      213: -2115279677617664063
+    second: trap lua_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ninja-arashi-9_0
+      name: trap lua_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 562
-        height: 562
+        x: 20
+        y: 109
+        width: 38
+        height: 122
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4fd1e86d295d21c10800000000000000
-      internalID: 2022914009284353524
+      spriteID: a7b806059b82ce760800000000000000
+      internalID: 7488405056792857466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trap lua_1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 114
+        width: 163
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cf0ff6275405a2e0800000000000000
+      internalID: -2115279677617664063
       vertices: []
       indices: 
       edges: []
@@ -147,8 +172,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      ninja-arashi-9_0: 2022914009284353524
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
