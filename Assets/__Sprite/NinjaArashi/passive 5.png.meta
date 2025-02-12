@@ -1,0 +1,1580 @@
+fileFormatVersion: 2
+guid: b17a3ebe260f5dc4480d40dd4398be98
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2917982607248729717
+    second: passive 5_0
+  - first:
+      213: -6883290868356254141
+    second: passive 5_1
+  - first:
+      213: 4130269832373907224
+    second: passive 5_2
+  - first:
+      213: -2957813748713491852
+    second: passive 5_3
+  - first:
+      213: -6403123470326488624
+    second: passive 5_4
+  - first:
+      213: 5160811817268947776
+    second: passive 5_5
+  - first:
+      213: 8150068314898920034
+    second: passive 5_6
+  - first:
+      213: 8678895118025763005
+    second: passive 5_7
+  - first:
+      213: -2577030664732850213
+    second: passive 5_8
+  - first:
+      213: 5598745431359407799
+    second: passive 5_9
+  - first:
+      213: -440230364390729700
+    second: passive 5_10
+  - first:
+      213: 7183471380767525623
+    second: passive 5_11
+  - first:
+      213: -4192529879859314220
+    second: passive 5_12
+  - first:
+      213: 5386907711702999941
+    second: passive 5_13
+  - first:
+      213: 8443963330273641751
+    second: passive 5_14
+  - first:
+      213: -8260635750606382533
+    second: passive 5_15
+  - first:
+      213: -4116374091818767802
+    second: passive 5_16
+  - first:
+      213: -6170146571512662689
+    second: passive 5_17
+  - first:
+      213: -8961042144415683276
+    second: passive 5_18
+  - first:
+      213: -7940434232284938106
+    second: passive 5_19
+  - first:
+      213: 5645428325126717219
+    second: passive 5_20
+  - first:
+      213: -1391962836718564400
+    second: passive 5_21
+  - first:
+      213: -6153973338608229738
+    second: passive 5_22
+  - first:
+      213: -4688507418886919275
+    second: passive 5_23
+  - first:
+      213: 6758499161374149206
+    second: passive 5_24
+  - first:
+      213: -5119397626208250037
+    second: passive 5_25
+  - first:
+      213: -3586109563433358467
+    second: passive 5_26
+  - first:
+      213: -2180966397226036720
+    second: passive 5_27
+  - first:
+      213: -8935667860861573795
+    second: passive 5_28
+  - first:
+      213: -927660469986624369
+    second: passive 5_29
+  - first:
+      213: -5318008654659099461
+    second: passive 5_30
+  - first:
+      213: 7875695690108284460
+    second: passive 5_31
+  - first:
+      213: -4697963804177024698
+    second: passive 5_32
+  - first:
+      213: -5226826687812606414
+    second: passive 5_33
+  - first:
+      213: -4417877186995417116
+    second: passive 5_34
+  - first:
+      213: -2153331497250230749
+    second: passive 5_35
+  - first:
+      213: 3097990948156856845
+    second: passive 5_36
+  - first:
+      213: -4228791358874836068
+    second: passive 5_37
+  - first:
+      213: -1139255078034667361
+    second: passive 5_38
+  - first:
+      213: -7644802343108669741
+    second: passive 5_39
+  - first:
+      213: -7953685299501758926
+    second: passive 5_40
+  - first:
+      213: -4264814548941622952
+    second: passive 5_41
+  - first:
+      213: 5557283956897047540
+    second: passive 5_42
+  - first:
+      213: 7408123505424876627
+    second: passive 5_43
+  - first:
+      213: 8028358840811810652
+    second: passive 5_44
+  - first:
+      213: -3827386272203424957
+    second: passive 5_45
+  - first:
+      213: 8890644273631889950
+    second: passive 5_46
+  - first:
+      213: -8542223264617594592
+    second: passive 5_47
+  - first:
+      213: 8602283808763969328
+    second: passive 5_48
+  - first:
+      213: -4451594080459431073
+    second: passive 5_49
+  - first:
+      213: 4485553762011677921
+    second: passive 5_50
+  - first:
+      213: 7221166307646515878
+    second: passive 5_51
+  - first:
+      213: 1850741485047638463
+    second: passive 5_52
+  - first:
+      213: -6783443232836400394
+    second: passive 5_53
+  - first:
+      213: 7702979482726969742
+    second: passive 5_54
+  - first:
+      213: -1439972463755899280
+    second: passive 5_55
+  - first:
+      213: 2983656559152124652
+    second: passive 5_56
+  - first:
+      213: 1554985455688821732
+    second: passive 5_57
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: passive 5_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 935
+        width: 85
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b89db22674e3187d0800000000000000
+      internalID: -2917982607248729717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_1
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 935
+        width: 85
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3467fe9ac63a970a0800000000000000
+      internalID: -6883290868356254141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_2
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 904
+        width: 110
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81fa829878aa15930800000000000000
+      internalID: 4130269832373907224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_3
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 904
+        width: 110
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4727a24111cb3f6d0800000000000000
+      internalID: -2957813748713491852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_4
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 947
+        width: 323
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d1293201298327a0800000000000000
+      internalID: -6403123470326488624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_5
+      rect:
+        serializedVersion: 2
+        x: 914
+        y: 0
+        width: 110
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04b24f03103ee9740800000000000000
+      internalID: 5160811817268947776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_6
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 795
+        width: 85
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26277b493fbda1170800000000000000
+      internalID: 8150068314898920034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_7
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 795
+        width: 85
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db82cc88021a17870800000000000000
+      internalID: 8678895118025763005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_8
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 781
+        width: 110
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd74f4d934c8c3cd0800000000000000
+      internalID: -2577030664732850213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_9
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 781
+        width: 110
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b6c4007e4db2bd40800000000000000
+      internalID: 5598745431359407799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_10
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 869
+        width: 323
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c185627e0dcf3e9f0800000000000000
+      internalID: -440230364390729700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_11
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 670
+        width: 85
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fa45d04921d0b360800000000000000
+      internalID: 7183471380767525623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_12
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 670
+        width: 85
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d146c8894421d5c0800000000000000
+      internalID: -4192529879859314220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_13
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 656
+        width: 110
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 583aed1d50422ca40800000000000000
+      internalID: 5386907711702999941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_14
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 656
+        width: 110
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 715826d29ebfe2570800000000000000
+      internalID: 8443963330273641751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_15
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 745
+        width: 110
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3ad6323d835c5d80800000000000000
+      internalID: -8260635750606382533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_16
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 695
+        width: 166
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64a658ea293bfd6c0800000000000000
+      internalID: -4116374091818767802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_17
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 545
+        width: 85
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f55b4e0526c3f5aa0800000000000000
+      internalID: -6170146571512662689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_18
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 545
+        width: 85
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43d6cc4b5abf3a380800000000000000
+      internalID: -8961042144415683276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_19
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 531
+        width: 110
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6800e4ec229edc190800000000000000
+      internalID: -7940434232284938106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_20
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 531
+        width: 110
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32f3b14a627985e40800000000000000
+      internalID: 5645428325126717219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_21
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 545
+        width: 85
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0db48d8cc21ceace0800000000000000
+      internalID: -1391962836718564400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_22
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 627
+        width: 110
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 692280b8ad1b89aa0800000000000000
+      internalID: -6153973338608229738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_23
+      rect:
+        serializedVersion: 2
+        x: 757
+        y: 573
+        width: 110
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59b2672e7531feeb0800000000000000
+      internalID: -4688507418886919275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_24
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 511
+        width: 110
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65a4b70ed230bcd50800000000000000
+      internalID: 6758499161374149206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_25
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 468
+        width: 85
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4711e19bfe34f8b0800000000000000
+      internalID: -5119397626208250037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_26
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 407
+        width: 85
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7b6ce12a549b3ec0800000000000000
+      internalID: -3586109563433358467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_27
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 407
+        width: 85
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0125742fd96abb1e0800000000000000
+      internalID: -2180966397226036720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_28
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 394
+        width: 110
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d55a87a7c612ef380800000000000000
+      internalID: -8935667860861573795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_29
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 394
+        width: 110
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8c764ea7b94023f0800000000000000
+      internalID: -927660469986624369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_30
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 390
+        width: 110
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb4679afd43a236b0800000000000000
+      internalID: -5318008654659099461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_31
+      rect:
+        serializedVersion: 2
+        x: 757
+        y: 333
+        width: 110
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2eaaffb0871c4d60800000000000000
+      internalID: 7875695690108284460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_32
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 285
+        width: 85
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 649b26c9fca7dceb0800000000000000
+      internalID: -4697963804177024698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_33
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 285
+        width: 85
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 236e56202d49677b0800000000000000
+      internalID: -5226826687812606414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_34
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 271
+        width: 110
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ef06d7fa1c80b2c0800000000000000
+      internalID: -4417877186995417116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_35
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 271
+        width: 110
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32e6dbe7964dd12e0800000000000000
+      internalID: -2153331497250230749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_36
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 280
+        width: 110
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0ad34e7a564efa20800000000000000
+      internalID: 3097990948156856845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_37
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 270
+        width: 110
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9326090aa05055c0800000000000000
+      internalID: -4228791358874836068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_38
+      rect:
+        serializedVersion: 2
+        x: 757
+        y: 213
+        width: 110
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f980f25ea8d8030f0800000000000000
+      internalID: -1139255078034667361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_39
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 160
+        width: 85
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3de0fe8d5c438e590800000000000000
+      internalID: -7644802343108669741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_40
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 160
+        width: 85
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23683fb4c55de9190800000000000000
+      internalID: -7953685299501758926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_41
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 146
+        width: 110
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 851ba6183c550d4c0800000000000000
+      internalID: -4264814548941622952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_42
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 146
+        width: 110
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f363d6a0507f1d40800000000000000
+      internalID: 5557283956897047540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_43
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 152
+        width: 110
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35442190411fec660800000000000000
+      internalID: 7408123505424876627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_44
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 152
+        width: 110
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5f64f364d57a6f60800000000000000
+      internalID: 8028358840811810652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_45
+      rect:
+        serializedVersion: 2
+        x: 757
+        y: 95
+        width: 110
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34bbb1bb67462eac0800000000000000
+      internalID: -3827386272203424957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_46
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 35
+        width: 85
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1a803abcd9e16b70800000000000000
+      internalID: 8890644273631889950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_47
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 35
+        width: 85
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0210460133de37980800000000000000
+      internalID: -8542223264617594592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_48
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 21
+        width: 110
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03f78761c83716770800000000000000
+      internalID: 8602283808763969328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_49
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 21
+        width: 110
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f53ebf5f4c2c832c0800000000000000
+      internalID: -4451594080459431073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_50
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 35
+        width: 85
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e48f9d8163ef3e30800000000000000
+      internalID: 4485553762011677921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_51
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 22
+        width: 110
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6aa2a475f7cb63460800000000000000
+      internalID: 7221166307646515878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_52
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 21
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb9e75333972fa910800000000000000
+      internalID: 1850741485047638463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_53
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 22
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fa42c8e15e5cd1a0800000000000000
+      internalID: -6783443232836400394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_54
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 21
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e813014070b76ea60800000000000000
+      internalID: 7702979482726969742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_55
+      rect:
+        serializedVersion: 2
+        x: 795
+        y: 21
+        width: 58
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07e4c7b6ca0340ce0800000000000000
+      internalID: -1439972463755899280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_56
+      rect:
+        serializedVersion: 2
+        x: 853
+        y: 20
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce2d60c15d3186920800000000000000
+      internalID: 2983656559152124652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: passive 5_57
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 22
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4eb2b35880b649510800000000000000
+      internalID: 1554985455688821732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

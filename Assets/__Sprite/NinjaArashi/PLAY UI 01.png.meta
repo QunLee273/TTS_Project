@@ -1,0 +1,780 @@
+fileFormatVersion: 2
+guid: 64edc89686f8c5e40b41d55acf5cf362
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8968997418742171785
+    second: PLAY UI 01_0
+  - first:
+      213: -2435333363134663927
+    second: PLAY UI 01_1
+  - first:
+      213: -1688529269508764572
+    second: PLAY UI 01_2
+  - first:
+      213: -670073951678493950
+    second: PLAY UI 01_3
+  - first:
+      213: 6452960187582514123
+    second: PLAY UI 01_4
+  - first:
+      213: 769999444421878859
+    second: PLAY UI 01_5
+  - first:
+      213: 7843751678709445910
+    second: PLAY UI 01_6
+  - first:
+      213: -6274516920975879013
+    second: PLAY UI 01_7
+  - first:
+      213: 6348978075867764168
+    second: PLAY UI 01_8
+  - first:
+      213: -6670031406785468624
+    second: PLAY UI 01_9
+  - first:
+      213: 5136621069939852784
+    second: PLAY UI 01_10
+  - first:
+      213: -3741951947008984779
+    second: PLAY UI 01_11
+  - first:
+      213: -3094679227249290191
+    second: PLAY UI 01_12
+  - first:
+      213: 7979796529881460919
+    second: PLAY UI 01_13
+  - first:
+      213: -7985593111172527924
+    second: PLAY UI 01_14
+  - first:
+      213: 3818427311915413326
+    second: PLAY UI 01_15
+  - first:
+      213: 2058940118561582687
+    second: PLAY UI 01_16
+  - first:
+      213: 7336283437439730019
+    second: PLAY UI 01_17
+  - first:
+      213: -8217854664516703935
+    second: PLAY UI 01_18
+  - first:
+      213: 2100068284638856288
+    second: PLAY UI 01_19
+  - first:
+      213: -2083596332840595150
+    second: PLAY UI 01_20
+  - first:
+      213: -1243000283677461081
+    second: PLAY UI 01_21
+  - first:
+      213: 6778875958779710837
+    second: PLAY UI 01_22
+  - first:
+      213: 8761945709646289438
+    second: PLAY UI 01_23
+  - first:
+      213: 5165809721229985030
+    second: PLAY UI 01_24
+  - first:
+      213: -8386684465557441163
+    second: PLAY UI 01_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PLAY UI 01_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 803
+        width: 213
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7773a701e58b78380800000000000000
+      internalID: -8968997418742171785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLAY UI 01_1
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 803
+        width: 213
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90373bc8535f33ed0800000000000000
+      internalID: -2435333363134663927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLAY UI 01_2
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 802
+        width: 214
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46c841a53932198e0800000000000000
+      internalID: -1688529269508764572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLAY UI 01_3
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 788
+        width: 213
+        height: 227
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20b06f88a4b63b6f0800000000000000
+      internalID: -670073951678493950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLAY UI 01_4
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 570
+        width: 214
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc30892f9158d8950800000000000000
+      internalID: 6452960187582514123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLAY UI 01_5
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 572
+        width: 213
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b44a3024a669faa00800000000000000
+      internalID: 769999444421878859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLAY UI 01_6
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 727
+        width: 50
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 615b9d3089a9adc60800000000000000
+      internalID: 7843751678709445910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLAY UI 01_7
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 734
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b941e0caa107ce8a0800000000000000
+      internalID: -6274516920975879013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLAY UI 01_8
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 735
+        width: 21
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c557d2fbe91c1850800000000000000
+      internalID: 6348978075867764168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLAY UI 01_9
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 725
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0376add56c94f63a0800000000000000
+      internalID: -6670031406785468624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLAY UI 01_10
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 725
+        width: 53
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f54d8be5a1f84740800000000000000
+      internalID: 5136621069939852784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLAY UI 01_11
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 719
+        width: 45
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 539b2f7a78ae11cc0800000000000000
+      internalID: -3741951947008984779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLAY UI 01_12
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 725
+        width: 53
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 134960e93ad7d05d0800000000000000
+      internalID: -3094679227249290191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLAY UI 01_13
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 679
+        width: 519
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b0ba774aaeedbe60800000000000000
+      internalID: 7979796529881460919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLAY UI 01_14
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 633
+        width: 204
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc841c7ff597d2190800000000000000
+      internalID: -7985593111172527924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLAY UI 01_15
+      rect:
+        serializedVersion: 2
+        x: 773
+        y: 434
+        width: 236
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4f2e57c867cdf430800000000000000
+      internalID: 3818427311915413326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLAY UI 01_16
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 597
+        width: 204
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5ee9ac0123d29c10800000000000000
+      internalID: 2058940118561582687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLAY UI 01_17
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 485
+        width: 30
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3614d24cae6bfc560800000000000000
+      internalID: 7336283437439730019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLAY UI 01_18
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 230
+        width: 607
+        height: 330
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 149e1b109b054fd80800000000000000
+      internalID: -8217854664516703935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLAY UI 01_19
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 487
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06486fd6af0f42d10800000000000000
+      internalID: 2100068284638856288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLAY UI 01_20
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 0
+        width: 230
+        height: 229
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 231dab5bc249513e0800000000000000
+      internalID: -2083596332840595150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLAY UI 01_21
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 11
+        width: 213
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a5f1b3e3d9ffbee0800000000000000
+      internalID: -1243000283677461081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLAY UI 01_22
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 170
+        width: 236
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57d008bb4c7631e50800000000000000
+      internalID: 6778875958779710837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLAY UI 01_23
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 219
+        width: 30
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1a99bc333fa89970800000000000000
+      internalID: 8761945709646289438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLAY UI 01_24
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 5
+        width: 211
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6054c236294a0b740800000000000000
+      internalID: 5165809721229985030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLAY UI 01_25
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 11
+        width: 131
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5757923c9e28c9b80800000000000000
+      internalID: -8386684465557441163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
