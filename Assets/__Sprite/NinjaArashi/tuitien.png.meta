@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tuitien_0: 2772677890664879454
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
