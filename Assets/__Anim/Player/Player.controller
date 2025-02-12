@@ -640,15 +640,15 @@ AnimatorStateMachine:
   - {fileID: -5200351957426438492}
   m_EntryTransitions: []
   m_StateMachineTransitions:
+  - first: {fileID: -6452357264646710045}
+    second:
+    - {fileID: -2816557787320472500}
+    - {fileID: 2329194279402568176}
   - first: {fileID: -2883135927664523764}
     second:
     - {fileID: 5933376147742162267}
     - {fileID: -5240565144190022648}
     - {fileID: 1110316683676812592}
-  - first: {fileID: -6452357264646710045}
-    second:
-    - {fileID: -2816557787320472500}
-    - {fileID: 2329194279402568176}
   - first: {fileID: -387803174815376374}
     second:
     - {fileID: 5897974142484513131}
@@ -784,7 +784,6 @@ AnimatorState:
   m_Transitions: []
   m_StateMachineBehaviours:
   - {fileID: -7091597530035284607}
-  - {fileID: 9025489206031228951}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1019,19 +1018,6 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
---- !u!114 &9025489206031228951
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13cec1e7be01be2429ea06a94bea3fe5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeTime: 1.5
 --- !u!1101 &9061680121001662590
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
