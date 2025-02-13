@@ -222,7 +222,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      trap rang cua_0: -2769567975184480937
+      trap rang cua_1: -4348282325610899201
+      trap rang cua_2: 5607581685120918671
+      trap rang cua_3: 3887747778110218525
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

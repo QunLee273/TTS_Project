@@ -472,7 +472,21 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      trap01_beartrap_0: -6616391612111784681
+      trap01_beartrap_1: -9001110759610013054
+      trap01_beartrap_10: 4720096526241238564
+      trap01_beartrap_11: -299860361795152925
+      trap01_beartrap_12: 5287831766635626755
+      trap01_beartrap_13: 6996067875429840220
+      trap01_beartrap_2: -1722659864048082675
+      trap01_beartrap_3: -7095909190542218791
+      trap01_beartrap_4: -1134470046187098913
+      trap01_beartrap_5: -4663780546080230976
+      trap01_beartrap_6: -8448460760268255794
+      trap01_beartrap_7: 6791125908636040933
+      trap01_beartrap_8: 6826124614144203219
+      trap01_beartrap_9: 2410177079597927282
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
