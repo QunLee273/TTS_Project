@@ -13,7 +13,6 @@ public class FallingRock : GameBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.gameObject.name);
         if (other.gameObject.CompareTag("Player"))
         {
             rb.bodyType = RigidbodyType2D.Dynamic;
