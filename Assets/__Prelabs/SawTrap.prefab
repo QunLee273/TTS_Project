@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 2810062051797447565}
   m_Layer: 0
   m_Name: Model
-  m_TagString: Untagged
+  m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,7 +143,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 553103467783823420, guid: ede65a3a6fb075c4fb70bc81e18aa959, type: 3}
+  m_Sprite: {fileID: -6955790032328933191, guid: 37925e9b0d857754b91bd8b8fd9a5225, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -184,12 +184,12 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0045254827, y: 0.013080478}
-  m_Radius: 0.9444805
+  m_Offset: {x: -0.007975459, y: 0.013080478}
+  m_Radius: 0.9819833
 --- !u!114 &2810062051797447565
 MonoBehaviour:
   m_ObjectHideFlags: 0
