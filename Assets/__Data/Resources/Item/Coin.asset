@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9750fcbe069f46a4abab00a56cce2efa, type: 3}
-  m_Name: Enemy_1
+  m_Script: {fileID: 11500000, guid: 8abbaaa4b3d6a554f967bcb6ed9de341, type: 3}
+  m_Name: Coin
   m_EditorClassIdentifier: 
-  objName: Enemy_1
-  objType: 2
-  life: 2
-  dropList:
-  - itemSo: {fileID: 11400000, guid: fdbf208745841d64ca9b1013af8f087d, type: 2}
-    dropRate: 100
+  itemCode: 1
+  itemType: 1
+  itemName: Coin
+  itemCount: 100

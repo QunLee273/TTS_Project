@@ -252,8 +252,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   capsuleCollider: {fileID: 1422688547476612252}
   objController: {fileID: 43430478808409976}
-  lifes: 1
+  lifes: 0
   isDead: 0
+  enemyCtrl: {fileID: 43430478808409976}
 --- !u!1 &3868479398995571561
 GameObject:
   m_ObjectHideFlags: 0

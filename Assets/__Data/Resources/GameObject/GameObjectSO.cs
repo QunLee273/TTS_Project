@@ -7,4 +7,5 @@ public class GameObjectSO : ScriptableObject
     public string objName = "Game Object";
     public ObjectType objType;
     public int life = 0;
+    public List<ItemDropRate> dropList;
 }

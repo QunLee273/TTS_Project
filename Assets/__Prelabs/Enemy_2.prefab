@@ -498,3 +498,4 @@ MonoBehaviour:
   objController: {fileID: 2423753693044603052}
   lifes: 0
   isDead: 0
+  enemyCtrl: {fileID: 2423753693044603052}

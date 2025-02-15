@@ -24,7 +24,6 @@ public class MovingPlatform : GameBehaviour
     
     protected void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log(other.gameObject.name);
         if (other.gameObject.CompareTag("Player"))
         {
             _playerParent = other.gameObject.transform.parent;
