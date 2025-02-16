@@ -5,7 +5,7 @@ using UnityEngine.Serialization;
 public abstract class DamageReceiver : GameBehaviour
 {
     [Header("Damage Receiver")]
-    [SerializeField] protected CapsuleCollider2D capsuleCollider;
+    [SerializeField] protected Collider2D colli2d;
     [SerializeField] protected ObjController objController;
     [SerializeField] protected int lifes;
     [SerializeField] protected bool isDead;
@@ -31,8 +31,8 @@ public abstract class DamageReceiver : GameBehaviour
 
     private void LoadCollider()
     {
-        if (capsuleCollider != null) return;
-        capsuleCollider = GetComponentInParent<CapsuleCollider2D>();
+        if (colli2d != null) return;
+        colli2d = GetComponentInParent<Collider2D>();
         Debug.Log(transform.name + ": LoadCollider", gameObject);
     }
 

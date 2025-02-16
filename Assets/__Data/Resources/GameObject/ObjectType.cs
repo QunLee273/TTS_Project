@@ -4,4 +4,5 @@ public enum ObjectType
         
     Player = 1,
     Enemy = 2,
+    Boss = 3
 }
