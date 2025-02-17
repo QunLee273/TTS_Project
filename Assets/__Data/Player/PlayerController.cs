@@ -21,7 +21,7 @@ public class PlayerController : ObjController
     
     [SerializeField] private float damageCooldown = 1f; 
     public bool isInvulnerable = false;
-    
+
     private void OnTriggerEnter2D(Collider2D collide)
     {
         if (collide.CompareTag("Trap") || collide.CompareTag("Holder"))
