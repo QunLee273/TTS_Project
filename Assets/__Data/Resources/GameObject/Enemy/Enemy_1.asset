@@ -17,4 +17,4 @@ MonoBehaviour:
   life: 2
   dropList:
   - itemSo: {fileID: 11400000, guid: fdbf208745841d64ca9b1013af8f087d, type: 2}
-    dropRate: 100
+    dropRate: 60

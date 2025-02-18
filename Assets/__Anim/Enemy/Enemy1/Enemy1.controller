@@ -308,4 +308,4 @@ MonoBehaviour:
   updateOnState: 1
   updateStateMachine: 0
   valueOnEnter: 0
-  valueOnExit: 1
+  valueOnExit: 0

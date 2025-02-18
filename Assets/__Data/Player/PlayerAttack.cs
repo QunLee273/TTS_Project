@@ -14,15 +14,6 @@ public class PlayerAttack : AbilityAttack
         if (!animator.GetBool(AnimString.isAlive)) return;
 
         if (attackTimer < attackCooldown) attackTimer += Time.deltaTime;
-        
-        if (!isAttacking && attackTimer >= attackCooldown)
-        {
-            if (Input.GetKeyDown(KeyCode.S))
-            {
-                Attack();
-                isAttacking = false;
-            }
-        }
     }
     
     private void Attack()
@@ -64,6 +55,10 @@ public class PlayerAttack : AbilityAttack
             EnemyCtrl enemyCtrl = enemy.GetComponentInChildren<EnemyCtrl>();
             if (enemyCtrl != null)
                 enemyCtrl.DamageReceiver.Deduct(enemyCtrl.DamageReceiver.Lifes);
+            
+            BossCtrl bossCtrl = enemy.GetComponentInChildren<BossCtrl>();
+            if (bossCtrl != null)
+                bossCtrl.DamageReceiver.Deduct(5);
         }
     }
     

@@ -11336,9 +11336,9 @@ Transform:
   m_GameObject: {fileID: 970966576}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: -3, z: 0}
+  m_LocalScale: {x: 1.08, y: 1.08, z: 1.08}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1967626650}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11390,8 +11390,8 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 34.133335, y: 19.2}
+  m_DrawMode: 2
+  m_Size: {x: 70, y: 19.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -13004,9 +13004,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15b96f9cd4a7ad645b0f84ee1f47ae69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colli2d: {fileID: 0}
+  colli2d: {fileID: 129862710}
   objController: {fileID: 129862709}
-  lifes: 1
+  lifes: 0
   isDead: 0
   playerController: {fileID: 129862709}
 --- !u!1 &1318396385
@@ -14843,7 +14843,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1820478920
 Transform:
   m_ObjectHideFlags: 0
@@ -27162,7 +27162,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2123353878
 Transform:
   m_ObjectHideFlags: 0

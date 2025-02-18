@@ -3,11 +3,10 @@ using UnityEngine;
 
 public class BossMove : ObjMovement
 {
-    [Header("Boss Move")]
-    [SerializeField] protected Transform target;
+    [Header("Boss Move")] [SerializeField] protected Transform target;
     [SerializeField] protected float stopDistance = 1f;
 
-    private bool CanMove => animator.GetBool(AnimString.canMove);
+    public bool CanMove => animator.GetBool(AnimString.canMove);
 
     protected override void LoadComponents()
     {
@@ -24,7 +23,12 @@ public class BossMove : ObjMovement
 
     protected void FixedUpdate()
     {
-        if (target == null && !CanMove) return; 
+        if (target == null) return;
+        if (CanMove == false)
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
         
         MoveToTarget();
     }

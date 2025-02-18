@@ -1,6 +1,5 @@
 using __Data.Script;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class BossAttack : AbilityAttack
 {
@@ -74,12 +73,13 @@ public class BossAttack : AbilityAttack
     {
         Vector3 spawnPos = spawnPoint.position;
 
-        Transform newBullet = BulletSpawner.Instance.Spawn(BulletSpawner.bullet2, spawnPos, Quaternion.identity);
+        Transform newBullet = BulletSpawner.Instance.Spawn(BulletSpawner.bullet3, spawnPos, Quaternion.identity);
         if (newBullet == null) return;
 
         newBullet.gameObject.SetActive(true);
         BulletCtrl bulletCtrl = newBullet.GetComponent<BulletCtrl>();
         ObjFly objFly = newBullet.GetComponentInChildren<BulletFly>();
+        
         if (bulletCtrl == null) return;
         bulletCtrl.SetShooter(transform.parent);
         

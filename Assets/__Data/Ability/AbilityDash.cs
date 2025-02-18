@@ -104,6 +104,10 @@ public class AbilityDash : AbilityAttack
             EnemyCtrl enemyCtrl = enemy.GetComponentInChildren<EnemyCtrl>();
             if (enemyCtrl != null)
                 enemyCtrl.DamageReceiver.Deduct(enemyCtrl.DamageReceiver.Lifes);
+            
+            BossCtrl bossCtrl = enemy.GetComponentInChildren<BossCtrl>();
+            if (bossCtrl != null)
+                bossCtrl.DamageReceiver.Deduct(1);
         }
     }
 }

@@ -139,12 +139,12 @@ AnimatorStateTransition:
   serializedVersion: 3
   m_TransitionDuration: 0
   m_TransitionOffset: 0
-  m_ExitTime: 0
+  m_ExitTime: 0.75
   m_HasExitTime: 0
-  m_HasFixedDuration: 0
+  m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 1
+  m_CanTransitionToSelf: 0
 --- !u!1109 &-4985174201557432892
 AnimatorTransition:
   m_ObjectHideFlags: 1
@@ -656,7 +656,7 @@ MonoBehaviour:
   updateOnState: 1
   updateStateMachine: 0
   valueOnEnter: 0
-  valueOnExit: 1
+  valueOnExit: 0
 --- !u!1109 &8037233026686006399
 AnimatorTransition:
   m_ObjectHideFlags: 1
