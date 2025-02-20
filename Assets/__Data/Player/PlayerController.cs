@@ -21,6 +21,8 @@ public class PlayerController : ObjController
     
     [SerializeField] private float damageCooldown = 1f; 
     public bool isInvulnerable = false;
+    
+    protected override bool IsDebugEnabled => true;
 
     private void OnTriggerEnter2D(Collider2D collide)
     {

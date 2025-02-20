@@ -13,5 +13,6 @@ namespace __Data.Script
         internal static string spells = "spells";
         internal static string atkRangedTrigger = "atkRanged";
         internal static string atkMeleeTrigger = "atkMelee";
+        internal static string atkLazerTrigger = "atkLazer";
     }
 }

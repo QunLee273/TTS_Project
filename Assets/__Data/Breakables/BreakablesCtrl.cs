@@ -1,9 +1,10 @@
+using __Data;
 using __Data.Script;
 using UnityEngine;
 
-public class BossCtrl : ObjController
+public class BreakablesCtrl : ObjController
 {
-    [Header("Boss Control")]
+    [Header("Breakables Ctrl")]
     [SerializeField] protected bool isAlive = true; 
     public bool IsAlive
     {
@@ -11,13 +12,12 @@ public class BossCtrl : ObjController
         private set
         {
             isAlive = value;
-            ObjMovement.Animator.SetBool(AnimString.isAlive, isAlive);
-            ObjMovement.Animator.SetBool(AnimString.canMove, isAlive);
+            Model.gameObject.GetComponent<Animator>().SetBool(AnimString.isAlive, isAlive);
         }
     }
     
-    protected override bool IsDebugEnabled => true;
-    
+    protected override bool IsDebugEnabled => false;
+
     protected void Update()
     {
         CheckIsAlive();
@@ -30,6 +30,6 @@ public class BossCtrl : ObjController
     }
     protected override string GetObjectTypeString()
     {
-        return ObjectType.Boss.ToString();
+        return ObjectType.Breakables.ToString();
     }
 }

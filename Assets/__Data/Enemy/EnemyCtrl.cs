@@ -15,6 +15,8 @@ public class EnemyCtrl : ObjController
             ObjMovement.Animator.SetBool(AnimString.canMove, isAlive);
         }
     }
+    
+    protected override bool IsDebugEnabled => true;
 
     protected void Update()
     {

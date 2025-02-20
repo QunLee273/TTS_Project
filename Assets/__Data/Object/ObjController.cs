@@ -14,6 +14,8 @@ public abstract class ObjController : GameBehaviour
     public DamageReceiver DamageReceiver => damageReceiver;
     [SerializeField] protected ObjAbility objAbility;
     public ObjAbility ObjAbility => objAbility;
+    
+    protected virtual bool IsDebugEnabled => true;
 
     protected override void LoadComponents()
     {
@@ -32,8 +34,8 @@ public abstract class ObjController : GameBehaviour
         model = GameObject.Find("Model");
         Debug.LogWarning(transform.name + ": LoadModel", gameObject);
     }
-    
-    protected virtual void LoadSo()
+
+    private void LoadSo()
     {
         if (gameObjectSo != null) return;
         string resPath = "GameObject/" + GetObjectTypeString() + "/" + transform.name;
@@ -50,14 +52,14 @@ public abstract class ObjController : GameBehaviour
 
     private void LoadObjMovements()
     {
-        if (objMovement != null) return;
+        if (objMovement != null || !IsDebugEnabled) return;
         objMovement = GetComponentInChildren<ObjMovement>();
-        Debug.LogWarning(transform.name + ": LoadObjMovement", gameObject);
+        if (IsDebugEnabled) Debug.LogWarning(transform.name + ": LoadObjMovement", gameObject);
     }
     
     private void LoadObjAbility()
     {
-        if (objAbility != null) return;
+        if (objAbility != null || !IsDebugEnabled) return;
         objAbility = GetComponentInChildren<ObjAbility>();
         Debug.LogWarning(transform.name + ": LoadObjAbility", gameObject);
     }
