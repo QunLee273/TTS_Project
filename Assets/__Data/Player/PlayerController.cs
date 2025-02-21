@@ -6,6 +6,8 @@ using UnityEngine.Serialization;
 public class PlayerController : ObjController
 {
     [Header("Player Controller")]
+    private static PlayerController instance;
+    public static PlayerController Instance => instance;
     [SerializeField] protected Transform respawnPoint;
     [SerializeField] protected bool isAlive = true; 
     public bool IsAlive
@@ -19,10 +21,23 @@ public class PlayerController : ObjController
         }
     }
     
-    [SerializeField] private float damageCooldown = 1f; 
-    public bool isInvulnerable = false;
+    [SerializeField] protected float damageCooldown = 1f; 
+    [SerializeField] protected bool isInvulnerable = false;
+
+    public bool IsInvulnerable
+    {
+        get => isInvulnerable;
+        set => isInvulnerable = value;
+    }
     
     protected override bool IsDebugEnabled => true;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        if (instance != null) return;
+        instance = this;
+    }
 
     private void OnTriggerEnter2D(Collider2D collide)
     {

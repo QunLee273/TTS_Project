@@ -1,11 +1,14 @@
+using System.Collections;
 using System.Linq;
 using __Data;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 public class PlayerLooter : GameBehaviour
 {
     [SerializeField] protected Collider2D col;
+    [SerializeField] protected float timerInvulnerable = 10f;
     [SerializeField] protected long coinAmount;
     protected override void LoadComponents()
     {
@@ -31,8 +34,22 @@ public class PlayerLooter : GameBehaviour
         
             ItemCode itemCode = itemPickupable.GetItemCode();
             ItemProfileSO itemProfile = GetItemProfile(itemCode);
-        
-            AddItem(itemProfile);
+
+            if (itemProfile.itemCode is ItemCode.Coin or ItemCode.BagCoin)
+            {
+                AddItem(itemProfile);
+            }
+            else if (itemProfile.itemCode == ItemCode.Life)
+            {
+                PlayerReceiver receiver = transform.parent.GetComponentInChildren<PlayerReceiver>();
+                receiver.Add(1);
+            }
+            else if (itemProfile.itemCode == ItemCode.Shield)
+            {
+                PlayerShield shield = transform.parent.GetComponentInChildren<PlayerShield>();
+                shield.IsActive = true;
+            }
+            
             itemPickupable.Picked();
         }
     }

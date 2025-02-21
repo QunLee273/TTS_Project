@@ -56,6 +56,10 @@ public class PlayerAttack : AbilityAttack
             if (enemyCtrl != null)
                 enemyCtrl.DamageReceiver.Deduct(enemyCtrl.DamageReceiver.Lifes);
             
+            BreakablesCtrl breakablesCtrl = enemy.GetComponentInChildren<BreakablesCtrl>();
+            if (breakablesCtrl != null)
+                breakablesCtrl.DamageReceiver.Deduct(breakablesCtrl.DamageReceiver.Lifes);
+            
             BossCtrl bossCtrl = enemy.GetComponentInChildren<BossCtrl>();
             if (bossCtrl != null)
                 bossCtrl.DamageReceiver.Deduct(5);

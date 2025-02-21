@@ -5,6 +5,7 @@ using UnityEngine;
 public class BreakablesCtrl : ObjController
 {
     [Header("Breakables Ctrl")]
+    [SerializeField] protected Animator anim;
     [SerializeField] protected bool isAlive = true; 
     public bool IsAlive
     {
@@ -12,11 +13,24 @@ public class BreakablesCtrl : ObjController
         private set
         {
             isAlive = value;
-            Model.gameObject.GetComponent<Animator>().SetBool(AnimString.isAlive, isAlive);
+            anim.SetBool(AnimString.isAlive, isAlive);
         }
     }
     
     protected override bool IsDebugEnabled => false;
+
+    protected override void LoadComponents()
+    {
+        base.LoadComponents();
+        LoadAnim();
+    }
+
+    private void LoadAnim()
+    {
+        if (anim != null) return;
+        anim = GetComponentInChildren<Animator>();
+        Debug.LogWarning(transform.name + ": LoadAnim", gameObject);
+    }
 
     protected void Update()
     {
