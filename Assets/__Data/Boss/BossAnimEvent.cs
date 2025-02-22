@@ -6,15 +6,15 @@ public class BossAnimEvent : GameBehaviour
     [Header("Boss Animation Event")]
     [SerializeField] protected BossAttack bossAttack;
     public BossAttack BossAttack => bossAttack;
-    [SerializeField] protected AbilityLazer abilityLazer;
-    public AbilityLazer AbilityLazer => abilityLazer;
+    [SerializeField] protected BossAbility bossAbility;
+    public BossAbility BossAbility => bossAbility;
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
 
         LoadBossAtk();
-        LoadAbilityLazer();
+        LoadBossAbility();
     }
 
     private void LoadBossAtk()
@@ -25,12 +25,12 @@ public class BossAnimEvent : GameBehaviour
         Debug.LogWarning(transform.name + ": LoadBossAtk", gameObject);
     }
     
-    private void LoadAbilityLazer()
+    private void LoadBossAbility()
     {
-        if (abilityLazer != null) return;
+        if (bossAbility != null) return;
         GameObject obj = transform.parent.gameObject;
-        abilityLazer = obj.GetComponentInChildren<AbilityLazer>();
-        Debug.LogWarning(transform.name + ": LoadAbilityLazer", gameObject);
+        bossAbility = obj.GetComponentInChildren<BossAbility>();
+        Debug.LogWarning(transform.name + ": LoadBossAbility", gameObject);
     }
 
     public void BossMeleeDam()
@@ -45,11 +45,17 @@ public class BossAnimEvent : GameBehaviour
 
     public void BossLazerDamStart()
     {
-        abilityLazer.StartLazing();
+        bossAbility.AbilityLazer.StartLazing();
     }
     
     public void BossLazerDamEnd()
     {
-        abilityLazer.EndLazing();
+        bossAbility.AbilityLazer.EndLazing();
     }
+    
+    public void BossShield()
+    {
+        bossAbility.BossShield.UseShield();
+    }
+    
 }

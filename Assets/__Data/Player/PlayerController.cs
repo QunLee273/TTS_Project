@@ -2,6 +2,7 @@ using __Data.Script;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.Serialization;
+using UnityEngine.tvOS;
 
 public class PlayerController : ObjController
 {
@@ -35,8 +36,8 @@ public class PlayerController : ObjController
     protected override void Awake()
     {
         base.Awake();
-        if (instance != null) return;
-        instance = this;
+        if (PlayerController.instance != null) Debug.LogError("Only 1 PlayerController allow to exist");
+        PlayerController.instance = this;
     }
 
     private void OnTriggerEnter2D(Collider2D collide)

@@ -14,5 +14,6 @@ namespace __Data.Script
         internal static string atkRangedTrigger = "atkRanged";
         internal static string atkMeleeTrigger = "atkMelee";
         internal static string atkLazerTrigger = "atkLazer";
+        internal static string shieldTrigger = "shield";
     }
 }
