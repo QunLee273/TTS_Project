@@ -78,9 +78,10 @@ public class PlayerAttack : AbilityAttack
         ObjFly objFly = newBullet.GetComponentInChildren<BulletFly>();
         if (bulletCtrl != null)
         {
-            bulletCtrl.SetShooter(transform.parent);
+            bulletCtrl.SetShooter(transform.parent.parent);
+            Debug.Log(bulletCtrl.Shooter.name);
             
-            float shooterDirection = bulletCtrl.Shooter.parent.localScale.x;
+            float shooterDirection = bulletCtrl.Shooter.localScale.x;
             objFly.direction = (shooterDirection >= 0) ? Vector3.right : Vector3.left;
         }
             

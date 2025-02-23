@@ -13,7 +13,8 @@ namespace __Data.Script
         internal static string spells = "spells";
         internal static string atkRangedTrigger = "atkRanged";
         internal static string atkMeleeTrigger = "atkMelee";
-        internal static string atkLazerTrigger = "atkLazer";
-        internal static string shieldTrigger = "shield";
+        internal static string atkLazer = "atkLazer";
+        internal static string shield = "shield";
+        internal static string healing = "healing";
     }
 }

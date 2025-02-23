@@ -73,9 +73,9 @@ public class EnemyAttack : AbilityAttack
         BulletCtrl bulletCtrl = newBullet.GetComponent<BulletCtrl>();
         ObjFly objFly = newBullet.GetComponentInChildren<BulletFly>();
         if (bulletCtrl == null) return;
-        bulletCtrl.SetShooter(transform.parent);
+        bulletCtrl.SetShooter(transform.parent.parent);
         
-        float shooterDirection = bulletCtrl.Shooter.parent.localScale.x;
+        float shooterDirection = bulletCtrl.Shooter.localScale.x;
         objFly.direction = (shooterDirection >= 0) ? Vector3.right : Vector3.left;
         
         currentTarget = null;

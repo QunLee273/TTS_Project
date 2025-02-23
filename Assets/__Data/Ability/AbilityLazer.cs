@@ -30,7 +30,7 @@ public class AbilityLazer : AbilityAbstract
         else
         {
             Spells = true;
-            animator.SetTrigger(AnimString.atkLazerTrigger);
+            animator.SetBool(AnimString.atkLazer, true);
             animator.SetBool(AnimString.canMove, false);
         }
     }
@@ -56,6 +56,7 @@ public class AbilityLazer : AbilityAbstract
         bossLazer.gameObject.SetActive(false);
         timer = 0f;
         Spells = false;
+        animator.SetBool(AnimString.atkLazer, false);
         animator.SetBool(AnimString.canMove, true);
     }
 }

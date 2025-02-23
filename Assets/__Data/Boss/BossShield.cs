@@ -18,6 +18,7 @@ public class BossShield : GameBehaviour
     {
         base.LoadComponents();
         LoadShield();
+        LoadAnimation();
     }
 
     protected override void Start()
@@ -33,26 +34,35 @@ public class BossShield : GameBehaviour
         if (hpPercent <= thresholdHp && thresholdHp > 0)
         {
             animator.SetBool(AnimString.spells, true);
-            animator.SetTrigger(AnimString.shieldTrigger);
-            animator.Play("Boss_Shield");
+            animator.SetBool(AnimString.shield, true);
+            animator.SetBool(AnimString.canMove, false);
             thresholdHp -= 0.2f;
         }
     }
-
-    public void UseShield()
-    {
-        animator.SetBool(AnimString.spells, false);
-        shield.SetActive(true);
-        BossReceiver.Instance.IsInvulnerable = true;
-        StartCoroutine(ActivateShield());
-    }
-
+    
     private void LoadShield()
     {
         if(shield != null) return;
         shield = GameObject.Find("ShieldEffect");
         shield.SetActive(false);
         Debug.LogWarning(transform.name + ": LoadShield", gameObject);
+    }
+    
+    private void LoadAnimation()
+    {
+        if(animator != null) return;
+        animator = transform.parent.parent.GetComponent<Animator>();
+        Debug.LogWarning(transform.name + ": LoadAnimation", gameObject);
+    }
+
+    public void UseShield()
+    {
+        animator.SetBool(AnimString.spells, false);
+        animator.SetBool(AnimString.shield, false);
+        animator.SetBool(AnimString.canMove, true);
+        shield.SetActive(true);
+        BossReceiver.Instance.IsInvulnerable = true;
+        StartCoroutine(ActivateShield());
     }
 
     IEnumerator ActivateShield()

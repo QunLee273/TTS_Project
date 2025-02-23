@@ -58,4 +58,8 @@ public class BossAnimEvent : GameBehaviour
         bossAbility.BossShield.UseShield();
     }
     
+    public void BossHealing()
+    {
+        bossAbility.BossHealing.UseHealing();
+    }
 }
