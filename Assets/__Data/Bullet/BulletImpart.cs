@@ -48,7 +48,7 @@ public class BulletImpart : GameBehaviour
         Debug.Log(transform.name + ": LoadRigibody", gameObject);
     }
 
-    protected virtual void OnCollisionEnter2D(Collision2D other)
+    protected virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (IsDestroyed) return;
         if (other.transform.parent == bulletCtrl.Shooter) return;
