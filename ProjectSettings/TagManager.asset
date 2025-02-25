@@ -9,6 +9,10 @@ TagManager:
   - Checkpoint
   - Enemy
   - Item
+  - Boss
+  - UI
+  - Audio
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -58,11 +62,11 @@ TagManager:
   - name: Enemy
     uniqueID: 4277064737
     locked: 0
-  - name: Item
-    uniqueID: 578586481
-    locked: 0
   - name: Player
     uniqueID: 1075432339
+    locked: 0
+  - name: Item
+    uniqueID: 578586481
     locked: 0
   - name: FX
     uniqueID: 973539029

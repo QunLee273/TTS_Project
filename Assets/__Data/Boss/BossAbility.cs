@@ -1,0 +1,51 @@
+using UnityEngine;
+
+public class BossAbility : ObjAbility
+{
+    [Header("Boss Ability")]
+    [SerializeField] protected AbilityLazer abilityLazer;
+    public AbilityLazer AbilityLazer => abilityLazer;
+    [SerializeField] protected BossShield bossShield;
+    public BossShield BossShield => bossShield;
+    [SerializeField] protected BossHealing bossHealing;
+    public BossHealing BossHealing => bossHealing;
+    [SerializeField] protected BossMeteor bossMeteor;
+    public BossMeteor BossMeteor => bossMeteor;
+
+    protected override void LoadComponents()
+    {
+        base.LoadComponents();
+        LoadAbilityLazer();
+        LoadBossShield();
+        LoadBossHealing();
+        LoadBossBossMeteor();
+    }
+
+    private void LoadAbilityLazer()
+    {
+        if (abilityLazer != null) return;
+        abilityLazer = gameObject.GetComponentInChildren<AbilityLazer>();
+        Debug.LogWarning(transform.name + ": LoadAbilityLazer", gameObject);
+    }
+    
+    private void LoadBossShield()
+    {
+        if (bossShield != null) return;
+        bossShield = transform.parent.GetComponentInChildren<BossShield>();
+        Debug.LogWarning(transform.name + ": LoadBossShield", gameObject);
+    }
+    
+    private void LoadBossHealing()
+    {
+        if (bossHealing != null) return;
+        bossHealing = transform.parent.GetComponentInChildren<BossHealing>();
+        Debug.LogWarning(transform.name + ": LoadBossHealing", gameObject);
+    }
+    
+    private void LoadBossBossMeteor()
+    {
+        if (bossMeteor != null) return;
+        bossMeteor = transform.parent.GetComponentInChildren<BossMeteor>();
+        Debug.LogWarning(transform.name + ": LoadBossBossMeteor", gameObject);
+    }
+}

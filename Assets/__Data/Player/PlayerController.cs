@@ -2,10 +2,13 @@ using __Data.Script;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.Serialization;
+using UnityEngine.tvOS;
 
 public class PlayerController : ObjController
 {
     [Header("Player Controller")]
+    private static PlayerController instance;
+    public static PlayerController Instance => instance;
     [SerializeField] protected Transform respawnPoint;
     [SerializeField] protected bool isAlive = true; 
     public bool IsAlive
@@ -19,9 +22,24 @@ public class PlayerController : ObjController
         }
     }
     
-    [SerializeField] private float damageCooldown = 1f; 
-    public bool isInvulnerable = false;
+    [SerializeField] protected float damageCooldown = 1f; 
+    [SerializeField] protected bool isInvulnerable = false;
+
+    public bool IsInvulnerable
+    {
+        get => isInvulnerable;
+        set => isInvulnerable = value;
+    }
     
+    protected override bool IsDebugEnabled => true;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        if (PlayerController.instance != null) Debug.LogError("Only 1 PlayerController allow to exist");
+        PlayerController.instance = this;
+    }
+
     private void OnTriggerEnter2D(Collider2D collide)
     {
         if (collide.CompareTag("Trap") || collide.CompareTag("Holder"))

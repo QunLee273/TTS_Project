@@ -14,6 +14,8 @@ public class EnemyMove : ObjMovement
     [SerializeField] protected float detectionDistance = 5f;
     [SerializeField] protected float walkStopRate = 0.1f;
     
+    [SerializeField] protected Transform player;
+    
     public enum MoveableDirection
     {
         Right,
@@ -83,16 +85,39 @@ public class EnemyMove : ObjMovement
             MoveDirection = (_moveDirection == MoveableDirection.Right) ? MoveableDirection.Left : MoveableDirection.Right;
     }
 
+    private bool CanSeePlayer()
+    {
+        RaycastHit2D playerHit = Physics2D.Raycast(transform.position, _directionVector2, detectionDistance, detectionLayer);
+        Debug.DrawRay(transform.position, _directionVector2 * detectionDistance, Color.blue);
+
+        if (playerHit.collider == null) return false;
+
+        Vector2 directionToPlayer = playerHit.collider.transform.position - transform.position;
+        float distanceToPlayer = directionToPlayer.magnitude;
+        
+        RaycastHit2D wallHit = Physics2D.Raycast(transform.position, directionToPlayer.normalized, distanceToPlayer, groundLayer);
+        Debug.DrawRay(transform.position, directionToPlayer.normalized * distanceToPlayer, Color.yellow);
+
+        return wallHit.collider == null; 
+    }
+    
     protected virtual void EnemysMove()
     {
         if (_directionVector2 == Vector2.right) transform.parent.localScale = new Vector3(1, 1, 1);
         else if (_directionVector2 == Vector2.left) transform.parent.localScale = new Vector3(-1, 1, 1);
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, _directionVector2, detectionDistance, detectionLayer);
-        Debug.DrawRay(transform.position, _directionVector2 * detectionDistance, Color.blue);
-        
-        float speed = (hit.collider) ? moveDetection : moveSpeed;
-        
+        float speed = moveSpeed;
+
+        if (CanSeePlayer() && enemyAttack.CanMove)
+        {
+            speed = moveDetection;
+            _directionVector2 = (player.position.x > transform.position.x) ? Vector2.right : Vector2.left;
+        }
+        else
+        {
+            speed = moveSpeed;
+        }
+
         if (enemyAttack.CanMove)
             rb.linearVelocity = new Vector2(speed * _directionVector2.x, rb.linearVelocity.y);
         else

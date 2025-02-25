@@ -15,3 +15,6 @@ MonoBehaviour:
   objName: Enemy_2
   objType: 2
   life: 1
+  dropList:
+  - itemSo: {fileID: 11400000, guid: fdbf208745841d64ca9b1013af8f087d, type: 2}
+    dropRate: 70

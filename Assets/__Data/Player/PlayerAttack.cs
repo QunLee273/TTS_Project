@@ -14,15 +14,6 @@ public class PlayerAttack : AbilityAttack
         if (!animator.GetBool(AnimString.isAlive)) return;
 
         if (attackTimer < attackCooldown) attackTimer += Time.deltaTime;
-        
-        if (!isAttacking && attackTimer >= attackCooldown)
-        {
-            if (Input.GetKeyDown(KeyCode.S))
-            {
-                Attack();
-                isAttacking = false;
-            }
-        }
     }
     
     private void Attack()
@@ -64,6 +55,14 @@ public class PlayerAttack : AbilityAttack
             EnemyCtrl enemyCtrl = enemy.GetComponentInChildren<EnemyCtrl>();
             if (enemyCtrl != null)
                 enemyCtrl.DamageReceiver.Deduct(enemyCtrl.DamageReceiver.Lifes);
+            
+            BreakablesCtrl breakablesCtrl = enemy.GetComponentInChildren<BreakablesCtrl>();
+            if (breakablesCtrl != null)
+                breakablesCtrl.DamageReceiver.Deduct(breakablesCtrl.DamageReceiver.Lifes);
+            
+            BossCtrl bossCtrl = enemy.GetComponentInChildren<BossCtrl>();
+            if (bossCtrl != null)
+                bossCtrl.DamageReceiver.Deduct(5);
         }
     }
     
@@ -79,9 +78,10 @@ public class PlayerAttack : AbilityAttack
         ObjFly objFly = newBullet.GetComponentInChildren<BulletFly>();
         if (bulletCtrl != null)
         {
-            bulletCtrl.SetShooter(transform.parent);
+            bulletCtrl.SetShooter(transform.parent.parent);
+            Debug.Log(bulletCtrl.Shooter.name);
             
-            float shooterDirection = bulletCtrl.Shooter.parent.localScale.x;
+            float shooterDirection = bulletCtrl.Shooter.localScale.x;
             objFly.direction = (shooterDirection >= 0) ? Vector3.right : Vector3.left;
         }
             

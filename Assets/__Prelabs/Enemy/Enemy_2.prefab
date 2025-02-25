@@ -444,6 +444,7 @@ MonoBehaviour:
   detectionWall: 0.5
   detectionDistance: 7
   walkStopRate: 0.1
+  player: {fileID: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -494,7 +495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9db213c6e78c68448100e8285f17d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  capsuleCollider: {fileID: 7997762957293731440}
+  colli2d: {fileID: 7997762957293731440}
   objController: {fileID: 2423753693044603052}
   lifes: 0
   isDead: 0

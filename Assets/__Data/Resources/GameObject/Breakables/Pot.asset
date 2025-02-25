@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9750fcbe069f46a4abab00a56cce2efa, type: 3}
+  m_Name: Pot
+  m_EditorClassIdentifier: 
+  objName: Pot
+  objType: 4
+  life: 1
+  dropList:
+  - itemSo: {fileID: 11400000, guid: fdbf208745841d64ca9b1013af8f087d, type: 2}
+    dropRate: 10
+  - itemSo: {fileID: 11400000, guid: 2a3388f86b21cad42aa5edfb7ecd6db6, type: 2}
+    dropRate: 90

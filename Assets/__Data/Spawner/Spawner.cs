@@ -16,8 +16,8 @@ public abstract class Spawner : GameBehaviour
 
     protected override void LoadComponents()
     {
-        this.LoadPrefabs();
-        this.LoadHolder();
+        LoadPrefabs();
+        LoadHolder();
     }
 
     protected virtual void LoadHolder()

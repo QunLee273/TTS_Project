@@ -6,6 +6,9 @@ public enum ItemCode
     NoItem = 0,
 
     Coin = 1,
+    BagCoin = 2,
+    Life = 3,
+    Shield = 4,
 }
 
 public class ItemCodeParser

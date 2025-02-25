@@ -55,7 +55,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -69,7 +69,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -131,37 +131,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ham1_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 307
-        width: 932
-        height: 717
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 70bf68e1bec7afae0800000000000000
-      internalID: -1514760975385429241
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: ham1_1
       rect:
         serializedVersion: 2
-        x: 5
-        y: 0
-        width: 658
-        height: 307
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 16
+        y: 303
+        width: 119
+        height: 201
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -178,12 +156,12 @@ TextureImporter:
       name: ham1_2
       rect:
         serializedVersion: 2
-        x: 15
-        y: 302
-        width: 120
-        height: 203
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 141
+        y: 303
+        width: 119
+        height: 201
+      alignment: 9
+      pivot: {x: 0.45, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -200,12 +178,12 @@ TextureImporter:
       name: ham1_3
       rect:
         serializedVersion: 2
-        x: 140
-        y: 302
-        width: 121
-        height: 203
+        x: 270
+        y: 303
+        width: 119
+        height: 201
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -219,59 +197,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ham1_4
-      rect:
-        serializedVersion: 2
-        x: 282
-        y: 302
-        width: 107
-        height: 203
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 111ca428f0f89a4d0800000000000000
-      internalID: -3122807569831509743
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ham1_5
-      rect:
-        serializedVersion: 2
-        x: 694
-        y: 0
-        width: 268
-        height: 296
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 358bc3aa6f79368b0800000000000000
-      internalID: -5160113662362601389
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: ham1_6
       rect:
         serializedVersion: 2
-        x: 751
-        y: 291
-        width: 6
-        height: 6
+        x: 752
+        y: 292
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -288,7 +222,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e62b7bb946a12ea45bc9d07fe9641642
     internalID: 0
     vertices: []
     indices: 
