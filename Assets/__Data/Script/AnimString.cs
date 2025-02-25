@@ -16,5 +16,6 @@ namespace __Data.Script
         internal static string atkLazer = "atkLazer";
         internal static string shield = "shield";
         internal static string healing = "healing";
+        internal static string atkMeteor = "atkMeteor";
     }
 }

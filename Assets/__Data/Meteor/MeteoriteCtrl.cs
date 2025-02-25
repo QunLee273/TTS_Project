@@ -13,8 +13,22 @@ public class MeteoriteCtrl : GameBehaviour
             
                 playerController.TakeDamage();
             }
-            
+            CreateImpactFX();
             Destroy(gameObject);
         }
+    }
+    
+    protected virtual void CreateImpactFX()
+    {
+        string fxName = GetImpactFX();
+
+        Vector3 hitPos = transform.position;
+        Transform fxImpact = FXSpawner.Instance.Spawn(fxName, hitPos, Quaternion.identity);
+        fxImpact.gameObject.SetActive(true);
+    }
+
+    protected virtual string GetImpactFX()
+    {
+        return FXSpawner.meteorFire_1;
     }
 }

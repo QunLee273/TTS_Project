@@ -1,17 +1,16 @@
 using System.Collections;
-using __Data;
 using __Data.Script;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class BossHealing : GameBehaviour
+public class BossHealing : AbilityAbstract
 {
-    [SerializeField] protected Animator animator;
-    [SerializeField] protected GameObject healing;
+    [Header("Boss Healing")]
+    [SerializeField] protected GameObject healingEfx;
     [SerializeField] protected float timeHealing = 10f;
     [SerializeField] protected int healingValue = 5;
     
-    [SerializeField] protected float thresholdHp = 0.5f;
+    [SerializeField] protected float thresholdHp = 0.7f;
     [SerializeField] protected float currentHp;
     [SerializeField] protected float maxHp;
 
@@ -19,7 +18,6 @@ public class BossHealing : GameBehaviour
     {
         base.LoadComponents();
         LoadHealing();
-        LoadAnimation();
     }
 
     protected override void Start()
@@ -38,28 +36,21 @@ public class BossHealing : GameBehaviour
             animator.SetBool(AnimString.healing, true);
             animator.SetBool(AnimString.canMove, false);
             
-            thresholdHp -= 0.25f;
+            thresholdHp -= 0.3f;
         }
     }
     
     private void LoadHealing()
     {
-        if(healing != null) return;
-        healing = GameObject.Find("HealingEffect");
-        healing.SetActive(false);
+        if(healingEfx != null) return;
+        healingEfx = GameObject.Find("HealingEffect");
+        healingEfx.SetActive(false);
         Debug.LogWarning(transform.name + ": LoadHealing", gameObject);
-    }
-    
-    private void LoadAnimation()
-    {
-        if(animator != null) return;
-        animator = transform.parent.parent.GetComponent<Animator>();
-        Debug.LogWarning(transform.name + ": LoadAnimation", gameObject);
     }
 
     public void UseHealing()
     {
-        healing.SetActive(true);
+        healingEfx.SetActive(true);
         StartCoroutine(HealOverTime());
     }
 
@@ -74,6 +65,6 @@ public class BossHealing : GameBehaviour
         animator.SetBool(AnimString.spells, false);
         animator.SetBool(AnimString.healing, false);
         animator.SetBool(AnimString.canMove, true);
-        healing.SetActive(false);
+        healingEfx.SetActive(false);
     }
 }

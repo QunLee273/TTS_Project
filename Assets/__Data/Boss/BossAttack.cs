@@ -1,3 +1,4 @@
+using System;
 using __Data.Script;
 using UnityEngine;
 
@@ -5,20 +6,24 @@ public class BossAttack : AbilityAttack
 {
     [Header("Boss Attack")]
     [SerializeField] protected float attackMelee = 2f;
-    [SerializeField] protected float attackRanged = 5f;
-    [SerializeField] protected float attackDelay = 1f;
+    [SerializeField] protected float attackRanged = 9f;
+    [SerializeField] protected int countRanged = 5;
+    [SerializeField] protected float recoveryBullet = 7.5f;
+    [SerializeField] protected float attackDelay = 2.5f;
     [SerializeField] protected float attackTimer = 0f;
     
     [SerializeField] protected Transform target;
     [SerializeField] protected Transform spawnPoint;
+    
     [SerializeField] protected bool isAttacking = false;
-
-    public bool IsLive => animator.GetBool(AnimString.isAlive);
-
+    private float _timer;
+    private int _count;
+    
     protected override void LoadComponents()
     {
         base.LoadComponents();
         LoadTarget();
+        _count = countRanged;
     }
 
     private void LoadTarget()
@@ -28,9 +33,19 @@ public class BossAttack : AbilityAttack
         Debug.LogWarning(transform.name + ": LoadTarget", gameObject);
     }
 
+    protected void FixedUpdate()
+    {
+        if (_count < countRanged) _timer += Time.deltaTime;
+        if (_timer >= recoveryBullet)
+        {
+            _count++;
+            _timer = 0;
+        }
+    }
+
     protected void Update()
     {
-        if (!IsLive) return;
+        if (!animator.GetBool(AnimString.isAlive)) return;
         if (attackTimer < attackDelay) attackTimer += Time.deltaTime;
         if (!isAttacking && attackTimer >= attackDelay)
         {
@@ -51,10 +66,11 @@ public class BossAttack : AbilityAttack
             animator.SetTrigger(AnimString.atkMeleeTrigger);
             animator.Play("Boss_Melee");
         }
-        else if (direction <= attackRanged)
+        else if (direction <= attackRanged && _count > 0)
         {
             animator.SetTrigger(AnimString.atkRangedTrigger);
             animator.Play("Boss_Ranged");
+            _count--;
         }
         
     }

@@ -9,6 +9,8 @@ public class BossAbility : ObjAbility
     public BossShield BossShield => bossShield;
     [SerializeField] protected BossHealing bossHealing;
     public BossHealing BossHealing => bossHealing;
+    [SerializeField] protected BossMeteor bossMeteor;
+    public BossMeteor BossMeteor => bossMeteor;
 
     protected override void LoadComponents()
     {
@@ -16,6 +18,7 @@ public class BossAbility : ObjAbility
         LoadAbilityLazer();
         LoadBossShield();
         LoadBossHealing();
+        LoadBossBossMeteor();
     }
 
     private void LoadAbilityLazer()
@@ -37,5 +40,12 @@ public class BossAbility : ObjAbility
         if (bossHealing != null) return;
         bossHealing = transform.parent.GetComponentInChildren<BossHealing>();
         Debug.LogWarning(transform.name + ": LoadBossHealing", gameObject);
+    }
+    
+    private void LoadBossBossMeteor()
+    {
+        if (bossMeteor != null) return;
+        bossMeteor = transform.parent.GetComponentInChildren<BossMeteor>();
+        Debug.LogWarning(transform.name + ": LoadBossBossMeteor", gameObject);
     }
 }

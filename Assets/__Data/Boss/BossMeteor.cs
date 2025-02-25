@@ -1,24 +1,40 @@
 using System;
 using System.Collections;
 using __Data;
+using __Data.Script;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class BossMeteor : GameBehaviour
+public class BossMeteor : AbilityAbstract
 {
-    public GameObject meteorPrefab;
-    public Transform spawnArea;
-    public float spawnHeight = 15f;
-    public float spawnRate = 0.5f;
-    public int meteorCount = 15;
-    public float minSpeed = 5f;
-    public float maxSpeed = 10f;
+    [Header("Boss Meteor")]
+    [SerializeField] protected GameObject meteorPrefab;
+    [SerializeField] protected Transform spawnArea;
+    [SerializeField] protected float spawnHeight = 15f;
+    [SerializeField] protected float spawnRate = 0.3f;
+    [SerializeField] protected int meteorCount = 25;
+    [SerializeField] protected float minSpeed = 2f;
+    [SerializeField] protected float maxSpeed = 7f;
+    
+    [SerializeField] protected float thresholdHp = 0.5f;
+    [SerializeField] protected float currentHp;
+    [SerializeField] protected float maxHp;
 
     public float timer = 0;
-    public float delay = 10f;
+    public float delay = 25f;
+    
+    protected override void Start()
+    {
+        base.Start();
+        maxHp = BossReceiver.Instance.Lifes;
+        timer = delay;
+    }
 
     private void Update()
     {
+        currentHp = BossReceiver.Instance.Lifes;
+        float hpPercent = currentHp / maxHp;
+        if (hpPercent > thresholdHp) return;
         if (timer < delay)
         {
             timer += Time.deltaTime;
@@ -27,12 +43,17 @@ public class BossMeteor : GameBehaviour
         if (timer >= delay)
         {
             timer = 0;
-            StartMeteorRain();
+            animator.SetBool(AnimString.spells, true);
+            animator.SetBool(AnimString.canMove, false);
+            animator.SetBool(AnimString.atkMeteor, true);
         }
     }
 
     public void StartMeteorRain()
     {
+        animator.SetBool(AnimString.spells, false);
+        animator.SetBool(AnimString.canMove, true);
+        animator.SetBool(AnimString.atkMeteor, false);
         StartCoroutine(SpawnMeteors());
     }
 
@@ -47,7 +68,7 @@ public class BossMeteor : GameBehaviour
 
     private void SpawnMeteor()
     {
-        float offsetX = Random.Range(-30f, 30f);
+        float offsetX = Random.Range(-20f, 20f);
         Vector2 spawnPos = new Vector2(spawnArea.position.x + offsetX, spawnHeight);
 
         GameObject meteor = Instantiate(meteorPrefab, spawnPos, Quaternion.identity);

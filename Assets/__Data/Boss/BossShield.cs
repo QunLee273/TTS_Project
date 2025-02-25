@@ -4,13 +4,13 @@ using __Data;
 using __Data.Script;
 using UnityEngine;
 
-public class BossShield : GameBehaviour
+public class BossShield : AbilityAbstract
 {
-    [SerializeField] protected Animator animator;
+    [Header("Boss Shield")]
     [SerializeField] protected GameObject shield;
     [SerializeField] protected float timeShield = 10f;
     
-    [SerializeField] protected float thresholdHp = 0.8f;
+    [SerializeField] protected float thresholdHp = 0.75f;
     [SerializeField] protected float currentHp;
     [SerializeField] protected float maxHp;
 
@@ -18,7 +18,6 @@ public class BossShield : GameBehaviour
     {
         base.LoadComponents();
         LoadShield();
-        LoadAnimation();
     }
 
     protected override void Start()
@@ -36,7 +35,7 @@ public class BossShield : GameBehaviour
             animator.SetBool(AnimString.spells, true);
             animator.SetBool(AnimString.shield, true);
             animator.SetBool(AnimString.canMove, false);
-            thresholdHp -= 0.2f;
+            thresholdHp -= 0.25f;
         }
     }
     
@@ -46,13 +45,6 @@ public class BossShield : GameBehaviour
         shield = GameObject.Find("ShieldEffect");
         shield.SetActive(false);
         Debug.LogWarning(transform.name + ": LoadShield", gameObject);
-    }
-    
-    private void LoadAnimation()
-    {
-        if(animator != null) return;
-        animator = transform.parent.parent.GetComponent<Animator>();
-        Debug.LogWarning(transform.name + ": LoadAnimation", gameObject);
     }
 
     public void UseShield()

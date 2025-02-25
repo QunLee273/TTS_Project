@@ -14,22 +14,24 @@ public class BossLazer : AbilityLazer
     public Transform FirePoint => firePoint;
     
     [SerializeField] protected float laserDistance = 50f;
-    [SerializeField] protected float laserSpeed = 50f;
+
+    [SerializeField] protected float sparkSpeed = 0.5f; 
 
     private Vector2 _targetEndPoint;
-
     public Vector2 TargetEndPoint
     {
         get => _targetEndPoint;
         set => _targetEndPoint = value;
     }
+    
     private Vector2 _currentEndPoint;
-
     public Vector2 CurrentEndPoint
     {
         get => _currentEndPoint;
         set => _currentEndPoint = value;
     }
+    
+    private float _sparkProgress = 0f;
 
     protected override void Start()
     {
@@ -44,8 +46,25 @@ public class BossLazer : AbilityLazer
         spark.localScale = direction == Vector2.right ? new Vector3(1, 1, 1) : new Vector3(-1, 1, 1);
 
         CheckCollider(direction);
-        MoveLaser();
+
+        _currentEndPoint = _targetEndPoint;
         UpdateLineRenderer();
+
+        _sparkProgress += sparkSpeed * Time.deltaTime;
+        if (_sparkProgress > 1f)
+            _sparkProgress = 0f; 
+        
+        spark.position = Vector2.Lerp(firePoint.position, _targetEndPoint, _sparkProgress);
+
+        if (_sparkProgress >= 0.99f)
+        {
+            remnants.transform.position = _targetEndPoint;
+            remnants.gameObject.SetActive(true);
+        }
+        else
+        {
+            remnants.gameObject.SetActive(false);
+        }
     }
 
     private void CheckCollider(Vector2 direction)
@@ -63,21 +82,6 @@ public class BossLazer : AbilityLazer
             {
                 player.TakeDamage();
             }
-        }
-    }
-
-    private void MoveLaser()
-    {
-        _currentEndPoint = Vector2.MoveTowards(_currentEndPoint, _targetEndPoint, laserSpeed * Time.deltaTime);
-
-        if (Vector2.Distance(_currentEndPoint, _targetEndPoint) < 0.1f)
-        {
-            remnants.transform.position = _currentEndPoint;
-            remnants.gameObject.SetActive(true);
-        }
-        else
-        {
-            remnants.gameObject.SetActive(false);
         }
     }
 

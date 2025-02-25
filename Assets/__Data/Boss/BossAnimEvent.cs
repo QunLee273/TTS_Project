@@ -62,4 +62,9 @@ public class BossAnimEvent : GameBehaviour
     {
         bossAbility.BossHealing.UseHealing();
     }
+    
+    public void BossMeteor()
+    {
+        bossAbility.BossMeteor.StartMeteorRain();
+    }
 }

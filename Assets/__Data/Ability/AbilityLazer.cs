@@ -7,16 +7,6 @@ public class AbilityLazer : AbilityAbstract
     [SerializeField] protected BossLazer bossLazer;
     [SerializeField] protected float timerCoolDown = 10f;
     [SerializeField] protected float timer;
-    [SerializeField] protected bool spells;
-    public bool Spells 
-    { 
-        get => spells;
-        set
-        {
-            spells = value; 
-            animator.SetBool(AnimString.spells, value);
-        } 
-    }
 
     protected override void LoadComponents()
     {
@@ -29,7 +19,7 @@ public class AbilityLazer : AbilityAbstract
         if (timer < timerCoolDown) timer += Time.deltaTime;
         else
         {
-            Spells = true;
+            animator.SetBool(AnimString.spells, true);
             animator.SetBool(AnimString.atkLazer, true);
             animator.SetBool(AnimString.canMove, false);
         }
@@ -55,7 +45,7 @@ public class AbilityLazer : AbilityAbstract
         bossLazer.CurrentEndPoint = bossLazer.FirePoint.position;
         bossLazer.gameObject.SetActive(false);
         timer = 0f;
-        Spells = false;
+        animator.SetBool(AnimString.spells, false);
         animator.SetBool(AnimString.atkLazer, false);
         animator.SetBool(AnimString.canMove, true);
     }
