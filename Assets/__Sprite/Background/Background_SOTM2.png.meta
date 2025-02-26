@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ea86e7276a06381498a163a45dcd81fa
+guid: 7809361a844b17942884d51200592e03
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4456225766891094810
-    second: Healing_0
+      213: 8701070020591225302
+    second: Background_SOTM2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Healing_0
+      name: Background_SOTM2_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 4
-        width: 24
-        height: 24
+        x: 0
+        y: 0
+        width: 1792
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6ec738d664e4822c0800000000000000
-      internalID: -4456225766891094810
+      spriteID: 6d9042f551960c870800000000000000
+      internalID: 8701070020591225302
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Healing_0: -4456225766891094810
+      Background_SOTM2_0: 8701070020591225302
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

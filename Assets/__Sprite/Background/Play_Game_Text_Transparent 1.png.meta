@@ -1,16 +1,91 @@
 fileFormatVersion: 2
-guid: ea86e7276a06381498a163a45dcd81fa
+guid: 39cde44e31730c24797c0c374dbb5b4e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4456225766891094810
-    second: Healing_0
+      213: 1508004921349049844
+    second: Play_Game_Text_Transparent 1_0
+  - first:
+      213: 6177060396232752132
+    second: Play_Game_Text_Transparent 1_1
+  - first:
+      213: 5582304734342026759
+    second: Play_Game_Text_Transparent 1_2
+  - first:
+      213: 1308667540362282726
+    second: Play_Game_Text_Transparent 1_3
+  - first:
+      213: -6314890363658094265
+    second: Play_Game_Text_Transparent 1_4
+  - first:
+      213: 6373408809280261322
+    second: Play_Game_Text_Transparent 1_5
+  - first:
+      213: 3935508423488915195
+    second: Play_Game_Text_Transparent 1_6
+  - first:
+      213: -5095189666745557532
+    second: Play_Game_Text_Transparent 1_7
+  - first:
+      213: -6407875324792489433
+    second: Play_Game_Text_Transparent 1_8
+  - first:
+      213: -1453509345237781855
+    second: Play_Game_Text_Transparent 1_9
+  - first:
+      213: -3901395081511090352
+    second: Play_Game_Text_Transparent 1_10
+  - first:
+      213: 2707319638395695455
+    second: Play_Game_Text_Transparent 1_11
+  - first:
+      213: 6522861694933771841
+    second: Play_Game_Text_Transparent 1_12
+  - first:
+      213: -287623650114210123
+    second: Play_Game_Text_Transparent 1_13
+  - first:
+      213: 6666693753929056289
+    second: Play_Game_Text_Transparent 1_14
+  - first:
+      213: -1334978046082644859
+    second: Play_Game_Text_Transparent 1_15
+  - first:
+      213: 9212384972601906947
+    second: Play_Game_Text_Transparent 1_16
+  - first:
+      213: -8659008454021547463
+    second: Play_Game_Text_Transparent 1_17
+  - first:
+      213: 5059782726542024734
+    second: Play_Game_Text_Transparent 1_18
+  - first:
+      213: -3598436443445306698
+    second: Play_Game_Text_Transparent 1_19
+  - first:
+      213: 8537861446639240828
+    second: Play_Game_Text_Transparent 1_20
+  - first:
+      213: 5369804011450308519
+    second: Play_Game_Text_Transparent 1_21
+  - first:
+      213: -255896860183208753
+    second: Play_Game_Text_Transparent 1_22
+  - first:
+      213: -7993661886549060215
+    second: Play_Game_Text_Transparent 1_23
+  - first:
+      213: 4055589169236820273
+    second: Play_Game_Text_Transparent 1_24
+  - first:
+      213: -8979065767482282063
+    second: Play_Game_Text_Transparent 1_25
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
-    sRGBTexture: 1
+    sRGBTexture: 0
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
@@ -37,7 +112,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,13 +188,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Healing_0
+      name: Play_Game_Text_Transparent 1_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 4
-        width: 24
-        height: 24
+        x: 0
+        y: 110
+        width: 500
+        height: 293
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6ec738d664e4822c0800000000000000
-      internalID: -4456225766891094810
+      spriteID: 4fd0d887c728de410800000000000000
+      internalID: 1508004921349049844
       vertices: []
       indices: 
       edges: []
@@ -138,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 44ab9041b93609c4ea003fac13e7fc1f
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +223,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Healing_0: -4456225766891094810
+      Play_Game_Text_Transparent 1_0: 1508004921349049844
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

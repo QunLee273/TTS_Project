@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ea86e7276a06381498a163a45dcd81fa
+guid: 75b282b43a3b51b41a970fa5566d1bf2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4456225766891094810
-    second: Healing_0
+      213: -9040402972577744490
+    second: Shop&Update_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Healing_0
+      name: Shop&Update_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 4
-        width: 24
-        height: 24
+        x: 408
+        y: 256
+        width: 809
+        height: 569
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6ec738d664e4822c0800000000000000
-      internalID: -4456225766891094810
+      spriteID: 6993e1105690a8280800000000000000
+      internalID: -9040402972577744490
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Healing_0: -4456225766891094810
+      Shop&Update_0: -9040402972577744490
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
