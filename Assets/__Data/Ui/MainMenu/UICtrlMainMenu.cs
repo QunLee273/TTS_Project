@@ -1,10 +1,10 @@
 using __Data;
 using UnityEngine;
 
-public class UICtrl : GameBehaviour
+public class UICtrlMainMenu : GameBehaviour
 {
-    private static UICtrl _instance;
-    public static UICtrl Instance => _instance;
+    private static UICtrlMainMenu _instance;
+    public static UICtrlMainMenu Instance => _instance;
     
     [SerializeField] protected GameObject mainMenu;
     public GameObject MainMenu => mainMenu;
@@ -18,8 +18,8 @@ public class UICtrl : GameBehaviour
     protected override void Awake()
     {
         base.Awake();
-        if (UICtrl._instance != null) Debug.LogError("Only 1 UICtrl allow to exist");
-        UICtrl._instance = this;
+        if (UICtrlMainMenu._instance != null) Debug.LogError("Only 1 UICtrl allow to exist");
+        UICtrlMainMenu._instance = this;
     }
 
     protected override void LoadComponents()

@@ -26,7 +26,7 @@ public class StartGame : GameBehaviour
 
     public void OnClick_StartGame()
     {
-        UICtrl.Instance.SelectLevel.SetActive(true);
-        UICtrl.Instance.MainMenu.SetActive(false);
+        UICtrlMainMenu.Instance.SelectLevel.SetActive(true);
+        UICtrlMainMenu.Instance.MainMenu.SetActive(false);
     }
 }

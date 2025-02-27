@@ -26,7 +26,7 @@ public class SelectLevel : GameBehaviour
 
     public void OnClick_Setting()
     {
-        UICtrl.Instance.Settings.SetActive(true);
-        UICtrl.Instance.SelectLevel.SetActive(false);
+        UICtrlMainMenu.Instance.Settings.SetActive(true);
+        UICtrlMainMenu.Instance.SelectLevel.SetActive(false);
     }
 }

@@ -1,4 +1,5 @@
 using __Data;
+using __Data.Script;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -53,7 +54,7 @@ public class MapSelect : GameBehaviour
     {
         levelButtons = contentPanel.GetComponentsInChildren<Button>();
 
-        int unlockedLevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
+        int unlockedLevel = PlayerPrefs.GetInt(PlayerPrefsString.UnlockedLevel, 1);
 
         for (int i = 0; i < levelButtons.Length; i++)
         {

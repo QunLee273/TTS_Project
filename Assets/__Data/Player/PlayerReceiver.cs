@@ -44,7 +44,8 @@ public class PlayerReceiver : DamageReceiver
 
     protected override void OnDead()
     {
-        Debug.Log("Player Dead");
+        Time.timeScale = 0;
+        UICenter.Instance.YouDead.SetActive(true);
     }
 
     protected void CheckLife()

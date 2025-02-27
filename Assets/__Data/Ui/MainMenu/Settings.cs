@@ -55,7 +55,7 @@ public class Settings : GameBehaviour
 
     private void OnClickBack()
     {
-        UICtrl.Instance.SelectLevel.gameObject.SetActive(true);
-        UICtrl.Instance.Settings.gameObject.SetActive(false);
+        UICtrlMainMenu.Instance.SelectLevel.gameObject.SetActive(true);
+        UICtrlMainMenu.Instance.Settings.gameObject.SetActive(false);
     }
 }
