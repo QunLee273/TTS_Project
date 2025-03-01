@@ -1,14 +1,12 @@
 using __Data.Script;
 using UnityEngine;
 using System.Collections;
-using UnityEngine.Serialization;
-using UnityEngine.tvOS;
 
 public class PlayerController : ObjController
 {
     [Header("Player Controller")]
-    private static PlayerController instance;
-    public static PlayerController Instance => instance;
+    private static PlayerController _instance;
+    public static PlayerController Instance => _instance;
     [SerializeField] protected Transform respawnPoint;
     [SerializeField] protected bool isAlive = true; 
     public bool IsAlive
@@ -36,8 +34,8 @@ public class PlayerController : ObjController
     protected override void Awake()
     {
         base.Awake();
-        if (PlayerController.instance != null) Debug.LogError("Only 1 PlayerController allow to exist");
-        PlayerController.instance = this;
+        if (PlayerController._instance != null) Debug.LogError("Only 1 PlayerController allow to exist");
+        PlayerController._instance = this;
     }
 
     private void OnTriggerEnter2D(Collider2D collide)

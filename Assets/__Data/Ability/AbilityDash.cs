@@ -30,14 +30,6 @@ public class AbilityDash : AbilityAttack
         _originalGravity = rb.gravityScale;
     }
 
-    protected void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && Time.time > _lastDashTime + dashCooldown && !_isDashing)
-            StartDash();
-        if (_isDashing)
-            ContinueDash();
-    }
-
     private void LoadSpriteRenderer()
     {
         if (dashRenderer != null) return;

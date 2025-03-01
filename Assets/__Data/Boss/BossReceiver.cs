@@ -1,6 +1,7 @@
 using __Data.Script;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossReceiver : DamageReceiver
 {
@@ -35,6 +36,6 @@ public class BossReceiver : DamageReceiver
     
     protected override void OnDead()
     {
-        Debug.Log("Boss OnDead");
+        SceneManager.LoadScene(0);
     }
 }

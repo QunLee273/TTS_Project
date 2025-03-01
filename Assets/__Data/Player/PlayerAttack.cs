@@ -63,6 +63,13 @@ public class PlayerAttack : AbilityAttack
             BossCtrl bossCtrl = enemy.GetComponentInChildren<BossCtrl>();
             if (bossCtrl != null)
                 bossCtrl.DamageReceiver.Deduct(5);
+            
+            TargetDummy targetDummy = enemy.GetComponent<TargetDummy>();
+            if (targetDummy != null)
+            {
+                targetDummy.Animator.SetBool(AnimString.hit, true);
+                targetDummy.CreateImpactFX();
+            }
         }
     }
     
