@@ -15468,6 +15468,7 @@ MonoBehaviour:
   objAbility: {fileID: 1922399564}
   respawnPoint: {fileID: 1951856220}
   isAlive: 1
+  damageCooldown: 1
   isInvulnerable: 0
 --- !u!70 &129862710
 CapsuleCollider2D:
@@ -22637,6 +22638,7 @@ MonoBehaviour:
   objController: {fileID: 129862709}
   lifes: 0
   isDead: 0
+  playerController: {fileID: 129862709}
 --- !u!1 &1318396385
 GameObject:
   m_ObjectHideFlags: 0

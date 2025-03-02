@@ -16,13 +16,10 @@ public class PlayerController : ObjController
         {
             isAlive = value;
             ObjMovement.Animator.SetBool(AnimString.isAlive, isAlive);
-            ObjMovement.Animator.SetBool(AnimString.canMove, isAlive);
         }
     }
     
-    [SerializeField] protected float damageCooldown = 1f; 
     [SerializeField] protected bool isInvulnerable = false;
-
     public bool IsInvulnerable
     {
         get => isInvulnerable;
@@ -66,27 +63,17 @@ public class PlayerController : ObjController
         if (isInvulnerable) return;
         
         DamageReceiver.Deduct(1);
-        
-        IsAlive = false;
-    
-        if (DamageReceiver.Lifes > 0)
-            Invoke(nameof(Respawn), 2f);
-        
-        StartCoroutine(DamageCooldownCoroutine());
-    }
-
-    public IEnumerator DamageCooldownCoroutine()
-    {
         isInvulnerable = true;
-        yield return new WaitForSeconds(damageCooldown);
-        isInvulnerable = false;
+        IsAlive = false;
     }
 
     public void Respawn()
     {
+        if (DamageReceiver.Lifes < 0) return;
         IsAlive = true;
         transform.position = respawnPoint.position; 
-        ObjMovement.Animator.Play("Player_Idle"); 
+        ObjMovement.Animator.Play("Player_Idle");
+        isInvulnerable = false;
     }
 
     protected override string GetObjectTypeString()
