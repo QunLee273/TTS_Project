@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1189916676192873045}
   - component: {fileID: 6173487833897484407}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: DamageReceiver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 6666134642279663649}
   - component: {fileID: 5985961500420572194}
   - component: {fileID: 5585080571022424289}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: Pot
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 3627999880153636766}
   - component: {fileID: 5986764695331994415}
   - component: {fileID: 4860129653598514084}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}

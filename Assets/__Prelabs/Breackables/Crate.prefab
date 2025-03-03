@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4157129297414664919}
   - component: {fileID: 3808007776797284578}
   - component: {fileID: 348396523173579021}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: Crate
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 2359274214918164022}
   - component: {fileID: 4661036539588723883}
   - component: {fileID: 2001011340350764346}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -295,7 +295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1220808266127788047}
   - component: {fileID: 1740177051940206928}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: DamageReceiver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
