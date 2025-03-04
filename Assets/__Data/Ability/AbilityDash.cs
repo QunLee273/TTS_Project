@@ -1,22 +1,21 @@
 using System.Collections;
 using __Data.Script;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class AbilityDash : AbilityAttack
 {
-    [FormerlySerializedAs("dashSpeed")]
     [Header("Ability Dash")]
-    [SerializeField] protected float dashPower = 5f;
-    [SerializeField] protected float dashDuration = 0.2f;
-    [SerializeField] protected float dashCooldown = 1f;
+    [SerializeField] protected float dashPower = 10f;
+    [SerializeField] protected float dashDuration = 1f;
+    [SerializeField] protected float dashCooldownBase = 12f;
+    [SerializeField] protected int dashLevel;
     [SerializeField] protected SpriteRenderer dashRenderer;
-    public SpriteRenderer DashRenderer => dashRenderer;
     
     private bool _isDashing = false;
     private float _lastDashTime;
     private float _originalGravity;
     private Vector3 _dashDirection;
+    private float _dashCooldown;
     
     protected override void LoadComponents()
     {
@@ -28,6 +27,8 @@ public class AbilityDash : AbilityAttack
     {
         base.Start();
         _originalGravity = rb.gravityScale;
+        UpdateDashCooldown();
+        _lastDashTime = -_dashCooldown;
     }
 
     private void LoadSpriteRenderer()
@@ -40,7 +41,7 @@ public class AbilityDash : AbilityAttack
 
     public void OnClickDash()
     {
-        if (Time.time > _lastDashTime + dashCooldown && !_isDashing)
+        if (Time.time > _lastDashTime + _dashCooldown && !_isDashing)
             StartDash();
         if (_isDashing)
             ContinueDash();
@@ -105,5 +106,21 @@ public class AbilityDash : AbilityAttack
             if (bossCtrl != null)
                 bossCtrl.DamageReceiver.Deduct(1);
         }
+    }
+
+    private void UpdateDashCooldown()
+    {
+        dashLevel = PlayerPrefs.GetInt(PlayerPrefsString.SkillLevel_ + 0);
+
+        _dashCooldown = dashCooldownBase;
+
+        for (int i = 0; i <= dashLevel; i++)
+        {
+            if (i is >= 1 and <= 4)
+                _dashCooldown -= 1;
+            else if (i == 5)
+                _dashCooldown -= 2;
+        }
+        
     }
 }

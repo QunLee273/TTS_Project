@@ -31,7 +31,7 @@ public class SpearsTrap : GameBehaviour
                 prefabs.Add(prefab);
             }
         }
-        Debug.LogWarning($"{transform.name}: LoadPrefabs", gameObject);
+        Debug.LogWarning(transform.name + ": LoadPrefabs", gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -46,7 +46,6 @@ public class SpearsTrap : GameBehaviour
 
     private IEnumerator WobbleAndRaiseSpikes()
     {
-        // Tìm spear có vị trí x lớn nhất (xa nhất)
         Transform farthestSpike = prefabs
             .OrderByDescending(s => s.position.x)
             .FirstOrDefault();
@@ -57,7 +56,6 @@ public class SpearsTrap : GameBehaviour
         Vector3 originalPos = farthestSpike.position;
         Vector3 wobblePos = originalPos + Vector3.up * wobbleHeight;
 
-        // Hiệu ứng lắc cho spear xa nhất (3 lần)
         const int wobbleCount = 3;
         for (int i = 0; i < wobbleCount; i++)
         {
@@ -65,18 +63,14 @@ public class SpearsTrap : GameBehaviour
             yield return MoveSpike(farthestSpike, originalPos, 0.2f);
         }
 
-        // Tính targetY dựa vào spear xa nhất sau khi wobble
         float targetY = farthestSpike.position.y + spearHeight;
 
-        // Nâng spear xa nhất (chạy đồng bộ để đảm bảo hoàn thành trước)
         yield return StartCoroutine(RaiseSpear(farthestSpike, targetY));
 
-        // Lấy danh sách các spear theo thứ tự giảm dần của vị trí x (đã sắp xếp)
         List<Transform> sortedSpears = prefabs
             .OrderByDescending(s => s.position.x)
             .ToList();
 
-        // Nâng các spear còn lại về targetY với delay giữa các spear
         foreach (Transform spear in sortedSpears)
         {
             if (spear == farthestSpike) continue;
@@ -85,7 +79,6 @@ public class SpearsTrap : GameBehaviour
         }
     }
 
-    // Coroutine nâng spear cho đến khi đạt targetY cho trước
     private IEnumerator RaiseSpear(Transform spear, float targetY)
     {
         while (spear.position.y < targetY)
@@ -93,13 +86,11 @@ public class SpearsTrap : GameBehaviour
             spear.position += Vector3.up * (riseSpeed * Time.deltaTime);
             yield return null;
         }
-        // Đảm bảo chính xác vị trí cuối cùng
         Vector3 pos = spear.position;
         pos.y = targetY;
         spear.position = pos;
     }
 
-    // Coroutine di chuyển spear từ vị trí hiện tại đến targetPos trong khoảng thời gian duration
     private IEnumerator MoveSpike(Transform spike, Vector3 targetPos, float duration)
     {
         Vector3 startPos = spike.position;

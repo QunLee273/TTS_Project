@@ -1,4 +1,5 @@
 using System.Collections;
+using __Data.Script;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -12,19 +13,28 @@ public class AbilityInvisible : AbilityAbstract
     [SerializeField] protected GameObject objAbility;
     [SerializeField] protected CinemachineCamera vCam;
 
-    [SerializeField] protected float logControlTime = 7f;
-    [SerializeField] protected float cooldownTime = 5f;
+    [SerializeField] protected float logControlTimeBase = 5f;
+    [SerializeField] protected float cooldownTimeBase = 14f;
 
     [SerializeField] protected bool canUseAbility = true;
     [SerializeField] protected bool isInvisible;
 
     public GameObject[] btns;
+    private float _logControlTime;
+    private float _cooldownTime;
+    private int _invisibleLevel;
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
         LoadPlayer();
         LoadObjAbility();
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+        UpdateDisguise();
     }
 
     private void LoadPlayer()
@@ -59,18 +69,18 @@ public class AbilityInvisible : AbilityAbstract
         
         ChangeLog();
 
-        yield return new WaitForSeconds(logControlTime);
+        yield return new WaitForSeconds(_logControlTime);
 
         ChangePlayer();
         
-        yield return new WaitForSeconds(cooldownTime);
+        yield return new WaitForSeconds(_cooldownTime);
         canUseAbility = true;
     }
 
     IEnumerator StarPlayer()
     {
         ChangePlayer();
-        yield return new WaitForSeconds(cooldownTime);
+        yield return new WaitForSeconds(_cooldownTime);
         canUseAbility = true;
     }
 
@@ -99,5 +109,23 @@ public class AbilityInvisible : AbilityAbstract
             btn.GetComponent<Button>().interactable = true;
         
         logInstance.SetActive(false);
+    }
+    
+    private void UpdateDisguise()
+    {
+        _invisibleLevel = PlayerPrefs.GetInt(PlayerPrefsString.SkillLevel_ + 2);
+
+        _logControlTime = logControlTimeBase;
+        _cooldownTime = cooldownTimeBase;
+
+        for (int i = 0; i <= _invisibleLevel; i++)
+        {
+            if (i is 1 or 3)
+                _cooldownTime -= 1;
+            if (i == 5)
+                _cooldownTime -= 2;
+            if (i is 2 or 4)
+                _logControlTime += 2;
+        }
     }
 }

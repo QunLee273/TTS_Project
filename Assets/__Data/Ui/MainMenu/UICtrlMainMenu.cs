@@ -14,6 +14,18 @@ public class UICtrlMainMenu : GameBehaviour
     
     [SerializeField] protected GameObject settings;
     public GameObject Settings => settings;
+    
+    [SerializeField] protected GameObject shopUpdate;
+    public GameObject ShopUpdate => shopUpdate;
+    
+    [SerializeField] protected GameObject updateSkill;
+    public GameObject UpdateSkill => updateSkill;
+
+    [SerializeField] protected GameObject shop;
+    public GameObject Shop => shop;
+    
+    [SerializeField] protected GameObject hensojutsu;
+    public GameObject Hensojutsu => hensojutsu;
 
     protected override void Awake()
     {
@@ -28,6 +40,10 @@ public class UICtrlMainMenu : GameBehaviour
         LoadMainMenu();
         LoadSelectLevel();
         LoadSetting();
+        LoadShopUpdate();
+        LoadUpdateSkill();
+        LoadShop();
+        LoadHensojutsu();
     }
 
     private void LoadMainMenu()
@@ -49,5 +65,33 @@ public class UICtrlMainMenu : GameBehaviour
         if (settings != null) return;
         settings = transform.Find("Setting").gameObject;
         Debug.LogWarning(transform.name + ": LoadSetting", gameObject);
+    }
+
+    private void LoadShopUpdate()
+    {
+        if (shopUpdate != null) return;
+        shopUpdate = transform.Find("Shop&Update").gameObject;
+        Debug.LogWarning(transform.name + ": LoadShopUpdate", gameObject);
+    }
+
+    private void LoadUpdateSkill()
+    {
+        if (updateSkill != null) return;
+        updateSkill = transform.Find("UpdateSkill").gameObject;
+        Debug.LogWarning(transform.name + ": LoadUpdateSkill", gameObject);
+    }
+
+    private void LoadShop()
+    {
+        if (shop != null) return;
+        shop = transform.Find("Shop").gameObject;
+        Debug.LogWarning(transform.name + ": LoadShop", gameObject);
+    }
+
+    private void LoadHensojutsu()
+    {
+        if (hensojutsu != null) return;
+        hensojutsu = transform.Find("Hensojutsu").gameObject;
+        Debug.LogWarning(transform.name + ": LoadHensojutsu", gameObject);
     }
 }

@@ -15,6 +15,9 @@ public class UICenter : GameBehaviour
     
     [SerializeField] protected GameObject youDead;
     public GameObject YouDead => youDead;
+    
+    [SerializeField] protected GameObject getMoreLife;
+    public GameObject GetMoreLife => getMoreLife;
 
     protected override void Awake()
     {
@@ -29,6 +32,7 @@ public class UICenter : GameBehaviour
         LoadPauseMenu();
         LoadComplete();
         LoadYouDead();
+        LoadGetMoreLife();
     }
 
     private void LoadPauseMenu()
@@ -53,5 +57,13 @@ public class UICenter : GameBehaviour
         youDead = GameObject.Find("PlayerDead");
         youDead.SetActive(false);
         Debug.LogWarning(transform.name + ": LoadDead", gameObject);
+    }
+
+    private void LoadGetMoreLife()
+    {
+        if (getMoreLife != null) return;
+        getMoreLife = GameObject.Find("GetMoreLife");
+        getMoreLife.SetActive(false);
+        Debug.LogWarning(transform.name + ": LoadGetMoreLife", gameObject);
     }
 }
