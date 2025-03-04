@@ -20733,6 +20733,115 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4599261779626158878, guid: 05e4d2eb39bdfbd45b6fc4e3fb332cc3, type: 3}
   m_PrefabInstance: {fileID: 859178651}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &888029221
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 888029227}
+  - component: {fileID: 888029226}
+  - component: {fileID: 888029225}
+  - component: {fileID: 888029224}
+  - component: {fileID: 888029223}
+  - component: {fileID: 888029222}
+  m_Layer: 0
+  m_Name: AdsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &888029222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888029221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b29db1ea5a55c874382680572168f446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  androidAdUnityId: Rewarded_Android
+  iosAdUnityId: Rewarded_IOS
+--- !u!114 &888029223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888029221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6934dc512fce345937e5407d3be41f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  androidAdUnityId: Interstitial_Android
+  iosAdUnityId: Interstitial_IOS
+--- !u!114 &888029224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888029221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bd9604aea0d61e498b38125b4636b2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  androidAdUnityId: Banner_Android
+  iosAdUnityId: Banner_IOS
+--- !u!114 &888029225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888029221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f03b1886059f2343852731db3c52783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  androidGameId: 5806979
+  iosGameId: 5806978
+  isTesting: 1
+--- !u!114 &888029226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888029221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 732147864e36e1c44a06360cb1f26ddd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initializeAds: {fileID: 888029225}
+  bannerAds: {fileID: 888029224}
+  interstitialAds: {fileID: 888029223}
+  rewardedAds: {fileID: 888029222}
+--- !u!4 &888029227
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888029221}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &910655549 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4599261779626158878, guid: 05e4d2eb39bdfbd45b6fc4e3fb332cc3, type: 3}
@@ -21524,7 +21633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shield: {fileID: 745629175}
-  timeShield: 10
+  timeShieldBase: 10
   isActive: 0
 --- !u!1 &1050090287
 GameObject:
@@ -29214,3 +29323,4 @@ SceneRoots:
   - {fileID: 2045705207}
   - {fileID: 106045695}
   - {fileID: 296407175}
+  - {fileID: 888029227}
