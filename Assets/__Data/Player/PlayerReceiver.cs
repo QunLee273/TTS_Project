@@ -1,66 +1,45 @@
-using System;
+using System.Collections;
 using __Data.Script;
 using UnityEngine;
 
 public class PlayerReceiver : DamageReceiver
 {
-    [Header("Player Receiver")]
-    [SerializeField] protected PlayerController playerController;
-    public PlayerController PlayerController => playerController;
-    
-    protected float CurrentTime = 0f;
-    protected float TimeRespawn = 2f;
-    private int currentLife;
-
-    protected override void LoadComponents()
+    [Header("Player receiver")]
+    [SerializeField] protected bool hasUsedRevive = false;
+    public bool HasUsedRevive
     {
-        base.LoadComponents();
-        LoadPlayerCtrl();
+        get => hasUsedRevive;
+        set => hasUsedRevive = value;
     }
-
-    protected override void Start()
-    {
-        base.Start();
-        currentLife = lifes;
-    }
-
-    protected void Update()
-    {
-        CheckLife();
-    }
-
-    private void LoadPlayerCtrl()
-    {
-        if (playerController != null) return;
-        playerController = transform.parent.GetComponentInChildren<PlayerController>();
-        Debug.LogWarning(transform.name + "LoadPlayerCtrl", gameObject);
-    }
-
     protected override void Reborn()
     {
         base.Reborn();
-        lifes = objController.GameObjectSo.life;
+        int lifeSo = objController.GameObjectSo.life;
+
+        int survivalLv = PlayerPrefs.GetInt(PlayerPrefsString.SkillLevel_ + 1);
+        for (int i = 0; i <= survivalLv; i++)
+        {
+            if (i is 1 or 3) 
+                lifeSo += 1;
+            if (i == 5) 
+                lifeSo += 2;
+        }
+        
+        lifes = lifeSo;
     }
 
     protected override void OnDead()
     {
-        Debug.Log("Player Dead");
+        if (!hasUsedRevive)
+            UICenter.Instance.GetMoreLife.SetActive(true);
+        else
+            UICenter.Instance.YouDead.SetActive(true);
+        StartCoroutine(PauseGameOnDead());
     }
 
-    protected void CheckLife()
+    private IEnumerator PauseGameOnDead()
     {
-        if (lifes >= currentLife) return;
-        
-        playerController.IsAlive = false;
-
-        if (lifes > 0)
-        {
-            CurrentTime += Time.deltaTime;
-            if (CurrentTime < TimeRespawn) return;
-            playerController.Respawn();
-        }
-        currentLife = lifes;
-        
-        StartCoroutine(playerController.DamageCooldownCoroutine());
-    }
+        yield return new WaitForSeconds(1f);
+        Time.timeScale = 0;
+    } 
 }

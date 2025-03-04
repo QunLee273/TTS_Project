@@ -9,6 +9,11 @@ public abstract class DamageReceiver : GameBehaviour
     [SerializeField] protected ObjController objController;
     [SerializeField] protected int lifes;
     [SerializeField] protected bool isDead;
+    public bool Dead
+    {
+        get => isDead;
+        set => isDead = value;
+    }
 
     public int Lifes
     {

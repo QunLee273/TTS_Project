@@ -33,6 +33,11 @@ public class PlayerAnimEvent : GameBehaviour
         Debug.LogWarning(transform.name + ": LoadAbilityDash", gameObject);
     }
 
+    private void Respawn()
+    {
+        PlayerController.Instance.Respawn();
+    }
+
     public void MeleeDamage()
     {
         playerAttack.StartMelee();

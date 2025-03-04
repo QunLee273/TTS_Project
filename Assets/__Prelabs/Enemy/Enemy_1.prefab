@@ -55,7 +55,6 @@ MonoBehaviour:
   detectionWall: 0.5
   detectionDistance: 7
   walkStopRate: 0.1
-  player: {fileID: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -129,7 +128,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.2743311, y: -0.2172088}
+  m_Offset: {x: -0.031151354, y: -0.2172088}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -139,7 +138,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.662668, y: 1.3372643}
+  m_Size: {x: 1.1763085, y: 1.3372643}
   m_EdgeRadius: 0
 --- !u!114 &7608970634957629354
 MonoBehaviour:
@@ -356,7 +355,7 @@ SpriteRenderer:
   m_SortingLayerID: -17902559
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1882347247711912902, guid: 8470fc6b94b3a0e4cbdd5ee227bd22e4, type: 3}
+  m_Sprite: {fileID: 9008842724097011414, guid: 550db518bdc4d314a8da36396162f708, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -479,8 +478,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.010078505, y: -0.22705555}
-  m_Size: {x: 0.45114896, y: 1.4197376}
+  m_Offset: {x: 0.015078038, y: -0.13062215}
+  m_Size: {x: 0.30020976, y: 1.8306272}
   m_Direction: 0
 --- !u!114 &43430478808409976
 MonoBehaviour:

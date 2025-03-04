@@ -1,14 +1,12 @@
 using __Data.Script;
 using UnityEngine;
 using System.Collections;
-using UnityEngine.Serialization;
-using UnityEngine.tvOS;
 
 public class PlayerController : ObjController
 {
     [Header("Player Controller")]
-    private static PlayerController instance;
-    public static PlayerController Instance => instance;
+    private static PlayerController _instance;
+    public static PlayerController Instance => _instance;
     [SerializeField] protected Transform respawnPoint;
     [SerializeField] protected bool isAlive = true; 
     public bool IsAlive
@@ -18,13 +16,10 @@ public class PlayerController : ObjController
         {
             isAlive = value;
             ObjMovement.Animator.SetBool(AnimString.isAlive, isAlive);
-            ObjMovement.Animator.SetBool(AnimString.canMove, isAlive);
         }
     }
     
-    [SerializeField] protected float damageCooldown = 1f; 
     [SerializeField] protected bool isInvulnerable = false;
-
     public bool IsInvulnerable
     {
         get => isInvulnerable;
@@ -36,8 +31,8 @@ public class PlayerController : ObjController
     protected override void Awake()
     {
         base.Awake();
-        if (PlayerController.instance != null) Debug.LogError("Only 1 PlayerController allow to exist");
-        PlayerController.instance = this;
+        if (PlayerController._instance != null) Debug.LogError("Only 1 PlayerController allow to exist");
+        PlayerController._instance = this;
     }
 
     private void OnTriggerEnter2D(Collider2D collide)
@@ -68,27 +63,17 @@ public class PlayerController : ObjController
         if (isInvulnerable) return;
         
         DamageReceiver.Deduct(1);
-        
-        IsAlive = false;
-    
-        if (DamageReceiver.Lifes > 0)
-            Invoke(nameof(Respawn), 2f);
-        
-        StartCoroutine(DamageCooldownCoroutine());
-    }
-
-    public IEnumerator DamageCooldownCoroutine()
-    {
         isInvulnerable = true;
-        yield return new WaitForSeconds(damageCooldown);
-        isInvulnerable = false;
+        IsAlive = false;
     }
 
     public void Respawn()
     {
+        if (DamageReceiver.Lifes < 0) return;
         IsAlive = true;
         transform.position = respawnPoint.position; 
-        ObjMovement.Animator.Play("Player_Idle"); 
+        ObjMovement.Animator.Play("Player_Idle");
+        isInvulnerable = false;
     }
 
     protected override string GetObjectTypeString()

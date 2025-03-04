@@ -14,8 +14,6 @@ public class EnemyMove : ObjMovement
     [SerializeField] protected float detectionDistance = 5f;
     [SerializeField] protected float walkStopRate = 0.1f;
     
-    [SerializeField] protected Transform player;
-    
     public enum MoveableDirection
     {
         Right,
@@ -111,7 +109,6 @@ public class EnemyMove : ObjMovement
         if (CanSeePlayer() && enemyAttack.CanMove)
         {
             speed = moveDetection;
-            _directionVector2 = (player.position.x > transform.position.x) ? Vector2.right : Vector2.left;
         }
         else
         {

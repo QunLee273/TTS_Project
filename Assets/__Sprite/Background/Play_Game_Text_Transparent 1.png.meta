@@ -1,0 +1,231 @@
+fileFormatVersion: 2
+guid: 39cde44e31730c24797c0c374dbb5b4e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1508004921349049844
+    second: Play_Game_Text_Transparent 1_0
+  - first:
+      213: 6177060396232752132
+    second: Play_Game_Text_Transparent 1_1
+  - first:
+      213: 5582304734342026759
+    second: Play_Game_Text_Transparent 1_2
+  - first:
+      213: 1308667540362282726
+    second: Play_Game_Text_Transparent 1_3
+  - first:
+      213: -6314890363658094265
+    second: Play_Game_Text_Transparent 1_4
+  - first:
+      213: 6373408809280261322
+    second: Play_Game_Text_Transparent 1_5
+  - first:
+      213: 3935508423488915195
+    second: Play_Game_Text_Transparent 1_6
+  - first:
+      213: -5095189666745557532
+    second: Play_Game_Text_Transparent 1_7
+  - first:
+      213: -6407875324792489433
+    second: Play_Game_Text_Transparent 1_8
+  - first:
+      213: -1453509345237781855
+    second: Play_Game_Text_Transparent 1_9
+  - first:
+      213: -3901395081511090352
+    second: Play_Game_Text_Transparent 1_10
+  - first:
+      213: 2707319638395695455
+    second: Play_Game_Text_Transparent 1_11
+  - first:
+      213: 6522861694933771841
+    second: Play_Game_Text_Transparent 1_12
+  - first:
+      213: -287623650114210123
+    second: Play_Game_Text_Transparent 1_13
+  - first:
+      213: 6666693753929056289
+    second: Play_Game_Text_Transparent 1_14
+  - first:
+      213: -1334978046082644859
+    second: Play_Game_Text_Transparent 1_15
+  - first:
+      213: 9212384972601906947
+    second: Play_Game_Text_Transparent 1_16
+  - first:
+      213: -8659008454021547463
+    second: Play_Game_Text_Transparent 1_17
+  - first:
+      213: 5059782726542024734
+    second: Play_Game_Text_Transparent 1_18
+  - first:
+      213: -3598436443445306698
+    second: Play_Game_Text_Transparent 1_19
+  - first:
+      213: 8537861446639240828
+    second: Play_Game_Text_Transparent 1_20
+  - first:
+      213: 5369804011450308519
+    second: Play_Game_Text_Transparent 1_21
+  - first:
+      213: -255896860183208753
+    second: Play_Game_Text_Transparent 1_22
+  - first:
+      213: -7993661886549060215
+    second: Play_Game_Text_Transparent 1_23
+  - first:
+      213: 4055589169236820273
+    second: Play_Game_Text_Transparent 1_24
+  - first:
+      213: -8979065767482282063
+    second: Play_Game_Text_Transparent 1_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 0
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Play_Game_Text_Transparent 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 110
+        width: 500
+        height: 293
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fd0d887c728de410800000000000000
+      internalID: 1508004921349049844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 44ab9041b93609c4ea003fac13e7fc1f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Play_Game_Text_Transparent 1_0: 1508004921349049844
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

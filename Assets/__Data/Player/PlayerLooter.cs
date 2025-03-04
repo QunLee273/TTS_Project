@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Linq;
 using __Data;
+using __Data.Script;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -8,12 +9,17 @@ using UnityEngine.Serialization;
 public class PlayerLooter : GameBehaviour
 {
     [SerializeField] protected Collider2D col;
-    [SerializeField] protected float timerInvulnerable = 10f;
     [SerializeField] protected long coinAmount;
     protected override void LoadComponents()
     {
         base.LoadComponents();
         LoadColliderTrigger();
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+        coinAmount = PlayerPrefs.GetInt(PlayerPrefsString.AmountCoins, 0);
     }
 
     private void LoadColliderTrigger()
@@ -59,6 +65,8 @@ public class PlayerLooter : GameBehaviour
         if (itemProfile == null) return;
 
         coinAmount += itemProfile.itemCount;
+        PlayerPrefs.SetInt(PlayerPrefsString.AmountCoins, (int)coinAmount);
+        PlayerPrefs.Save();
         Debug.Log("Đã nhận " + itemProfile.itemCount + " coin. Tổng coin hiện tại: " + coinAmount);
     }
     
