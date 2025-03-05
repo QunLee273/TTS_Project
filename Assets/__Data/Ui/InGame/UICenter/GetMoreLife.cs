@@ -46,27 +46,41 @@ public class GetMoreLife : GameBehaviour
     {
         base.Start();
         btnDecline.onClick.AddListener(DeclineRevive);
-        btnCoin.onClick.AddListener(AcceptRevive);
+        btnCoin.onClick.AddListener(AcceptReviveCoin);
+        btnAds.onClick.AddListener(AcceptReviveAds);
     }
 
-    private void AcceptRevive()
+    private void AcceptReviveCoin()
     {
         _playerCoin = PlayerPrefs.GetInt(PlayerPrefsString.AmountCoins);
         if (_playerCoin >= reviveCost)
         {
             _playerCoin -= reviveCost;
             PlayerPrefs.SetInt(PlayerPrefsString.AmountCoins, _playerCoin);
-            playerReceiver.HasUsedRevive = true;
-            playerReceiver.Dead = false;
-            playerReceiver.Add(3);
-            PlayerController.Instance.Respawn();
-            UICenter.Instance.GetMoreLife.SetActive(false);
-            Time.timeScale = 1;
+            PlayerRevive();
         }
         else
         {
             Debug.Log("Không đủ vàng!");
         }
+    }
+
+    private void AcceptReviveAds()
+    {
+        if (AdsManager.Instance.rewardedAds == null) return;
+        
+        AdsManager.Instance.rewardedAds.OnAdCompleted += PlayerRevive;
+        AdsManager.Instance.rewardedAds.ShowRewardedAd();
+    }
+
+    private void PlayerRevive()
+    {
+        playerReceiver.HasUsedRevive = true;
+        playerReceiver.Dead = false;
+        playerReceiver.Add(3);
+        PlayerController.Instance.Respawn();
+        UICenter.Instance.GetMoreLife.SetActive(false);
+        Time.timeScale = 1;
     }
 
     private void DeclineRevive()

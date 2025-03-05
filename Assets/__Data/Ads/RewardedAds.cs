@@ -7,6 +7,7 @@ public class RewardedAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
     [SerializeField] protected string iosAdUnityId;
     
     private string adUnitId;
+    public System.Action OnAdCompleted;
 
     private void Awake()
     {
@@ -32,7 +33,7 @@ public class RewardedAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
     }
     #endregion
 
-    public void ShowLoadRewardedAdAd()
+    public void ShowRewardedAd()
     {
         Advertisement.Show(adUnitId, this);
         LoadRewardedAd();
@@ -50,6 +51,7 @@ public class RewardedAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
         if (placementId == adUnitId && showCompletionState.Equals(UnityAdsShowCompletionState.COMPLETED))
         {
             Debug.Log("Ads Fully Watched...."); // Will handle it later
+            OnAdCompleted?.Invoke();
         }
     }
     #endregion

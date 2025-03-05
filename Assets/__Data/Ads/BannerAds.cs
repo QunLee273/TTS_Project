@@ -19,7 +19,7 @@ public class BannerAds : MonoBehaviour
         Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
     }
 
-    public void LaodBannerAd()
+    public void LoadBannerAd()
     {
         BannerLoadOptions options = new BannerLoadOptions
         {

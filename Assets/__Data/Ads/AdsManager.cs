@@ -21,7 +21,7 @@ public class AdsManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
         
-        bannerAds.LaodBannerAd();
+        bannerAds.LoadBannerAd();
         interstitialAds.LoadInterstitialAd();
         rewardedAds.LoadRewardedAd();
     }
