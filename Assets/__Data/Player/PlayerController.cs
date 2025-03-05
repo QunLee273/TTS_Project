@@ -62,6 +62,7 @@ public class PlayerController : ObjController
     {
         if (isInvulnerable) return;
         
+        AudioManager.Instance.PlaySfx("Dead1");
         DamageReceiver.Deduct(1);
         isInvulnerable = true;
         IsAlive = false;

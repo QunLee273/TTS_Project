@@ -43,6 +43,7 @@ public class PlayerLooter : GameBehaviour
 
             if (itemProfile.itemCode is ItemCode.Coin or ItemCode.BagCoin)
             {
+                AudioManager.Instance.PlaySfx("Coins");
                 AddItem(itemProfile);
             }
             else if (itemProfile.itemCode == ItemCode.Life)

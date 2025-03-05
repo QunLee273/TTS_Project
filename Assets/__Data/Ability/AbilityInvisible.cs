@@ -89,6 +89,7 @@ public class AbilityInvisible : AbilityAbstract
         isInvisible = true;
         logInstance.transform.position = player.transform.position;
         logInstance.SetActive(true);
+        AudioManager.Instance.PlaySfx("Disguise");
         vCam.Follow = logInstance.transform;
         objAbility.transform.SetParent(logInstance.transform);
         foreach (GameObject btn in btns)
@@ -102,6 +103,7 @@ public class AbilityInvisible : AbilityAbstract
         isInvisible = false;
         player.transform.position = logInstance.transform.position;
         player.SetActive(true);
+        AudioManager.Instance.PlaySfx("Disguise");
         vCam.Follow = player.transform;
         objAbility.transform.SetParent(player.transform);
 

@@ -77,6 +77,7 @@ public class AbilityDash : AbilityAttack
     {
         while (_isDashing)
         {
+            AudioManager.Instance.PlaySfx("Dash");
             GameObject ghost = new GameObject("Ghost");
             SpriteRenderer ghostSr = ghost.AddComponent<SpriteRenderer>();
             ghostSr.sprite = dashRenderer.sprite;

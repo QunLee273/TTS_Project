@@ -3,12 +3,26 @@ using UnityEngine;
 
 public class PlayerAttack : AbilityAttack
 {
-    [Header("Player Attack")]
+    [Header("Player Attack")] 
+    [SerializeField] protected Transform rangedPoint;
     [SerializeField] protected float attackCooldown = 0.5f;
     [SerializeField] protected float attackTimer = 0f;
         
-    [SerializeField] protected bool isAttacking = false;
-    
+    [SerializeField] protected bool isAttacking;
+
+    protected override void LoadComponents()
+    {
+        base.LoadComponents();
+        LoadRangedPoint();
+    }
+
+    private void LoadRangedPoint()
+    {
+        if (rangedPoint != null) return;
+        rangedPoint = GameObject.Find("RangedPoint").transform;
+        Debug.LogWarning(transform.name + ": LoadRangedPoint", gameObject);
+    }
+
     protected void Update()
     {
         if (!animator.GetBool(AnimString.isAlive)) return;
@@ -31,12 +45,14 @@ public class PlayerAttack : AbilityAttack
     {
         animator.SetTrigger(AnimString.attackTrigger);
         animator.Play("Player_Melee");
+        AudioManager.Instance.PlaySfx("Melee");
     }
     
     private void RangedAttack()
     {
         animator.SetTrigger(AnimString.attackTrigger);
         animator.Play("Player_Ranged");
+        AudioManager.Instance.PlaySfx("Shuriken");
     }
     
     public void OnClick()
@@ -75,22 +91,17 @@ public class PlayerAttack : AbilityAttack
     
     public void StartRanged()
     {
-        Vector3 spawnPos = transform.position;
+        Vector3 spawnPos = rangedPoint.position;
 
         Transform newBullet = BulletSpawner.Instance.Spawn(BulletSpawner.bullet1, spawnPos, Quaternion.identity);
         if (newBullet == null) return;
-
+        
         newBullet.gameObject.SetActive(true);
         BulletCtrl bulletCtrl = newBullet.GetComponent<BulletCtrl>();
         ObjFly objFly = newBullet.GetComponentInChildren<BulletFly>();
-        if (bulletCtrl != null)
-        {
-            bulletCtrl.SetShooter(transform.parent.parent);
-            Debug.Log(bulletCtrl.Shooter.name);
-            
-            float shooterDirection = bulletCtrl.Shooter.localScale.x;
-            objFly.direction = (shooterDirection >= 0) ? Vector3.right : Vector3.left;
-        }
-            
+        bulletCtrl.SetShooter(transform.parent.parent);
+        
+        float shooterDirection = bulletCtrl.Shooter.localScale.x;
+        objFly.direction = (shooterDirection >= 0) ? Vector3.right : Vector3.left;
     }
 }

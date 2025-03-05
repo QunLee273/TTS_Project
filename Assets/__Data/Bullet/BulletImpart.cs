@@ -50,14 +50,12 @@ public class BulletImpart : GameBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-        if (IsDestroyed) return;
-        if (other.transform.parent == bulletCtrl.Shooter) return;
+        if (other.transform == bulletCtrl.Shooter) return;
 
         if (other.gameObject.layer == LayerMask.NameToLayer("Ground") 
             || other.gameObject.layer == LayerMask.NameToLayer("Shield"))
         {
-            IsDestroyed = true;
-            Destroy(bulletCtrl.gameObject);
+            BulletSpawner.Instance.Despawn(transform.parent);
             return;
         }
         bulletCtrl.BulletDamSender.Send(other.transform);
