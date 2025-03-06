@@ -1,3 +1,4 @@
+using System;
 using __Data;
 using UnityEngine;
 
@@ -22,5 +23,19 @@ public class SawTrap : GameBehaviour
         transform.position = Vector3.MoveTowards(transform.position, _target, speed * Time.deltaTime);
         if (Vector3.Distance(transform.position, _target) < 0.1f)
             _target = _target == pointA.position ? pointB.position : pointA.position;
+    }
+
+    protected void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            BulletSpawner.Instance.Despawn(other.transform);
+            AudioManager.Instance.PlaySfx("Clash");
+            string fxName = FXSpawner.impact1;
+
+            Vector3 hitPos = other.transform.position;
+            Transform fxImpact = FXSpawner.Instance.Spawn(fxName, hitPos, Quaternion.identity);
+            fxImpact.gameObject.SetActive(true);
+        }
     }
 }

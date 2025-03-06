@@ -89,6 +89,7 @@ public class MapSelect : GameBehaviour
 
     private void LoadLevel(int levelIndex)
     {
-        SceneManager.LoadScene(levelIndex);
+        LoadingData.SelectedLevel = levelIndex;
+        SceneManager.LoadScene("LoadingScene");
     }
 }

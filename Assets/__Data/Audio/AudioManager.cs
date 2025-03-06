@@ -11,6 +11,7 @@ public class AudioManager : GameBehaviour
     
     [Header("---Audio Source---")]
     [SerializeField] protected AudioSource musicSource;
+    public AudioSource MusicSource => musicSource;
     [SerializeField] protected AudioSource sfxSource;
     
     private readonly Dictionary<string, AudioSource> _loopSfxSources = new Dictionary<string, AudioSource>();

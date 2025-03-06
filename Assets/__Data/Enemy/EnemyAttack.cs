@@ -50,6 +50,7 @@ public class EnemyAttack : AbilityAttack
     
     public void EnemyMeleeSenderDam()
     {
+        AudioManager.Instance.PlaySfx("Melee");
         foreach (Collider2D player in detectedAttack.ToArray())
         {
             PlayerController playerController = currentTarget.GetComponentInChildren<PlayerController>();
@@ -64,6 +65,7 @@ public class EnemyAttack : AbilityAttack
     
     public void EnemyRangedSenderDam()
     {
+        AudioManager.Instance.PlaySfx("Ranged");
         Vector3 spawnPos = transform.position;
 
         Transform newBullet = BulletSpawner.Instance.Spawn(BulletSpawner.bullet2, spawnPos, Quaternion.identity);

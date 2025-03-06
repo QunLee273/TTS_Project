@@ -19,7 +19,7 @@ public class AdsManager : MonoBehaviour
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(transform.root.gameObject);
         
         bannerAds.LoadBannerAd();
         interstitialAds.LoadInterstitialAd();

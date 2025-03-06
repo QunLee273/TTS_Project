@@ -37,15 +37,9 @@ public class PlayerController : ObjController
 
     private void OnTriggerEnter2D(Collider2D collide)
     {
-        if (collide.CompareTag("Trap") || collide.CompareTag("Holder"))
-        {
-            Debug.Log($"Player hit: {collide.gameObject.name}");
-            TakeDamage();
-        }
-        
         if (collide.CompareTag("Checkpoint"))
         {
-            Debug.Log($"Checkpoint reached: {collide.gameObject.name}");
+            //Debug.Log($"Checkpoint reached: {collide.gameObject.name}");
             respawnPoint.position = collide.transform.position;
         }
     }
@@ -55,6 +49,13 @@ public class PlayerController : ObjController
         if (collision.gameObject.CompareTag("Trap"))
         {
             TakeDamage();
+        }
+        
+        if (collision.gameObject.CompareTag("Holder"))
+        {
+            AudioManager.Instance.PlaySfx("Dead2");
+            DamageReceiver.Deduct(1);
+            IsAlive = false;
         }
     }
     

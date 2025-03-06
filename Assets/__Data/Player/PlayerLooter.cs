@@ -1,10 +1,7 @@
-using System.Collections;
 using System.Linq;
 using __Data;
 using __Data.Script;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class PlayerLooter : GameBehaviour
 {

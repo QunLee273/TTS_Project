@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8338200703134801574}
   - component: {fileID: 8688108502760527995}
+  - component: {fileID: 3799881538260193070}
   m_Layer: 0
   m_Name: AreaDama
-  m_TagString: Trap
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,6 +96,18 @@ PolygonCollider2D:
       - {x: 0.12134254, y: 0.84610224}
       - {x: 0.37928748, y: 0.7905061}
   m_UseDelaunayMesh: 0
+--- !u!114 &3799881538260193070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4870287340978498748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcb130b059a24a547b532c153b778cd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4931543853347405332
 GameObject:
   m_ObjectHideFlags: 0
