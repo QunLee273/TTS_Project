@@ -26,7 +26,14 @@ public class EnemyCtrl : ObjController
     private void CheckIsAlive()
     {
         if (DamageReceiver.IsDead())
+        {
             IsAlive = false;
+            Collider2D[] collider2Ds = GetComponentsInChildren<Collider2D>(true);
+            foreach (Collider2D col in collider2Ds)
+            {
+                col.enabled = false;
+            }
+        }
     }
     
     protected override string GetObjectTypeString()

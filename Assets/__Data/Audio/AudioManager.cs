@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using __Data;
+using __Data.Script;
 using UnityEngine;
+using UnityEngine.Audio;
 using Random = UnityEngine.Random;
 
 public class AudioManager : GameBehaviour
@@ -9,16 +11,17 @@ public class AudioManager : GameBehaviour
     private static AudioManager _instance;
     public static AudioManager Instance => _instance;
     
-    [Header("---Audio Source---")]
+    [SerializeField] protected AudioMixer audioMixer;
+    
+    [Header("Audio Source")]
     [SerializeField] protected AudioSource musicSource;
     public AudioSource MusicSource => musicSource;
     [SerializeField] protected AudioSource sfxSource;
     
     private readonly Dictionary<string, AudioSource> _loopSfxSources = new Dictionary<string, AudioSource>();
 
-    [Header("---Audio Clip---")]
+    [Header("Audio Clip")]
     [SerializeField] protected SfxData[] sfxDatas;
-    public SfxData[] SfxDatas => sfxDatas;
 
     [SerializeField] protected AudioClip[] listBackground;
 
@@ -32,20 +35,18 @@ public class AudioManager : GameBehaviour
     protected override void LoadComponents()
     {
         base.LoadComponents();
-
+        LoadAudioMixer();
         LoadMusicSource();
         LoadSfxSource();
     }
-
-    protected override void Start()
+    
+    private void LoadAudioMixer()
     {
-        base.Start();
-
-        if (musicSource == null && listBackground.Length == 0) return;
-        musicSource.clip = listBackground[Random.Range(0, listBackground.Length)];
-        musicSource.Play();
+        if (audioMixer != null) return;
+        audioMixer = Resources.Load<AudioMixer>("AudioMixer");
+        Debug.Log(transform.name + ": LoadAudioMixer", gameObject);
     }
-
+    
     private void LoadMusicSource()
     {
         if (musicSource != null) return;
@@ -59,6 +60,28 @@ public class AudioManager : GameBehaviour
         sfxSource = transform.Find("SoundEffect")?.GetComponent<AudioSource>();
         Debug.Log(transform.name + ": LoadSFXSource", gameObject);
     }
+
+    protected override void Start()
+    {
+        base.Start();
+        ApplyAudioSettings();
+        if (musicSource == null && listBackground.Length == 0) return;
+        musicSource.clip = listBackground[Random.Range(0, listBackground.Length)];
+        musicSource.Play();
+    }
+
+    public void ApplyAudioSettings()
+    {
+        float musicVolume = PlayerPrefs.GetFloat(PlayerPrefsString.MusicVolume, 1f);
+        bool musicEnabled = PlayerPrefs.GetInt(PlayerPrefsString.MusicEnabled, 1) == 1;
+        float sfxVolume = PlayerPrefs.GetFloat(PlayerPrefsString.SfxVolume, 1f);
+        bool sfxEnabled = PlayerPrefs.GetInt(PlayerPrefsString.SFXEnabled, 1) == 1;
+        
+        audioMixer.SetFloat("Music", musicEnabled ? ConvertToDecibel(musicVolume) : -80f);
+        audioMixer.SetFloat("SFX", sfxEnabled ? ConvertToDecibel(sfxVolume) : -80f);
+    }
+    
+    private float ConvertToDecibel(float volume) => Mathf.Log10(Mathf.Max(volume, 0.001f)) * 20;
 
     public void PlaySfx(string sfxName)
     {

@@ -3,16 +3,16 @@ using UnityEngine;
 
 public class ItemDropSpawner : Spawner
 {
-    private static ItemDropSpawner instance;
-    public static ItemDropSpawner Instance => instance;
+    private static ItemDropSpawner _instance;
+    public static ItemDropSpawner Instance => _instance;
 
     [SerializeField] protected float gameDropRate = 1;
 
     protected override void Awake()
     {
         base.Awake();
-        if (ItemDropSpawner.instance != null) Debug.LogError("Only 1 ItemDropSpawner allow to exist");
-        ItemDropSpawner.instance = this;
+        if (ItemDropSpawner._instance != null) Debug.LogError("Only 1 ItemDropSpawner allow to exist");
+        ItemDropSpawner._instance = this;
     }
 
     public virtual List<ItemDropRate> Drop(List<ItemDropRate> dropList, Vector3 pos, Quaternion rot)
@@ -35,38 +35,25 @@ public class ItemDropSpawner : Spawner
 
     protected virtual List<ItemDropRate> DropItems(List<ItemDropRate> items)
     {
-        List<ItemDropRate> droppedItems = new List<ItemDropRate>();
+        float totalRate = 0f;
+        float gameDropRateValue = this.GameDropRate();
 
-        float rate, itemRate;
-        int itemDropMore;
+        foreach (ItemDropRate item in items)
+            totalRate += (item.dropRate / 100f) * gameDropRateValue;
+
+        float rand = Random.Range(0f, totalRate);
+
         foreach (ItemDropRate item in items)
         {
-            rate = Random.Range(0, 1f);
-            itemRate = item.dropRate / 100f * GameDropRate();
-            itemDropMore = Mathf.FloorToInt(itemRate);
-            if (itemDropMore > 0)
+            float currentRate = (item.dropRate / 100f) * gameDropRateValue;
+            rand -= currentRate;
+            if (rand <= 0)
             {
-                itemRate -= itemDropMore;
-                for (int i = 0; i < itemDropMore; i++)
-                {
-                    droppedItems.Add(item);
-                }
-            }
-
-            // Debug.Log("=====================");
-            // Debug.Log("item: " + item.itemSo.itemName);
-            // Debug.Log("rate: " + itemRate + "/" + rate);
-            // Debug.Log("itemRate: " + itemRate);
-            // Debug.Log("itemDropMore: " + itemDropMore);
-
-            if (rate <= itemRate)
-            {
-                /*Debug.Log("DROPED");*/
-                droppedItems.Add(item);
+                return new List<ItemDropRate> { item };
             }
         }
 
-        return droppedItems;
+        return new List<ItemDropRate>();
     }
 
     protected virtual float GameDropRate()

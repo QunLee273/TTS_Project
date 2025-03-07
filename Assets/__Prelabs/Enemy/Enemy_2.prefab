@@ -152,7 +152,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0.5
   m_Material: {fileID: 6200000, guid: f4afe374f4f339b4c97e422afa9e8d73, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -444,7 +444,6 @@ MonoBehaviour:
   detectionWall: 0.5
   detectionDistance: 7
   walkStopRate: 0.1
-  player: {fileID: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
