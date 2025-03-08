@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 public class UIBottomRight : GameBehaviour
 {
+    private static UIBottomRight _instance;
+    public static UIBottomRight Instance => _instance;
+    
     [SerializeField] protected GameObject btnJump;
     public GameObject BtnJump => btnJump;
     [SerializeField] protected GameObject btnDash;
@@ -12,6 +15,13 @@ public class UIBottomRight : GameBehaviour
     public GameObject BtnAttack => btnAttack;
     [SerializeField] protected GameObject btnInvisible;
     public GameObject BtnInvisible => btnInvisible;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        if (UIBottomRight._instance != null) Debug.LogError("Only 1 UIBottomRight allow to exist");
+        UIBottomRight._instance = this;
+    }
 
     protected override void LoadComponents()
     {
