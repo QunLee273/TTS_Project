@@ -9,6 +9,7 @@ public class AbilityAttack : AbilityAbstract
     [Header("Ability Attack")]
     [SerializeField] protected Collider2D col;
     [SerializeField] protected List<Collider2D> detectedAttack = new List<Collider2D>();
+    public List<Collider2D> DetectedAttack => detectedAttack;
     
     [SerializeField] protected bool hasTarget;
 

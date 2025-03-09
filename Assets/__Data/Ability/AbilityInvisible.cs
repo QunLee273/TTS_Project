@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using __Data.Script;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -47,7 +48,7 @@ public class AbilityInvisible : AbilityAbstract
     private void LoadObjAbility()
     {
         if (objAbility != null) return;
-        objAbility = player.transform.GetChild(3).gameObject;
+        objAbility = transform.parent.gameObject;
         Debug.LogWarning(transform.name + ": LoadObjAbility", gameObject);
 
     }
@@ -87,6 +88,8 @@ public class AbilityInvisible : AbilityAbstract
     private void ChangeLog()
     {
         isInvisible = true;
+        List<Collider2D> detectedAttack = objAbility.GetComponentInChildren<PlayerAttack>().DetectedAttack;
+        detectedAttack.Clear();
         logInstance.transform.position = player.transform.position;
         logInstance.SetActive(true);
         AudioManager.Instance.PlaySfx("Disguise");
@@ -101,6 +104,8 @@ public class AbilityInvisible : AbilityAbstract
     private void ChangePlayer()
     {
         isInvisible = false;
+        List<Collider2D> detectedAttack = objAbility.GetComponentInChildren<PlayerAttack>().DetectedAttack;
+        detectedAttack.Clear();
         player.transform.position = logInstance.transform.position;
         player.SetActive(true);
         AudioManager.Instance.PlaySfx("Disguise");

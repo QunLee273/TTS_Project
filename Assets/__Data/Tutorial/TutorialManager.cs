@@ -18,16 +18,27 @@ public class TutorialManager : MonoBehaviour
     
     public Sprite[] imageButtons;
     private Coroutine _arrowMoveCoroutine;
+
+    protected void Update()
+    {
+        if (Input.GetMouseButtonDown(0) || Input.touchCount > 0)
+        {
+            Time.timeScale = 1;
+            tutorialPanel.SetActive(false);
+            arrowIndicator.SetActive(false);
+            if (_arrowMoveCoroutine != null) StopCoroutine(_arrowMoveCoroutine);
+        }
+            
+    }
     
     public void ShowTutorialStep(int step)
     {
         tutorialPanel.SetActive(true);
+        Time.timeScale = 0f;
 
-        if (step < 0 || step >= tutorialButtons.Length) return;
+        if (step < 0 || step >= tutorialMessages.Length) return;
 
-        ShowStep(tutorialMessages[step], imageButtons[step], tutorialButtons[step]);
-
-        Invoke(nameof(HideTutorial), 5f);
+        ShowStep(tutorialMessages[step], imageButtons[step] , tutorialButtons[step]);
     }
 
     private void ShowStep(string message, Sprite sprite, RectTransform target)
@@ -68,12 +79,5 @@ public class TutorialManager : MonoBehaviour
                 yield return null;
             }
         }
-    }
-
-    private void HideTutorial()
-    {
-        tutorialPanel.SetActive(false);
-        arrowIndicator.SetActive(false);
-        if (_arrowMoveCoroutine != null) StopCoroutine(_arrowMoveCoroutine);
     }
 }

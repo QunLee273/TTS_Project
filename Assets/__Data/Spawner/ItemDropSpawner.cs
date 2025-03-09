@@ -35,22 +35,15 @@ public class ItemDropSpawner : Spawner
 
     protected virtual List<ItemDropRate> DropItems(List<ItemDropRate> items)
     {
-        float totalRate = 0f;
-        float gameDropRateValue = this.GameDropRate();
-
-        foreach (ItemDropRate item in items)
-            totalRate += (item.dropRate / 100f) * gameDropRateValue;
-
-        float rand = Random.Range(0f, totalRate);
+        float rand = Random.Range(0f, 1f);
 
         foreach (ItemDropRate item in items)
         {
-            float currentRate = (item.dropRate / 100f) * gameDropRateValue;
-            rand -= currentRate;
-            if (rand <= 0)
-            {
+            float effectiveChance = (item.dropRate / 100f) * GameDropRate();
+
+            if (rand < effectiveChance)
                 return new List<ItemDropRate> { item };
-            }
+            rand -= effectiveChance;
         }
 
         return new List<ItemDropRate>();
