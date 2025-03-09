@@ -1,10 +1,7 @@
-using System.Collections;
 using System.Linq;
 using __Data;
 using __Data.Script;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class PlayerLooter : GameBehaviour
 {
@@ -43,6 +40,7 @@ public class PlayerLooter : GameBehaviour
 
             if (itemProfile.itemCode is ItemCode.Coin or ItemCode.BagCoin)
             {
+                AudioManager.Instance.PlaySfx("Coins");
                 AddItem(itemProfile);
             }
             else if (itemProfile.itemCode == ItemCode.Life)

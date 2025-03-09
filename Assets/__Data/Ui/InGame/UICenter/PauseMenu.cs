@@ -44,6 +44,7 @@ public class PauseMenu : LevelEndState
 
     private void Setting()
     {
-        Debug.Log("Open Setting");
+        UICenter.Instance.Setting.SetActive(true);
+        UICenter.Instance.PauseMenu.SetActive(false);
     }
 }

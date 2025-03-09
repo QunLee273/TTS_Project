@@ -22,6 +22,8 @@ public class PlayerMove : ObjMovement
     
     private bool CanMove => animator.GetBool(AnimString.canMove);
     private bool IsAlive => animator.GetBool(AnimString.isAlive);
+    
+    private bool _wasGrounded;
 
     protected void FixedUpdate()
     {
@@ -32,11 +34,13 @@ public class PlayerMove : ObjMovement
             else HandleMovement(0);
             
             HandleJump();
+            if (!_wasGrounded && IsGround)
+                AudioManager.Instance.PlaySfx("Fall");
+
+            _wasGrounded = IsGround;
         }
         else
-        {
             rb.linearVelocity = Vector2.zero;
-        }
         
         UpdateAnimation();
     }
@@ -63,19 +67,21 @@ public class PlayerMove : ObjMovement
         
         if (IsGround) doubleJump = true;
         
-        bool jumpPress = isJumping || Input.GetKeyDown(KeyCode.Space);
+        bool jumpPress = isJumping;
         
         if (jumpPress && CanMove)
         {
             if (IsGround)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                AudioManager.Instance.PlaySfx("Jump");
             }
             if (doubleJump && !IsGround)
             {
                 rb.linearVelocity = Vector2.zero;
                 rb.angularVelocity = 0;
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                AudioManager.Instance.PlaySfx("Jump");
                 doubleJump = false;
             }
             isJumping = false;
@@ -91,6 +97,11 @@ public class PlayerMove : ObjMovement
     private void UpdateAnimation()
     {
         bool isMoving = Mathf.Abs(rb.linearVelocity.x) > 0.1f;
+        if (isMoving && IsGround)
+            AudioManager.Instance.PlayLoopSfx("Running");
+        else
+            AudioManager.Instance.StopLoopSfx("Running");
+        
         animator.SetBool(AnimString.isMove, isMoving);
         animator.SetFloat(AnimString.yVelocity, rb.linearVelocity.y);
     }

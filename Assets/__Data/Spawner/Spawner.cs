@@ -112,9 +112,4 @@ public abstract class Spawner : GameBehaviour
 
         return null;
     }
-
-    public virtual void Hold(Transform obj)
-    {
-        obj.parent = this.holder;
-    }
 }

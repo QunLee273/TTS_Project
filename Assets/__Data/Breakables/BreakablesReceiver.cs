@@ -26,7 +26,7 @@ public class BreakablesReceiver : DamageReceiver
     
     protected override void OnDead()
     {
-        Debug.Log(transform.parent.name + ": Break");
+        AudioManager.Instance.PlaySfx("Crate");
         OnDeadDrop();
     }
     

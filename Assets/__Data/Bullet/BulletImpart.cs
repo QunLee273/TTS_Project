@@ -11,8 +11,6 @@ public class BulletImpart : GameBehaviour
     [SerializeField] protected BulletCtrl bulletCtrl;
     public BulletCtrl BulletCtrl => bulletCtrl;
     
-    protected bool IsDestroyed = false;
-    
     [SerializeField] protected CircleCollider2D circleCollider2D;
     [SerializeField] protected Rigidbody2D rb;
     
@@ -50,18 +48,33 @@ public class BulletImpart : GameBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-        if (IsDestroyed) return;
-        if (other.transform.parent == bulletCtrl.Shooter) return;
+        if (other.transform == bulletCtrl.Shooter) return;
 
-        if (other.gameObject.layer == LayerMask.NameToLayer("Ground") 
-            || other.gameObject.layer == LayerMask.NameToLayer("Shield"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
-            IsDestroyed = true;
-            Destroy(bulletCtrl.gameObject);
+            BulletSpawner.Instance.Despawn(transform.parent);
+            CreateImpactFXNoSendDam(FXSpawner.impact1);
+            return;
+        }
+
+        if (other.gameObject.layer == LayerMask.NameToLayer("Shield") ||
+            other.gameObject.CompareTag("Trap"))
+        {
+            if (other.transform.parent.parent == bulletCtrl.Shooter) return;
+            AudioManager.Instance.PlaySfx("Clash");
+            BulletSpawner.Instance.Despawn(transform.parent);
+            CreateImpactFXNoSendDam(FXSpawner.impact1);
             return;
         }
         bulletCtrl.BulletDamSender.Send(other.transform);
-        
-        Debug.Log("Send: " +other.transform.name);
+    }
+
+    private void CreateImpactFXNoSendDam(string nameFx)
+    {
+        string fxName = nameFx;
+
+        Vector3 hitPos = transform.position;
+        Transform fxImpact = FXSpawner.Instance.Spawn(fxName, hitPos, Quaternion.identity);
+        fxImpact.gameObject.SetActive(true);
     }
 }
