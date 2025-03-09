@@ -66,7 +66,11 @@ public class BulletImpart : GameBehaviour
             CreateImpactFXNoSendDam(FXSpawner.impact1);
             return;
         }
-        bulletCtrl.BulletDamSender.Send(other.transform);
+
+        if (other.gameObject.CompareTag("Player"))
+            PlayerController.Instance.TakeDamage();
+        else
+            bulletCtrl.BulletDamSender.Send(other.transform);
     }
 
     private void CreateImpactFXNoSendDam(string nameFx)

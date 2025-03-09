@@ -292,7 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4208377231c9c644905c9fff537fd4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  model: {fileID: 0}
+  model: {fileID: 6896848594879263693}
   gameObjectSo: {fileID: 11400000, guid: 7a93eccbf9fc99f438f19fbdb588df5f, type: 2}
   objMovement: {fileID: 5865667408194312816}
   damageReceiver: {fileID: 2500779287805083363}

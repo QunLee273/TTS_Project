@@ -28,6 +28,8 @@ public class EnemyCtrl : ObjController
         if (DamageReceiver.IsDead())
         {
             IsAlive = false;
+            Rigidbody2D rb = GetComponent<Rigidbody2D>();
+            rb.gravityScale = 0f;
             Collider2D[] collider2Ds = GetComponentsInChildren<Collider2D>(true);
             foreach (Collider2D col in collider2Ds)
             {

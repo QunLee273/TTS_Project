@@ -1,4 +1,5 @@
 using __Data;
+using __Data.Script;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -40,12 +41,16 @@ public class LevelEndState : GameBehaviour
     private void Restart()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        LoadingData.SelectedLevel = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene("LoadingScene");
     }
 
     private void MainMenu()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(0);
+        PlayerPrefs.SetInt(PlayerPrefsString.OpenSelectMap, 1);
+        PlayerPrefs.Save();
+        LoadingData.SelectedLevel = 0;
+        SceneManager.LoadScene("LoadingScene");
     }
 }

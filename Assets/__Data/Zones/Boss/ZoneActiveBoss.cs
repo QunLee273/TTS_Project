@@ -1,5 +1,6 @@
 using __Data;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ZoneActiveBoss : GameBehaviour
 {
@@ -40,6 +41,7 @@ public class ZoneActiveBoss : GameBehaviour
         if (other.CompareTag("Player"))
         {
             boss.SetActive(true);
+            UIMapBoss.Instance.HpBar.gameObject.SetActive(true);
             wallBoss.SetActive(true);
             colliderActive.enabled = false;
         }
