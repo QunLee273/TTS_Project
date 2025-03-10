@@ -23,9 +23,9 @@ public class TutorialManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) || Input.touchCount > 0)
         {
+            tutorialPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 275);
+            arrowIndicator.GetComponent<RectTransform>().anchoredPosition = new Vector2(150, 0);
             Time.timeScale = 1;
-            tutorialPanel.SetActive(false);
-            arrowIndicator.SetActive(false);
             if (_arrowMoveCoroutine != null) StopCoroutine(_arrowMoveCoroutine);
         }
             
@@ -33,7 +33,7 @@ public class TutorialManager : MonoBehaviour
     
     public void ShowTutorialStep(int step)
     {
-        tutorialPanel.SetActive(true);
+        tutorialPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -275);
         Time.timeScale = 0f;
 
         if (step < 0 || step >= tutorialMessages.Length) return;
@@ -53,9 +53,6 @@ public class TutorialManager : MonoBehaviour
             image.gameObject.SetActive(false);
         
         if (target == null) return;
-        arrowIndicator.SetActive(true);
-        arrowIndicator.GetComponent<RectTransform>().anchoredPosition =
-            target.anchoredPosition + new Vector2(0, 150);
 
         RectTransform arrowRect = arrowIndicator.GetComponent<RectTransform>();
         arrowRect.anchoredPosition = target.anchoredPosition + new Vector2(0, 150);

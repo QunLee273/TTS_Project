@@ -6,12 +6,9 @@ public class UpdateSkill : GameBehaviour
 {
     [SerializeField] protected Button btnBack;
     [SerializeField] protected SkillSelect skillSelect;
-    public SkillSelect SkillSelect => skillSelect;
     [SerializeField] protected  UpdateAbilityData updateAbilityData;
-    public UpdateAbilityData UpdateAbilityData => updateAbilityData;
     [SerializeField] protected SkillUpgradeSystem skillUpgradeSystem;
-    public SkillUpgradeSystem SkillUpgradeSystem => skillUpgradeSystem;
-
+    
     protected override void LoadComponents()
     {
         base.LoadComponents();

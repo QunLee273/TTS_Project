@@ -24,8 +24,8 @@ public class UICtrlMainMenu : GameBehaviour
     [SerializeField] protected GameObject shop;
     public GameObject Shop => shop;
     
-    [SerializeField] protected GameObject hensojutsu;
-    public GameObject Hensojutsu => hensojutsu;
+    [SerializeField] protected GameObject disguise;
+    public GameObject Disguise => disguise;
 
     protected override void Awake()
     {
@@ -43,7 +43,7 @@ public class UICtrlMainMenu : GameBehaviour
         LoadShopUpdate();
         LoadUpdateSkill();
         LoadShop();
-        LoadHensojutsu();
+        LoadDisguise();
     }
 
     private void LoadMainMenu()
@@ -88,10 +88,10 @@ public class UICtrlMainMenu : GameBehaviour
         Debug.LogWarning(transform.name + ": LoadShop", gameObject);
     }
 
-    private void LoadHensojutsu()
+    private void LoadDisguise()
     {
-        if (hensojutsu != null) return;
-        hensojutsu = transform.Find("Hensojutsu").gameObject;
+        if (disguise != null) return;
+        disguise = transform.Find("Disguise").gameObject;
         Debug.LogWarning(transform.name + ": LoadHensojutsu", gameObject);
     }
 }
