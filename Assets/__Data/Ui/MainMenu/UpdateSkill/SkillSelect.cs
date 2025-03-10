@@ -63,8 +63,7 @@ public class SkillSelect : UpdateSkill
     protected override void Start()
     {
         base.Start();
-        // PlayerPrefs.SetInt(PlayerPrefsString.AmountCoins, 999999999);
-        // updateAbilityData.SetData(0);
+        //updateAbilityData.SetData(0);
         updateAbilityData.LoadData();
         btnDash.onClick.Invoke();
         btnDash.onClick.AddListener(() =>SelectSkill(0));

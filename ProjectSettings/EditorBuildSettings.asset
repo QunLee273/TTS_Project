@@ -12,20 +12,20 @@ EditorBuildSettings:
     path: Assets/__Scenes/Map_1.unity
     guid: 7f742fc27f009394b87f440ca77398b1
   - enabled: 1
-    path: Assets/__Scenes/Map2.unity
-    guid: 281c549dbd21fa6459cfe5b7a1a9f1ed
+    path: Assets/__Scenes/Map_2.unity
+    guid: a9604ddcc60698544b4a758ecedf1232
   - enabled: 1
-    path: Assets/__Scenes/Map3.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/__Scenes/Map_3.unity
+    guid: cedb5a5571061b6459c17f8b3c6aeda0
   - enabled: 1
-    path: Assets/__Scenes/Map4.unity
-    guid: 8aa18455937920b4bbd26e62b052640d
+    path: Assets/__Scenes/Map_4.unity
+    guid: 63c061170fb22f4448a444837a3b61f9
   - enabled: 1
-    path: Assets/__Scenes/Map5.unity
-    guid: daeaca0fd7b901c48a9f288546675f9e
+    path: Assets/__Scenes/Map_5.unity
+    guid: b9f9a36c86971564ab12ab8f126c4dcc
   - enabled: 1
-    path: Assets/__Scenes/MapBoss.unity
-    guid: 3f6e36d7976a6404ab07b58ef5f71d47
+    path: Assets/__Scenes/Map_Boss.unity
+    guid: a2535668e60d9c74b898256c2ba3106a
   - enabled: 1
     path: Assets/__Scenes/LoadingScene.unity
     guid: e0195e7ea9b05684eafa0b4e85388f54

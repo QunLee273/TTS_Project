@@ -77,11 +77,7 @@ public class BossLazer : AbilityLazer
 
         if (hit.collider != null && hit.collider.CompareTag("Player"))
         {
-            PlayerController player = hit.collider.gameObject.GetComponent<PlayerController>();
-            if (player != null)
-            {
-                player.TakeDamage();
-            }
+            PlayerController.Instance.TakeDamage();
         }
     }
 

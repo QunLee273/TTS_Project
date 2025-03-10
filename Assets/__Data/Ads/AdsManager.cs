@@ -13,13 +13,8 @@ public class AdsManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
-        DontDestroyOnLoad(transform.root.gameObject);
+        if (AdsManager.Instance != null) Debug.LogError("Only 1 AdsManager allow to exist");
+        AdsManager.Instance = this;
         
         bannerAds.LoadBannerAd();
         interstitialAds.LoadInterstitialAd();

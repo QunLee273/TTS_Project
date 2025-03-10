@@ -6,7 +6,16 @@ public class BossMove : ObjMovement
     [Header("Boss Move")] [SerializeField] protected Transform target;
     [SerializeField] protected float stopDistance = 1f;
 
-    public bool CanMove => animator.GetBool(AnimString.canMove);
+    public bool CanMove
+    {
+        get => animator.GetBool(AnimString.canMove);
+        set
+        {
+            animator.SetBool(AnimString.canMove, value);
+            target = value ? GameObject.FindGameObjectWithTag("Player")?.transform : null;
+            Debug.Log("CanMove set to: " + value + " | Target: " + (target != null ? "Player Found" : "Null"));
+        } 
+    } 
 
     protected override void LoadComponents()
     {

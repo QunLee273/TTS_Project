@@ -14,7 +14,7 @@ public class RewardedAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
         #if UNITY_IOS
             adUnitId = iosAdUnityId;
         #elif UNITY_ANDROID
-             adUnitId = androidAdUnityId;
+            adUnitId = androidAdUnityId;
         #endif
     }
     
@@ -29,8 +29,7 @@ public class RewardedAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
         Debug.Log("Interstitial Ad Loaded");
     }
 
-    public void OnUnityAdsFailedToLoad(string placementId, UnityAdsLoadError error, string message) {
-    }
+    public void OnUnityAdsFailedToLoad(string placementId, UnityAdsLoadError error, string message) { }
     #endregion
 
     public void ShowRewardedAd()

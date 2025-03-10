@@ -42,6 +42,8 @@ public class BreakablesCtrl : ObjController
         if (DamageReceiver.IsDead())
         {
             IsAlive = false;
+            Rigidbody2D rb = GetComponent<Rigidbody2D>();
+            rb.bodyType = RigidbodyType2D.Static;
             Collider2D[] collider2Ds = GetComponentsInChildren<Collider2D>(true);
             foreach (Collider2D col in collider2Ds)
                 col.enabled = false;

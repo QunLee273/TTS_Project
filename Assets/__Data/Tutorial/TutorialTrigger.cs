@@ -10,14 +10,15 @@ public class TutorialTrigger : GameBehaviour
     protected override void Start()
     {
         base.Start();
-        if (PlayerPrefs.GetInt(PlayerPrefsString.UnlockedLevel) == 1)
+        if (PlayerPrefs.GetInt(PlayerPrefsString.UnlockedLevel, 1) <= 1)
         {
             UIBottomRight.Instance.BtnJump.gameObject.SetActive(false);
             UIBottomRight.Instance.BtnAttack.gameObject.SetActive(false);
             UIBottomRight.Instance.BtnDash.gameObject.SetActive(false);
             UIBottomRight.Instance.BtnInvisible.gameObject.SetActive(false);
         }
-        else Destroy(gameObject);
+        else 
+            Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

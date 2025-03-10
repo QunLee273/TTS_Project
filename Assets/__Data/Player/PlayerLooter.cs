@@ -65,7 +65,7 @@ public class PlayerLooter : GameBehaviour
         coinAmount += itemProfile.itemCount;
         PlayerPrefs.SetInt(PlayerPrefsString.AmountCoins, (int)coinAmount);
         PlayerPrefs.Save();
-        Debug.Log("Đã nhận " + itemProfile.itemCount + " coin. Tổng coin hiện tại: " + coinAmount);
+        //Debug.Log("Đã nhận " + itemProfile.itemCount + " coin. Tổng coin hiện tại: " + coinAmount);
     }
     
     protected virtual ItemProfileSO GetItemProfile(ItemCode itemCode)

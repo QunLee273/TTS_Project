@@ -1,3 +1,4 @@
+using System.Collections;
 using __Data;
 using UnityEngine;
 
@@ -67,4 +68,6 @@ public class BossAnimEvent : GameBehaviour
     {
         bossAbility.BossMeteor.StartMeteorRain();
     }
+
+    
 }

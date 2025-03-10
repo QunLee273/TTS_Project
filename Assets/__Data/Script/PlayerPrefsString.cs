@@ -9,5 +9,6 @@ namespace __Data.Script
         internal static string MusicEnabled = "MusicEnabled";
         internal static string SFXEnabled = "SFXEnabled";
         internal static string SfxVolume = "SfxVolume";
+        internal static string OpenSelectMap = "OpenSelectMap";
     }
 }

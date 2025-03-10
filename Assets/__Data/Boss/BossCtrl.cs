@@ -4,7 +4,7 @@ using UnityEngine;
 public class BossCtrl : ObjController
 {
     [Header("Boss Control")]
-    [SerializeField] protected bool isAlive = true; 
+    [SerializeField] protected bool isAlive = true;
     public bool IsAlive
     {
         get => isAlive;
@@ -26,7 +26,10 @@ public class BossCtrl : ObjController
     private void CheckIsAlive()
     {
         if (DamageReceiver.IsDead())
+        {
             IsAlive = false;
+            UIMapBoss.Instance.HpBar.gameObject.SetActive(false);
+        }
     }
     protected override string GetObjectTypeString()
     {

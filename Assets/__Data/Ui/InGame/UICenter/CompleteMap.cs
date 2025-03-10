@@ -1,4 +1,5 @@
 using __Data;
+using __Data.Script;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -24,12 +25,14 @@ public class CompleteMap : LevelEndState
     protected override void Start()
     {
         base.Start();
+        
         nextLevelButton.onClick.AddListener(NextLevel);
     }
 
     private void NextLevel()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        LoadingData.SelectedLevel = SceneManager.GetActiveScene().buildIndex + 1;
+        SceneManager.LoadScene("LoadingScene");
     }
 }
