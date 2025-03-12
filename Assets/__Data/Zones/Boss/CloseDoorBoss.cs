@@ -22,11 +22,14 @@ public class CloseDoorBoss : DoorBoss
         }
     }
 
+    private void OnTriggerExit2D(Collider2D other)
+    {
+            _isClosing = false;
+    }
+
     private void Update()
     {
         if (_isClosing)
-        {
             door.position = Vector3.MoveTowards(door.position, _closedPosition, speed * Time.deltaTime);
-        }
     }
 }

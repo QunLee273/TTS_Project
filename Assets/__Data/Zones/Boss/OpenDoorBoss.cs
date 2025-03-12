@@ -23,6 +23,11 @@ public class OpenDoorBoss : DoorBoss
         }
     }
 
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        _isOpening = false;
+    }
+
     private void Update()
     {
         if (_isOpening)

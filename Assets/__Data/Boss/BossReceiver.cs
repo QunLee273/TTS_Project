@@ -30,12 +30,13 @@ public class BossReceiver : DamageReceiver
 
     protected override void Reborn()
     {
+        MaxLifes = objController.GameObjectSo.life;
         base.Reborn();
-        lifes = objController.GameObjectSo.life;
     }
     
     protected override void OnDead()
     {
-        SceneManager.LoadScene(0);
+        UIMapBoss.Instance.HpBar.SetActive(false);
+        UIMapBoss.Instance.CreditPanel.SetActive(true);
     }
 }

@@ -8,7 +8,7 @@ public class BossAttack : AbilityAttack
     [SerializeField] protected float attackMelee = 2f;
     [SerializeField] protected float attackRanged = 9f;
     [SerializeField] protected int countRanged = 5;
-    [SerializeField] protected float recoveryBullet = 7.5f;
+    [SerializeField] protected float recoveryBullet = 10f;
     [SerializeField] protected float attackDelay = 2.5f;
     [SerializeField] protected float attackTimer = 0f;
     
@@ -45,6 +45,7 @@ public class BossAttack : AbilityAttack
 
     protected void Update()
     {
+        if (BossCtrl.Instance.isUsingAbility) return;
         if (!animator.GetBool(AnimString.isAlive)) return;
         if (attackTimer < attackDelay) attackTimer += Time.deltaTime;
         if (!isAttacking && attackTimer >= attackDelay)
@@ -70,7 +71,6 @@ public class BossAttack : AbilityAttack
         {
             animator.SetTrigger(AnimString.atkRangedTrigger);
             animator.Play("Boss_Ranged");
-            _count--;
         }
         
     }
@@ -87,6 +87,7 @@ public class BossAttack : AbilityAttack
 
     public void BossRangedAttack()
     {
+        _count--;
         Vector3 spawnPos = spawnPoint.position;
 
         Transform newBullet = BulletSpawner.Instance.Spawn(BulletSpawner.bullet3, spawnPos, Quaternion.identity);

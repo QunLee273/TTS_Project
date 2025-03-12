@@ -8,6 +8,7 @@ public abstract class DamageReceiver : GameBehaviour
     [SerializeField] protected Collider2D colli2d;
     [SerializeField] protected ObjController objController;
     [SerializeField] protected int lifes;
+    [SerializeField] protected int maxLifes;
     [SerializeField] protected bool isDead;
     public bool Dead
     {
@@ -19,6 +20,12 @@ public abstract class DamageReceiver : GameBehaviour
     {
         get => lifes;
         set => lifes = value;
+    }
+    
+    public int MaxLifes
+    {
+        get => maxLifes;
+        set => maxLifes = value;
     }
 
     protected override void OnEnable()
@@ -50,10 +57,11 @@ public abstract class DamageReceiver : GameBehaviour
 
     protected virtual void Reborn()
     {
+        lifes = maxLifes;
         isDead = false;
     }
 
-    public  void Add(int add)
+    public void Add(int add)
     {
         if (isDead) return;
 
@@ -65,6 +73,7 @@ public abstract class DamageReceiver : GameBehaviour
         if (isDead) return;
 
         lifes -= deduct;
+        if (lifes < 0) lifes = 0;
         
         CheckIsDead();
     }

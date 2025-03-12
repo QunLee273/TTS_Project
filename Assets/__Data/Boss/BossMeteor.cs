@@ -26,12 +26,13 @@ public class BossMeteor : AbilityAbstract
     protected override void Start()
     {
         base.Start();
-        maxHp = BossReceiver.Instance.Lifes;
+        maxHp = BossReceiver.Instance.MaxLifes;
         timer = delay;
     }
 
     private void Update()
     {
+        if (BossCtrl.Instance.isUsingAbility) return;
         currentHp = BossReceiver.Instance.Lifes;
         float hpPercent = currentHp / maxHp;
         if (hpPercent > thresholdHp) return;
@@ -54,6 +55,7 @@ public class BossMeteor : AbilityAbstract
         animator.SetBool(AnimString.spells, false);
         animator.SetBool(AnimString.canMove, true);
         animator.SetBool(AnimString.atkMeteor, false);
+        BossCtrl.Instance.isUsingAbility = true;
         StartCoroutine(SpawnMeteors());
     }
 
@@ -64,6 +66,8 @@ public class BossMeteor : AbilityAbstract
             SpawnMeteor();
             yield return new WaitForSeconds(spawnRate);
         }
+
+        BossCtrl.Instance.isUsingAbility = false;
     }
 
     private void SpawnMeteor()
@@ -84,5 +88,4 @@ public class BossMeteor : AbilityAbstract
             rb.linearVelocity = direction * speed;
         }
     }
-
 }

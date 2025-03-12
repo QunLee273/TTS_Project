@@ -23,10 +23,10 @@ public class BossHealing : AbilityAbstract
     protected override void Start()
     {
         base.Start();
-        maxHp = BossReceiver.Instance.Lifes;
+        maxHp = BossReceiver.Instance.MaxLifes;
     }
 
-    protected void FixedUpdate()
+    protected void Update()
     {
         currentHp = BossReceiver.Instance.Lifes;
         float hpPercent = currentHp / maxHp;
@@ -50,6 +50,7 @@ public class BossHealing : AbilityAbstract
 
     public void UseHealing()
     {
+        BossCtrl.Instance.isUsingAbility = true;
         healingEfx.SetActive(true);
         StartCoroutine(HealOverTime());
     }
@@ -66,5 +67,6 @@ public class BossHealing : AbilityAbstract
         animator.SetBool(AnimString.healing, false);
         animator.SetBool(AnimString.canMove, true);
         healingEfx.SetActive(false);
+        BossCtrl.Instance.isUsingAbility = false;
     }
 }

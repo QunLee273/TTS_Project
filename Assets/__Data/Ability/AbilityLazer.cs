@@ -16,6 +16,7 @@ public class AbilityLazer : AbilityAbstract
 
     protected virtual void Update()
     {
+        if (BossCtrl.Instance.isUsingAbility) return;
         if (timer < timerCoolDown) timer += Time.deltaTime;
         else
         {
@@ -36,6 +37,7 @@ public class AbilityLazer : AbilityAbstract
 
     public void StartLazing()
     {
+        BossCtrl.Instance.isUsingAbility = true;
         bossLazer.gameObject.SetActive(true);
     }
 
@@ -48,5 +50,6 @@ public class AbilityLazer : AbilityAbstract
         animator.SetBool(AnimString.spells, false);
         animator.SetBool(AnimString.atkLazer, false);
         animator.SetBool(AnimString.canMove, true);
+        BossCtrl.Instance.isUsingAbility = false;
     }
 }

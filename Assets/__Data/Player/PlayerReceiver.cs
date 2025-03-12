@@ -13,7 +13,6 @@ public class PlayerReceiver : DamageReceiver
     }
     protected override void Reborn()
     {
-        base.Reborn();
         int lifeSo = objController.GameObjectSo.life;
 
         int survivalLv = PlayerPrefs.GetInt(PlayerPrefsString.SkillLevel_ + 1);
@@ -25,7 +24,8 @@ public class PlayerReceiver : DamageReceiver
                 lifeSo += 2;
         }
         
-        lifes = lifeSo;
+        MaxLifes = lifeSo;
+        base.Reborn();
     }
 
     protected override void OnDead()

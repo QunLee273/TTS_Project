@@ -23,11 +23,12 @@ public class BossShield : AbilityAbstract
     protected override void Start()
     {
         base.Start();
-        maxHp = BossReceiver.Instance.Lifes;
+        maxHp = BossReceiver.Instance.MaxLifes;
     }
 
-    protected void FixedUpdate()
+    protected void Update()
     {
+        if (BossCtrl.Instance.isUsingAbility) return;
         currentHp = BossReceiver.Instance.Lifes;
         float hpPercent = currentHp / maxHp;
         if (hpPercent <= thresholdHp && thresholdHp > 0)
@@ -49,6 +50,7 @@ public class BossShield : AbilityAbstract
 
     public void UseShield()
     {
+        BossCtrl.Instance.isUsingAbility = true;
         animator.SetBool(AnimString.spells, false);
         animator.SetBool(AnimString.shield, false);
         animator.SetBool(AnimString.canMove, true);
@@ -59,6 +61,7 @@ public class BossShield : AbilityAbstract
 
     IEnumerator ActivateShield()
     {
+        BossCtrl.Instance.isUsingAbility = false;
         yield return new WaitForSeconds(timeShield);
         shield.SetActive(false);
         BossReceiver.Instance.IsInvulnerable = false;

@@ -7,8 +7,8 @@ public class EnemyReceiver : DamageReceiver
     
     protected override void Reborn()
     {
+        MaxLifes = objController.GameObjectSo.life;
         base.Reborn();
-        lifes = objController.GameObjectSo.life;
     }
     
     protected override void LoadComponents()

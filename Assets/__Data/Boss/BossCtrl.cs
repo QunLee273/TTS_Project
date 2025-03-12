@@ -4,6 +4,11 @@ using UnityEngine;
 public class BossCtrl : ObjController
 {
     [Header("Boss Control")]
+    private static BossCtrl _instance;
+    public static BossCtrl Instance => _instance;
+
+    public bool isUsingAbility;
+    
     [SerializeField] protected bool isAlive = true;
     public bool IsAlive
     {
@@ -17,7 +22,14 @@ public class BossCtrl : ObjController
     }
     
     protected override bool IsDebugEnabled => true;
-    
+
+    protected override void Awake()
+    {
+        base.Awake();
+        if (BossCtrl._instance != null) Debug.LogError("Only 1 BossCtrl allow to exist");
+        BossCtrl._instance = this;
+    }
+
     protected void Update()
     {
         CheckIsAlive();

@@ -250,12 +250,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: shield
     m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: healing
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: atkLazer
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5541303947141585458}
   m_Solo: 0
@@ -440,12 +434,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: atkLazer
     m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: healing
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: shield
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8073503615123971382}
   m_Solo: 0
@@ -579,12 +567,6 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: healing
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: shield
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: atkLazer
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -468647189779077454}

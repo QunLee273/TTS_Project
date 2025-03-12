@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class BossLazer : AbilityLazer
@@ -31,7 +30,7 @@ public class BossLazer : AbilityLazer
         set => _currentEndPoint = value;
     }
     
-    private float _sparkProgress = 0f;
+    private float _sparkProgress;
 
     protected override void Start()
     {
@@ -41,6 +40,11 @@ public class BossLazer : AbilityLazer
 
     protected override void Update()
     {
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("LazerAttack")) 
+        {
+            DisableLazer();
+            return;
+        }
         Vector2 direction = bossTransform.transform.localScale.x > 0 ? Vector2.right : Vector2.left;
         _targetEndPoint = (Vector2)firePoint.position + direction * laserDistance;
         spark.localScale = direction == Vector2.right ? new Vector3(1, 1, 1) : new Vector3(-1, 1, 1);
@@ -62,9 +66,7 @@ public class BossLazer : AbilityLazer
             remnants.gameObject.SetActive(true);
         }
         else
-        {
             remnants.gameObject.SetActive(false);
-        }
     }
 
     private void CheckCollider(Vector2 direction)
@@ -76,17 +78,24 @@ public class BossLazer : AbilityLazer
             _targetEndPoint = (Vector2)firePoint.position + direction * laserDistance;
 
         if (hit.collider != null && hit.collider.CompareTag("Player"))
-        {
             PlayerController.Instance.TakeDamage();
-        }
     }
 
     private void UpdateLineRenderer()
     {
+        
         var startPointLocal = lineRenderer.transform.InverseTransformPoint(firePoint.position);
         var endPointLocal = lineRenderer.transform.InverseTransformPoint(_currentEndPoint);
 
+        lineRenderer.enabled = true;
         lineRenderer.SetPosition(0, startPointLocal);
         lineRenderer.SetPosition(1, endPointLocal);
+    }
+    
+    private void DisableLazer()
+    {
+        lineRenderer.enabled = false;
+        spark.gameObject.SetActive(false);
+        remnants.gameObject.SetActive(false);
     }
 }

@@ -1,47 +1,85 @@
 using System.Collections;
+using __Data;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class CreditManager : MonoBehaviour
+public class CreditManager : GameBehaviour
 {
-    public GameObject creditPanel; // Panel chứa credit
-    public GameObject creditText; // Text hiển thị credit
-    public float scrollSpeed = 50f; // Tốc độ chạy chữ
-
-    private RectTransform creditRect;
+    [SerializeField] protected Button btnSkip;
+    [SerializeField] protected GameObject creditPanel;
+    [SerializeField] protected GameObject creditText;
+    [SerializeField] protected float scrollSpeed = 50f;
     
-    void Start()
+    [SerializeField] protected AudioClip creditSound;
+
+    private RectTransform _creditRect;
+
+    protected override void LoadComponents()
     {
-        creditRect = creditText.GetComponent<RectTransform>();
+        base.LoadComponents();
+        LoadBtnSkip();
+        LoadPanel();
+        LoadText();
+    }
+
+    private void LoadBtnSkip()
+    {
+        if (btnSkip != null) return;
+        btnSkip = GameObject.Find("BtnSkip").GetComponent<Button>();
+        Debug.LogWarning(transform.name + ": LoadBtnSkip", gameObject);
+    }
+
+    private void LoadPanel()
+    {
+        if (creditPanel != null) return;
+        creditPanel = GameObject.Find("CreditPanel");
+        Debug.LogWarning(transform.name + ": LoadPanel", gameObject);
+    }
+
+    private void LoadText()
+    {
+        if (creditText != null) return;
+        creditText = GameObject.Find("CreditText");
+        Debug.LogWarning(transform.name + ": LoadText", gameObject);
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+        btnSkip.onClick.AddListener(SkipCredit);
+        _creditRect = creditText.GetComponent<RectTransform>();
         creditPanel.SetActive(false);
         ShowCredit();
     }
 
-    public void ShowCredit()
+    private void ShowCredit()
     {
+        AudioManager.Instance.MusicSource.clip = creditSound;
         creditPanel.SetActive(true);
         StartCoroutine(ScrollCredit());
     }
 
     IEnumerator ScrollCredit()
     {
-        float startY = creditRect.anchoredPosition.y;
-        float endY = startY + 2000f; // Điều chỉnh giá trị này tùy theo độ dài credit
+        float startY = _creditRect.anchoredPosition.y;
+        float endY = startY + 2000f;
 
-        while (creditRect.anchoredPosition.y < endY)
+        while (_creditRect.anchoredPosition.y < endY)
         {
-            creditRect.anchoredPosition += Vector2.up * (scrollSpeed * Time.deltaTime);
+            _creditRect.anchoredPosition += Vector2.up * (scrollSpeed * Time.deltaTime);
             yield return null;
         }
 
-        // Sau khi credit chạy xong, trở về màn hình chính
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene("MainMenu");
+        LoadingData.SelectedLevel = 0;
+        SceneManager.LoadScene("LoadingScene");
     }
 
-    public void SkipCredit()
+    private void SkipCredit()
     {
-        SceneManager.LoadScene("MainMenu");
+        LoadingData.SelectedLevel = 0;
+        SceneManager.LoadScene("LoadingScene");
     }
 }

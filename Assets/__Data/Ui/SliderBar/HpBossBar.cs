@@ -30,7 +30,7 @@ public class HpBossBar : GameBehaviour
     protected override void Start()
     {
         base.Start();
-        maxHp = objController.DamageReceiver.Lifes;
+        maxHp = objController.DamageReceiver.MaxLifes;
         sliderHp.SetMaxHp(maxHp);
     }
 
