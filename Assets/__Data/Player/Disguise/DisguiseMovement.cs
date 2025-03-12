@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LogMovement : ObjMovement
+public class DisguiseMovement : ObjMovement
 {
     [Header("Log Movement")]
     private bool _isMoveLeft, _isMoveRight;
@@ -9,6 +9,7 @@ public class LogMovement : ObjMovement
     public void OnPointerUpLeft()    { _isMoveLeft = false; }
     public void OnPointerDownRight() { _isMoveRight = true; }
     public void OnPointerUpRight()   { _isMoveRight = false; }
+    
     private void Update()
     {
         if (_isMoveLeft || Input.GetAxis("Horizontal") < 0) HandleMovement(-1);

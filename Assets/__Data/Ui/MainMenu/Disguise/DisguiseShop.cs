@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using __Data;
 using __Data.Script;
 using TMPro;
@@ -8,78 +7,129 @@ using UnityEngine.UI;
 
 public class DisguiseShop : GameBehaviour
 {
-    public List<DisguiseData> disguises;
-    public GameObject disguisePrefab;
-    public Transform disguiseContent;
-    public int goldCounter;
+    [SerializeField] protected Button backButton;
+    [SerializeField] protected DisguiseSO disguiseSo;
+    [SerializeField] protected GameObject disguisePrefab;
+    [SerializeField] protected Transform disguiseContent;
 
-    private DisguiseData _equippedDisguise = null;
+    private int _goldCounter;
+    private int _equippedIndex;
+
+    protected override void LoadComponents()
+    {
+        base.LoadComponents();
+        LoadBtnBack();
+        LoadDisguiseSo();
+        LoadContent();
+    }
+
+    private void LoadBtnBack()
+    {
+        if (backButton != null) return;
+        backButton = GetComponentInChildren<Button>();
+        Debug.LogWarning(transform.name + ": LoadBtnBack", gameObject);
+    }
+
+    private void LoadDisguiseSo()
+    {
+        if (disguiseSo != null) return;
+        disguiseSo = Resources.Load<DisguiseSO>("Disguise/DisguiseData");
+        Debug.LogWarning(transform.name + ": LoadDisguiseSo", gameObject);
+    }
+
+    private void LoadContent()
+    {
+        if (disguiseContent != null) return;
+        disguiseContent = transform.Find("ScrollDisguise/Viewport/Content");
+        Debug.LogWarning(transform.name + ": LoadContent", gameObject);
+    }
 
     protected override void Start()
     {
-        
-        goldCounter = PlayerPrefs.GetInt(PlayerPrefsString.AmountCoins);
+        base.Start();
+        backButton.onClick.AddListener(BackToShopUpdate);
+        _goldCounter = PlayerPrefs.GetInt(PlayerPrefsString.AmountCoins, 0);
+        _equippedIndex = PlayerPrefs.GetInt(PlayerPrefsString.EquippedIndex, 0);
         LoadDisguiseUI();
     }
 
-    void LoadDisguiseUI()
+    private void LoadDisguiseUI()
     {
         foreach (Transform child in disguiseContent)
-        {
             Destroy(child.gameObject);
-        }
 
-        foreach (var disguise in disguises)
-        {
-            GameObject item = Instantiate(disguisePrefab, disguiseContent);
-            item.transform.Find("TxtName").GetComponent<TMP_Text>().text = disguise.disguiseName;
-            item.transform.Find("Image").GetComponent<Image>().sprite = disguise.disguiseIcon;
-            TMP_Text logText = item.transform.Find("TxtLog").GetComponent<TMP_Text>();
-            Button selectButton = item.transform.Find("BtnSelect").GetComponent<Button>();
-            TMP_Text buttonText = selectButton.GetComponentInChildren<TMP_Text>();
-
-            if (disguise.isPurchased)
-            {
-                buttonText.text = "Equip";
-                logText.text = "Purchased";
-                selectButton.onClick.AddListener(() => EquipDisguise(disguise, logText));
-            }
-            else
-            {
-                buttonText.text = disguise.price + " Gold";
-                logText.text = "Not Purchased";
-                selectButton.onClick.AddListener(() => BuyDisguise(disguise, buttonText, logText, selectButton));
-            }
-        }
+        for (int i = 0; i < disguiseSo.disguiseData.Count; i++)
+            CreateDisguiseItem(i);
     }
 
-    void BuyDisguise(DisguiseData disguise, TMP_Text buttonText, TMP_Text logText, Button button)
+    private void CreateDisguiseItem(int index)
     {
-        if (goldCounter >= disguise.price)
-        {
-            goldCounter -= disguise.price;
-            disguise.isPurchased = true;
+        var disguise = disguiseSo.disguiseData[index];
+        GameObject item = Instantiate(disguisePrefab, disguiseContent);
 
+        item.transform.Find("TxtName").GetComponent<TMP_Text>().text = disguise.disguiseName;
+        item.transform.Find("Image").GetComponent<Image>().sprite = disguise.disguiseIcon;
+        TMP_Text logText = item.transform.Find("TxtLog").GetComponent<TMP_Text>();
+        Button selectButton = item.transform.Find("BtnSelect").GetComponent<Button>();
+        TMP_Text buttonText = selectButton.GetComponentInChildren<TMP_Text>();
+
+        selectButton.onClick.RemoveAllListeners();
+
+        if (disguise.isPurchased)
+            UpdatePurchasedDisguise(selectButton, buttonText, logText, index);
+        else
+            UpdateUnpurchasedDisguise(selectButton, buttonText, logText, disguise, index);
+    }
+
+    private void UpdatePurchasedDisguise(Button selectButton, TMP_Text buttonText, TMP_Text logText, int index)
+    {
+        if (index == _equippedIndex)
+        {
+            buttonText.text = "Equipped";
+            selectButton.interactable = false;
+        }
+        else
+        {
             buttonText.text = "Equip";
-            logText.text = "Purchased";
-            button.onClick.RemoveAllListeners();
-            button.onClick.AddListener(() => EquipDisguise(disguise, logText));
+            selectButton.interactable = true;
+            selectButton.onClick.AddListener(() => EquipDisguise(index));
         }
+        logText.text = "Purchased";
     }
 
-    void EquipDisguise(DisguiseData disguise, TMP_Text logText)
+    private void UpdateUnpurchasedDisguise(Button selectButton, TMP_Text buttonText, TMP_Text logText, DisguiseData disguise, int index)
     {
-        _equippedDisguise = disguise;
-        logText.text = "Equipped";
-        Debug.Log("Equipped: " + disguise.disguiseName);
+        buttonText.text = disguise.price + " Gold";
+        logText.text = (_goldCounter < disguise.price) ? "Not enough gold!" : "Not Purchased";
+        selectButton.interactable = (_goldCounter >= disguise.price);
+        selectButton.onClick.AddListener(() => BuyDisguise(index));
     }
-}
 
-[Serializable]
-public class DisguiseData
-{
-    public string disguiseName;
-    public Sprite disguiseIcon;
-    public int price;
-    public bool isPurchased;
+    private void BuyDisguise(int index)
+    {
+        var disguise = disguiseSo.disguiseData[index];
+
+        if (_goldCounter < disguise.price) return;
+        _goldCounter -= disguise.price;
+        disguise.isPurchased = true;
+        PlayerPrefs.SetInt(PlayerPrefsString.AmountCoins, _goldCounter);
+        PlayerPrefs.Save();
+
+        LoadDisguiseUI();
+    }
+
+    private void EquipDisguise(int index)
+    {
+        _equippedIndex = index;
+        PlayerPrefs.SetInt(PlayerPrefsString.EquippedIndex, index);
+        PlayerPrefs.Save();
+
+        LoadDisguiseUI();
+    }
+
+    private void BackToShopUpdate()
+    {
+        UICtrlMainMenu.Instance.ShopUpdate.SetActive(true);
+        UICtrlMainMenu.Instance.Disguise.SetActive(false);
+    }
 }

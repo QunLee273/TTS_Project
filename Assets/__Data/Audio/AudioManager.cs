@@ -72,9 +72,9 @@ public class AudioManager : GameBehaviour
 
     public void ApplyAudioSettings()
     {
-        float musicVolume = PlayerPrefs.GetFloat(PlayerPrefsString.MusicVolume, 1f);
+        float musicVolume = PlayerPrefs.GetFloat(PlayerPrefsString.MusicVolume, 0.5f);
         bool musicEnabled = PlayerPrefs.GetInt(PlayerPrefsString.MusicEnabled, 1) == 1;
-        float sfxVolume = PlayerPrefs.GetFloat(PlayerPrefsString.SfxVolume, 1f);
+        float sfxVolume = PlayerPrefs.GetFloat(PlayerPrefsString.SfxVolume, 0.5f);
         bool sfxEnabled = PlayerPrefs.GetInt(PlayerPrefsString.SFXEnabled, 1) == 1;
         
         audioMixer.SetFloat("Music", musicEnabled ? ConvertToDecibel(musicVolume) : -80f);

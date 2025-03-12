@@ -13,9 +13,9 @@ public class SpearsTrap : GameBehaviour
     public float delayBetweenSpears = 0.2f;
     private bool _isActivated;
 
-    protected override void LoadComponents()
+    protected override void Start()
     {
-        base.LoadComponents();
+        base.Start();
         LoadPrefabs();
     }
 

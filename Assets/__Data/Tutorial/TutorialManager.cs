@@ -1,38 +1,26 @@
 using System.Collections;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class TutorialManager : MonoBehaviour
+public class TutorialManager : UiTutorial
 {
-    [Header("UI Tutorial Elements")]
-    public GameObject tutorialPanel;
-    public TMP_Text textTutorial;
-    public GameObject arrowIndicator;
-    public Image image;
-
-    [Header("Button Targets")]
-    public RectTransform[] tutorialButtons;
-    public Sprite[] tutorialImages;
-    public string[] tutorialMessages;
+    [Header("Show Tutorial Elements")]
+    [SerializeField] protected RectTransform[] tutorialButtons;
+    [SerializeField] protected Sprite[] tutorialImages;
+    [SerializeField] protected string[] tutorialMessages;
+    [SerializeField] protected Sprite[] imageButtons;
     
-    public Sprite[] imageButtons;
     private Coroutine _arrowMoveCoroutine;
+    private bool _isArrowMoving;
 
-    protected void Update()
+    protected override void Start()
     {
-        if (Input.GetMouseButtonDown(0) || Input.touchCount > 0)
-        {
-            tutorialPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 275);
-            arrowIndicator.GetComponent<RectTransform>().anchoredPosition = new Vector2(150, 0);
-            Time.timeScale = 1;
-            if (_arrowMoveCoroutine != null) StopCoroutine(_arrowMoveCoroutine);
-        }
-            
+        base.Start();
+        btnSkip.onClick.AddListener(OnClickSkip);
     }
-    
+
     public void ShowTutorialStep(int step)
     {
+        _isArrowMoving = true;
         tutorialPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -275);
         Time.timeScale = 0f;
 
@@ -66,7 +54,7 @@ public class TutorialManager : MonoBehaviour
         Vector2 startPos = arrow.anchoredPosition;
         Vector2 targetPos = startPos + new Vector2(0, 20);
 
-        while (true)
+        while (_isArrowMoving)
         {
             float t = 0;
             while (t < 1)
@@ -76,5 +64,13 @@ public class TutorialManager : MonoBehaviour
                 yield return null;
             }
         }
+        arrowIndicator.GetComponent<RectTransform>().anchoredPosition = new Vector2(150, 0);
+    }
+
+    private void OnClickSkip()
+    {
+        tutorialPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 275);
+        Time.timeScale = 1;
+        _isArrowMoving = false;
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using __Data;
 using __Data.Script;
 using UnityEngine;
@@ -49,20 +50,26 @@ public class SettingVolume : GameBehaviour
         sfxSlider.onValueChanged.AddListener(UpdateSfxVolume);
     }
 
+    private void Update()
+    {
+        Debug.Log("musicEnabled: " + PlayerPrefs.GetInt(PlayerPrefsString.MusicEnabled));
+        Debug.Log("SfxEnabled: " + PlayerPrefs.GetInt(PlayerPrefsString.SFXEnabled));
+    }
+
     private void InitializeVolume()
     {
-        if (PlayerPrefs.GetInt(PlayerPrefsString.MusicEnabled) == 1)
+        if (PlayerPrefs.GetInt(PlayerPrefsString.MusicEnabled, 1) == 1)
         {
-            float musicVolume = PlayerPrefs.GetFloat(PlayerPrefsString.MusicVolume, 1f);
+            float musicVolume = PlayerPrefs.GetFloat(PlayerPrefsString.MusicVolume, 0.5f);
             musicSlider.value = musicVolume;
             UpdateMusicVolume(musicVolume);
         }
         else
             musicSlider.value = 0.001f;
 
-        if (PlayerPrefs.GetInt(PlayerPrefsString.SFXEnabled) == 1)
+        if (PlayerPrefs.GetInt(PlayerPrefsString.SFXEnabled, 1) == 1)
         {
-            float sfxVolume = PlayerPrefs.GetFloat(PlayerPrefsString.SfxVolume, 1f);
+            float sfxVolume = PlayerPrefs.GetFloat(PlayerPrefsString.SfxVolume, 0.5f);
             sfxSlider.value = sfxVolume;
             UpdateSfxVolume(sfxVolume);
         }

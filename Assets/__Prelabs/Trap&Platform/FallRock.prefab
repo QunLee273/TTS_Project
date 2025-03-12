@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 4060248459531287550}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -10.35, y: -4.43, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -96,9 +96,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6741211472198435856}
-  - component: {fileID: 288448628987204653}
-  - component: {fileID: 4883924052709129952}
-  - component: {fileID: 4433693054284060086}
   m_Layer: 0
   m_Name: FallRock
   m_TagString: Trap
@@ -119,17 +116,52 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 7465965839065224063}
   - {fileID: 7303822115232012498}
+  - {fileID: 7763062890834905551}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &288448628987204653
+--- !u!1 &5938922876612890450
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7763062890834905551}
+  - component: {fileID: 8932231981990236408}
+  - component: {fileID: 9139631386504938199}
+  - component: {fileID: 2348126986413424864}
+  m_Layer: 0
+  m_Name: Rock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7763062890834905551
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5938922876612890450}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7465965839065224063}
+  m_Father: {fileID: 6741211472198435856}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &8932231981990236408
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4185327395038295885}
+  m_GameObject: {fileID: 5938922876612890450}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -178,13 +210,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &4883924052709129952
+--- !u!58 &9139631386504938199
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4185327395038295885}
+  m_GameObject: {fileID: 5938922876612890450}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -214,14 +246,14 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: -0.010658264, y: 0}
   m_Radius: 0.58937454
---- !u!50 &4433693054284060086
+--- !u!50 &2348126986413424864
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4185327395038295885}
+  m_GameObject: {fileID: 5938922876612890450}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -267,12 +299,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7922455182262781411}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.14, y: -4.94, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -10.139999, y: -4.94, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6741211472198435856}
+  m_Father: {fileID: 7763062890834905551}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &3610039200233431803
 BoxCollider2D:
@@ -332,4 +364,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b773c9b994e68c34584ee2cc451970a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 4433693054284060086}
+  rb: {fileID: 2348126986413424864}

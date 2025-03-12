@@ -7,7 +7,7 @@ public class ShopUpdate : GameBehaviour
     [SerializeField] protected Button btnBack;
     [SerializeField] protected Button btnUpdate;
     [SerializeField] protected Button btnShop;
-    [SerializeField] protected Button btnHensojutsu;
+    [SerializeField] protected Button btnDisguise;
 
     protected override void LoadComponents()
     {
@@ -15,7 +15,7 @@ public class ShopUpdate : GameBehaviour
         LoadBtnBack();
         LoadBtnUpdate();
         LoadBtnShop();
-        LoadBtnHensojutsu();
+        LoadBtnDisguise();
     }
 
     protected override void Start()
@@ -23,6 +23,7 @@ public class ShopUpdate : GameBehaviour
         base.Start();
         btnBack.onClick.AddListener(OnClickBack);
         btnUpdate.onClick.AddListener(OnClickUpdate);
+        btnDisguise.onClick.AddListener(OnClickDisguise);
     }
 
     private void LoadBtnBack()
@@ -46,11 +47,11 @@ public class ShopUpdate : GameBehaviour
         Debug.LogWarning(transform.name + ": LoadBtnShop", gameObject);
     }
 
-    private void LoadBtnHensojutsu()
+    private void LoadBtnDisguise()
     {
-        if (btnHensojutsu != null) return;
-        btnHensojutsu = GameObject.Find("BtnHensojutsu").GetComponent<Button>();
-        Debug.LogWarning(transform.name + ": LoadBtnHensojutsu", gameObject);
+        if (btnDisguise != null) return;
+        btnDisguise = GameObject.Find("BtnDisguise").GetComponent<Button>();
+        Debug.LogWarning(transform.name + ": LoadBtnDisguise", gameObject);
     }
 
     private void OnClickBack()
@@ -62,6 +63,12 @@ public class ShopUpdate : GameBehaviour
     private void OnClickUpdate()
     {
         UICtrlMainMenu.Instance.UpdateSkill.SetActive(true);
+        UICtrlMainMenu.Instance.ShopUpdate.SetActive(false);
+    }
+
+    private void OnClickDisguise()
+    {
+        UICtrlMainMenu.Instance.Disguise.SetActive(true);
         UICtrlMainMenu.Instance.ShopUpdate.SetActive(false);
     }
 }

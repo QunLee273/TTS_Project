@@ -7,8 +7,9 @@ namespace __Data.Script
         internal static string SkillLevel_ = "SkillLevel_";
         internal static string MusicVolume = "musicVolume";
         internal static string MusicEnabled = "MusicEnabled";
-        internal static string SFXEnabled = "SFXEnabled";
         internal static string SfxVolume = "SfxVolume";
+        internal static string SFXEnabled = "SFXEnabled";
         internal static string OpenSelectMap = "OpenSelectMap";
+        internal static string EquippedIndex = "EquippedDisguiseIndex";
     }
 }

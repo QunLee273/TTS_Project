@@ -1,7 +1,5 @@
-using System;
 using __Data;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 [RequireComponent(typeof(CircleCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
@@ -56,6 +54,10 @@ public class BulletImpart : GameBehaviour
             CreateImpactFXNoSendDam(FXSpawner.impact1);
             return;
         }
+        
+        if (bulletCtrl.Shooter.CompareTag("Enemy") && 
+            (other.gameObject.layer == LayerMask.NameToLayer("Shield") ||
+            other.transform.CompareTag("Enemy"))) return;
 
         if (other.gameObject.layer == LayerMask.NameToLayer("Shield") ||
             other.gameObject.CompareTag("Trap"))
