@@ -21668,59 +21668,11 @@ MonoBehaviour:
   - eventID: 2
     callback:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1810767303}
-          m_TargetAssemblyTypeName: PlayerMove, Assembly-CSharp
-          m_MethodName: OnPointerDownLeft
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-        - m_Target: {fileID: 1091918954}
-          m_TargetAssemblyTypeName: LogMovement, Assembly-CSharp
-          m_MethodName: OnPointerDownLeft
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
+        m_Calls: []
   - eventID: 3
     callback:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1810767303}
-          m_TargetAssemblyTypeName: PlayerMove, Assembly-CSharp
-          m_MethodName: OnPointerUpLeft
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-        - m_Target: {fileID: 1091918954}
-          m_TargetAssemblyTypeName: LogMovement, Assembly-CSharp
-          m_MethodName: OnPointerUpLeft
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
+        m_Calls: []
 --- !u!1001 &776985392
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23950,6 +23902,14 @@ MonoBehaviour:
   btnDash: {fileID: 1386302965}
   btnAttack: {fileID: 1253499793}
   btnInvisible: {fileID: 1470916007}
+  playerMove: {fileID: 1810767303}
+  playerAttack: {fileID: 1057557324}
+  abilityDash: {fileID: 1412162829}
+  abilityInvisible: {fileID: 289921337}
+  jumpBtn: {fileID: 2058338309}
+  dashBtn: {fileID: 1386302968}
+  attackBtn: {fileID: 1253499796}
+  invisibleBtn: {fileID: 1470916010}
 --- !u!1 &1036990957
 GameObject:
   m_ObjectHideFlags: 0
@@ -24947,6 +24907,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   btnMoveLeft: {fileID: 762257558}
   btnMoveRight: {fileID: 2110020364}
+  moveLeft: {fileID: 762257563}
+  moveRight: {fileID: 2110020369}
+  playerMove: {fileID: 1810767303}
+  disguiseMovement: {fileID: 1091918954}
 --- !u!1 &1189025665
 GameObject:
   m_ObjectHideFlags: 0
@@ -25624,19 +25588,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1253499797}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1057557324}
-        m_TargetAssemblyTypeName: PlayerAttack, Assembly-CSharp
-        m_MethodName: OnClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1253499797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26116,6 +26068,7 @@ MonoBehaviour:
   colli2d: {fileID: 129862710}
   objController: {fileID: 129862709}
   lifes: 0
+  maxLifes: 0
   isDead: 0
   hasUsedRevive: 0
 --- !u!1 &1318396385
@@ -26557,19 +26510,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1386302969}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1412162829}
-        m_TargetAssemblyTypeName: AbilityDash, Assembly-CSharp
-        m_MethodName: OnClickDash
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1386302969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27547,19 +27488,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1470916011}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 289921337}
-        m_TargetAssemblyTypeName: AbilityInvisible, Assembly-CSharp
-        m_MethodName: Activate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1470916011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32291,19 +32220,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2058338310}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1810767303}
-        m_TargetAssemblyTypeName: PlayerMove, Assembly-CSharp
-        m_MethodName: OnClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2058338310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32873,59 +32790,11 @@ MonoBehaviour:
   - eventID: 2
     callback:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1810767303}
-          m_TargetAssemblyTypeName: PlayerMove, Assembly-CSharp
-          m_MethodName: OnPointerDownRight
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1091918954}
-          m_TargetAssemblyTypeName: LogMovement, Assembly-CSharp
-          m_MethodName: OnPointerDownRight
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
   - eventID: 3
     callback:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1810767303}
-          m_TargetAssemblyTypeName: PlayerMove, Assembly-CSharp
-          m_MethodName: OnPointerUpRight
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1091918954}
-          m_TargetAssemblyTypeName: LogMovement, Assembly-CSharp
-          m_MethodName: OnPointerUpRight
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
 --- !u!1001 &2118852758
 PrefabInstance:
   m_ObjectHideFlags: 0

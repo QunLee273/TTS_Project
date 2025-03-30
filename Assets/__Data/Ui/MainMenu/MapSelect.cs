@@ -12,6 +12,8 @@ public class MapSelect : GameBehaviour
     [SerializeField] protected Button btnPlay;
     [SerializeField] protected Sprite[] levelImages;
 
+    private int _playCountAds;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -80,11 +82,39 @@ public class MapSelect : GameBehaviour
     private void SelectLevel(int levelIndex)
     {
         btnPlay.gameObject.SetActive(true); 
-        btnPlay.onClick.AddListener(() => LoadLevel(levelIndex));
+        btnPlay.onClick.AddListener(() => OnPlayButtonClick(levelIndex));
         if (imageMap != null && levelIndex - 1 < levelImages.Length)
         {
             imageMap.sprite = levelImages[levelIndex - 1];
         }
+    }
+    
+    private void OnPlayButtonClick(int levelIndex)
+    {
+        _playCountAds = PlayerPrefs.GetInt(PlayerPrefsString.PlayCountAds, 0);
+        _playCountAds++;
+
+        if (_playCountAds >= 3)
+        {
+            _playCountAds = 0;
+
+            System.Action onAdComplete = null;
+            onAdComplete = () =>
+            {
+                LoadLevel(levelIndex);
+                AdsManager.Instance.interstitialAds.OnAdCompleted -= onAdComplete;
+            };
+
+            AdsManager.Instance.interstitialAds.OnAdCompleted += onAdComplete;
+            AdsManager.Instance.interstitialAds.ShowInterstitialAd();
+        }
+        else
+        {
+            LoadLevel(levelIndex);
+        }
+
+        PlayerPrefs.SetInt(PlayerPrefsString.PlayCountAds, _playCountAds);
+        PlayerPrefs.Save();
     }
 
     private void LoadLevel(int levelIndex)

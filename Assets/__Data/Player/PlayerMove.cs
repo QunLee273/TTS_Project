@@ -92,7 +92,7 @@ public class PlayerMove : ObjMovement
     public void OnPointerUpLeft()    { _isMoveLeft = false; }
     public void OnPointerDownRight() { _isMoveRight = true; }
     public void OnPointerUpRight()   { _isMoveRight = false; }
-    public void OnClick() { isJumping = true; }
+    public void OnClickJump() { isJumping = true; }
 
     private void UpdateAnimation()
     {

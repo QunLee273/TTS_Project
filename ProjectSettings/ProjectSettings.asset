@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: SoloGameDev
-  productName: SOTM_TTS&DA
+  productName: SOTM
   defaultCursor: {fileID: 2800000, guid: 5ab61e1bf0d27ca41b00a82e694f755f, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -164,7 +164,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.4
   androidMinAspectRatio: 1
   applicationIdentifier:
-    Android: com.SoloGameDev.SOTM_TTSDA
+    Android: com.SoloGameDev.SOTM
     Standalone: com.DefaultCompany.2D-URP
   buildNumber:
     Standalone: 0
@@ -778,7 +778,7 @@ PlayerSettings:
     Legacy Analytics: 0
     Purchasing: 0
     UDP: 0
-    Unity Ads: 0
+    Unity Ads: 1
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 

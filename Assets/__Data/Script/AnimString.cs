@@ -10,6 +10,7 @@ namespace __Data.Script
         internal static string attackTrigger = "attacks";
         internal static string hasTarget = "hasTarget";
         internal static string isDash = "isDashing";
+        internal static string abilityInt = "abilitys";
         internal static string spells = "spells";
         internal static string atkRangedTrigger = "atkRanged";
         internal static string atkMeleeTrigger = "atkMelee";

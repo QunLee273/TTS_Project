@@ -24,6 +24,7 @@ public class ShopUpdate : GameBehaviour
         btnBack.onClick.AddListener(OnClickBack);
         btnUpdate.onClick.AddListener(OnClickUpdate);
         btnDisguise.onClick.AddListener(OnClickDisguise);
+        btnShop.onClick.AddListener(OnClickShop);
     }
 
     private void LoadBtnBack()
@@ -69,6 +70,12 @@ public class ShopUpdate : GameBehaviour
     private void OnClickDisguise()
     {
         UICtrlMainMenu.Instance.Disguise.SetActive(true);
+        UICtrlMainMenu.Instance.ShopUpdate.SetActive(false);
+    }
+
+    private void OnClickShop()
+    {
+        UICtrlMainMenu.Instance.Shop.SetActive(true);
         UICtrlMainMenu.Instance.ShopUpdate.SetActive(false);
     }
 }

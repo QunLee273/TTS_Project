@@ -15,7 +15,7 @@ public class BackgroundController : GameBehaviour
     
     protected void FixedUpdate()
     {
-        float distance = cam.transform.position.x * parallaxEffect;
+        float distance = cam.transform.position.x * parallaxEffect * Time.deltaTime;
         
         transform.position = new Vector3(_posStart + distance, transform.position.y, transform.position.z);
     }

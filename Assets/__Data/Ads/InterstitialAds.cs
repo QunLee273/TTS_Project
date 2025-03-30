@@ -7,6 +7,8 @@ public class InterstitialAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSh
     [SerializeField] protected string iosAdUnityId;
     
     private string adUnitId;
+    public System.Action OnAdCompleted;
+
 
     private void Awake()
     {
@@ -47,7 +49,10 @@ public class InterstitialAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSh
 
     public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState)
     {
-        Debug.Log("Interstitial Ad Complete");
+        if (placementId == adUnitId && showCompletionState.Equals(UnityAdsShowCompletionState.COMPLETED))
+        {
+            OnAdCompleted?.Invoke();
+        }
     }
     #endregion
 }

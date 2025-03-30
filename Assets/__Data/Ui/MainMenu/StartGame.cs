@@ -17,14 +17,13 @@ public class StartGame : GameBehaviour
         base.Start();
         startGameButton.onClick.AddListener(OnClick_StartGame);
         
-        bool openSelectMap = PlayerPrefs.GetInt("OpenSelectMap", 0) == 1;
+        bool openSelectMap = PlayerPrefs.GetInt(PlayerPrefsString.OpenSelectMap, 0) == 1;
 
         if (openSelectMap)
         {
             PlayerPrefs.SetInt(PlayerPrefsString.OpenSelectMap, 0);
             PlayerPrefs.Save();
-            UICtrlMainMenu.Instance.SelectLevel.SetActive(true);
-            UICtrlMainMenu.Instance.MainMenu.SetActive(false);
+            OnClick_StartGame();
         }
     }
 

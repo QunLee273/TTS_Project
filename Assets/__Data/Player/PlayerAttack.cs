@@ -55,7 +55,7 @@ public class PlayerAttack : AbilityAttack
         AudioManager.Instance.PlaySfx("Shuriken");
     }
     
-    public void OnClick()
+    public void OnClickAtk()
     {
         if (animator.GetBool(AnimString.isAlive) && !isAttacking && attackTimer >= attackCooldown)
         {

@@ -47,11 +47,12 @@ public class BossAttack : AbilityAttack
     {
         if (BossCtrl.Instance.isUsingAbility) return;
         if (!animator.GetBool(AnimString.isAlive)) return;
-        if (attackTimer < attackDelay) attackTimer += Time.deltaTime;
-        if (!isAttacking && attackTimer >= attackDelay)
+
+        if (!isAttacking)
         {
-            Attack();
-            isAttacking = false;
+            attackTimer += Time.deltaTime;
+            if (attackTimer >= attackDelay)
+                Attack();
         }
     }
 
@@ -63,14 +64,14 @@ public class BossAttack : AbilityAttack
         float direction = Vector3.Distance(transform.position, target.position);
 
         if (direction <= attackMelee)
-        {
             animator.SetTrigger(AnimString.atkMeleeTrigger);
-            animator.Play("Boss_Melee");
-        }
-        else if (direction <= attackRanged && _count > 0)
+        else
         {
-            animator.SetTrigger(AnimString.atkRangedTrigger);
-            animator.Play("Boss_Ranged");
+            Vector2 rayDirection = (target.position - spawnPoint.position).normalized;
+            RaycastHit2D hit = Physics2D.Raycast(spawnPoint.position, rayDirection, attackRanged, LayerMask.GetMask("Player"));
+
+            if (hit.collider != null && _count > 0)
+                animator.SetTrigger(AnimString.atkRangedTrigger);
         }
         
     }
@@ -83,6 +84,8 @@ public class BossAttack : AbilityAttack
             if (playerController != null)
                 playerController.TakeDamage();
         }
+        animator.ResetTrigger(AnimString.atkMeleeTrigger);
+        isAttacking = false;
     }
 
     public void BossRangedAttack()
@@ -102,5 +105,8 @@ public class BossAttack : AbilityAttack
         
         float shooterDirection = bulletCtrl.Shooter.localScale.x;
         objFly.direction = (shooterDirection >= 0) ? Vector3.right : Vector3.left;
+        
+        animator.ResetTrigger(AnimString.atkRangedTrigger);
+        isAttacking = false;
     }
 }

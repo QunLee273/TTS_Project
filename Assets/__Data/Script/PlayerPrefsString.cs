@@ -11,5 +11,7 @@ namespace __Data.Script
         internal static string SFXEnabled = "SFXEnabled";
         internal static string OpenSelectMap = "OpenSelectMap";
         internal static string EquippedIndex = "EquippedDisguiseIndex";
+        internal static string ActiveAds = "ActiveAds";
+        internal static string PlayCountAds = "PlayCountAds";
     }
 }
