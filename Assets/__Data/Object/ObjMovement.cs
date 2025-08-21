@@ -14,6 +14,8 @@ public class ObjMovement : GameBehaviour
     
     [SerializeField] protected Rigidbody2D rb;
     public Rigidbody2D Rb => rb;
+    [SerializeField] protected Collider2D col;
+    public Collider2D Col => col;
     [SerializeField] protected Animator animator;
     public Animator Animator => animator;
 
@@ -22,6 +24,7 @@ public class ObjMovement : GameBehaviour
         base.LoadComponents();
         
         LoadRigidBody2D();
+        LoadCol2D();
         LoadAnimator();
     }
 
@@ -30,6 +33,13 @@ public class ObjMovement : GameBehaviour
         if (rb != null) return;
         rb = GetComponentInParent<Rigidbody2D>();
         Debug.LogWarning(transform.name + ": LoadRigidBody2D", gameObject);
+    }
+    
+    private void LoadCol2D()
+    {
+        if (col != null) return;
+        col = GetComponentInParent<Collider2D>();
+        Debug.LogWarning(transform.name + ": LoadCol2D", gameObject);
     }
 
     private void LoadAnimator()

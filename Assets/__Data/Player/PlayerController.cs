@@ -38,18 +38,13 @@ public class PlayerController : ObjController
     private void OnTriggerEnter2D(Collider2D collide)
     {
         if (collide.CompareTag("Checkpoint"))
-        {
-            //Debug.Log($"Checkpoint reached: {collide.gameObject.name}");
             respawnPoint.position = collide.transform.position;
-        }
     }
     
     protected void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Trap"))
-        {
             TakeDamage();
-        }
         
         if (collision.gameObject.CompareTag("Holder"))
         {

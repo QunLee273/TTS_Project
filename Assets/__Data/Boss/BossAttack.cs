@@ -68,6 +68,7 @@ public class BossAttack : AbilityAttack
         else
         {
             Vector2 rayDirection = (target.position - spawnPoint.position).normalized;
+            Debug.DrawRay(spawnPoint.position, rayDirection * attackRanged, Color.red);
             RaycastHit2D hit = Physics2D.Raycast(spawnPoint.position, rayDirection, attackRanged, LayerMask.GetMask("Player"));
 
             if (hit.collider != null && _count > 0)

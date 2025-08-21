@@ -56,7 +56,7 @@ public class CreditManager : GameBehaviour
 
     private void ShowCredit()
     {
-        AudioManager.Instance.MusicSource.clip = creditSound;
+        AudioManager.Instance.PlayMusic(creditSound);
         creditPanel.SetActive(true);
         StartCoroutine(ScrollCredit());
     }
@@ -64,7 +64,7 @@ public class CreditManager : GameBehaviour
     IEnumerator ScrollCredit()
     {
         float startY = _creditRect.anchoredPosition.y;
-        float endY = startY + 2000f;
+        float endY = startY + 3000f;
 
         while (_creditRect.anchoredPosition.y < endY)
         {

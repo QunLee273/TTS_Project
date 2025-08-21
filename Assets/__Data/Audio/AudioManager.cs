@@ -65,9 +65,7 @@ public class AudioManager : GameBehaviour
     {
         base.Start();
         ApplyAudioSettings();
-        if (musicSource == null && listBackground.Length == 0) return;
-        musicSource.clip = listBackground[Random.Range(0, listBackground.Length)];
-        musicSource.Play();
+        PlayMusic();
     }
 
     public void ApplyAudioSettings()
@@ -82,6 +80,19 @@ public class AudioManager : GameBehaviour
     }
     
     private float ConvertToDecibel(float volume) => Mathf.Log10(Mathf.Max(volume, 0.001f)) * 20;
+
+    private void PlayMusic()
+    {
+        if (musicSource == null && listBackground.Length == 0) return;
+        musicSource.clip = listBackground[Random.Range(0, listBackground.Length)];
+        musicSource.Play();
+    }
+
+    public void PlayMusic(AudioClip clip)
+    {
+        musicSource.clip = clip;
+        musicSource.Play();
+    }
 
     public void PlaySfx(string sfxName)
     {

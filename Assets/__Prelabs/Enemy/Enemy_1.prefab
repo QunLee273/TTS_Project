@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   rb: {fileID: 6385079566167166878}
+  col: {fileID: 1422688547476612252}
   animator: {fileID: 5185311421368179119}
   enemyAttack: {fileID: 7608970634957629354}
   isGround: 0
@@ -253,6 +254,7 @@ MonoBehaviour:
   colli2d: {fileID: 1422688547476612252}
   objController: {fileID: 43430478808409976}
   lifes: 0
+  maxLifes: 0
   isDead: 0
   enemyCtrl: {fileID: 43430478808409976}
 --- !u!1 &3868479398995571561

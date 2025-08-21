@@ -327,6 +327,7 @@ MonoBehaviour:
   objMovement: {fileID: 4502993394895116831}
   damageReceiver: {fileID: 5841015908852136885}
   objAbility: {fileID: 7210608403958499058}
+  isUsingAbility: 0
   isAlive: 1
 --- !u!1 &1523038067203601368
 GameObject:
@@ -625,6 +626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   rb: {fileID: 7690925197711081546}
+  col: {fileID: 1572919825486879580}
   animator: {fileID: 3043229963593661958}
   target: {fileID: 0}
   stopDistance: 1.5
@@ -6044,6 +6046,7 @@ MonoBehaviour:
   colli2d: {fileID: 1572919825486879580}
   objController: {fileID: 6188357969080944111}
   lifes: 0
+  maxLifes: 0
   isDead: 0
   isInvulnerable: 0
 --- !u!1 &7995491158825451808

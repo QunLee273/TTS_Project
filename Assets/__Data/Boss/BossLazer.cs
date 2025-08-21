@@ -40,19 +40,15 @@ public class BossLazer : AbilityLazer
 
     protected override void Update()
     {
-        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("LazerAttack")) 
-        {
-            DisableLazer();
-            return;
-        }
         Vector2 direction = bossTransform.transform.localScale.x > 0 ? Vector2.right : Vector2.left;
         _targetEndPoint = (Vector2)firePoint.position + direction * laserDistance;
         spark.localScale = direction == Vector2.right ? new Vector3(1, 1, 1) : new Vector3(-1, 1, 1);
 
         CheckCollider(direction);
 
-        _currentEndPoint = _targetEndPoint;
         UpdateLineRenderer();
+
+        _currentEndPoint = _targetEndPoint;
 
         _sparkProgress += sparkSpeed * Time.deltaTime;
         if (_sparkProgress > 1f)
@@ -90,12 +86,5 @@ public class BossLazer : AbilityLazer
         lineRenderer.enabled = true;
         lineRenderer.SetPosition(0, startPointLocal);
         lineRenderer.SetPosition(1, endPointLocal);
-    }
-    
-    private void DisableLazer()
-    {
-        lineRenderer.enabled = false;
-        spark.gameObject.SetActive(false);
-        remnants.gameObject.SetActive(false);
     }
 }

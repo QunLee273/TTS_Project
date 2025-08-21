@@ -10,6 +10,8 @@ public class PlayerMove : ObjMovement
     private bool _isMoveLeft, _isMoveRight;
 
     [SerializeField] protected bool isGround;
+    [SerializeField] protected RaycastHit2D[] hits = new RaycastHit2D[7];
+    [SerializeField] protected ContactFilter2D contactFilter;
     public bool IsGround
     {
         get => isGround;
@@ -45,7 +47,7 @@ public class PlayerMove : ObjMovement
         UpdateAnimation();
     }
 
-    private void HandleMovement(float direction )
+    private void HandleMovement(float direction)
     {
         if (CanMove)
         {
@@ -60,15 +62,14 @@ public class PlayerMove : ObjMovement
     
     private void HandleJump()
     {
-        IsGround = Physics2D.Raycast( new Vector2(transform.position.x,transform.position.y), 
-            Vector2.down, 1.5f, LayerMask.GetMask("Ground"));
-        Debug.DrawRay(new Vector2(transform.position.x,transform.position.y), 
-            Vector2.down * 1.5f, Color.green);
-        
+        IsGround = col.Cast(Vector2.down, contactFilter, hits, 0.1f) > 0;
+
+        Debug.DrawRay(col.bounds.center, Vector2.down * 0.5f, IsGround ? Color.green : Color.red);
+
         if (IsGround) doubleJump = true;
-        
+
         bool jumpPress = isJumping;
-        
+
         if (jumpPress && CanMove)
         {
             if (IsGround)
@@ -76,14 +77,13 @@ public class PlayerMove : ObjMovement
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 AudioManager.Instance.PlaySfx("Jump");
             }
-            if (doubleJump && !IsGround)
+            else if (doubleJump)
             {
-                rb.linearVelocity = Vector2.zero;
-                rb.angularVelocity = 0;
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 AudioManager.Instance.PlaySfx("Jump");
                 doubleJump = false;
             }
+
             isJumping = false;
         }
     }

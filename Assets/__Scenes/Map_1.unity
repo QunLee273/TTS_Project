@@ -17213,6 +17213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 20
+  rbFly: {fileID: 2146133747}
   direction: {x: 1, y: 0, z: 0}
 --- !u!1 &243836968
 GameObject:
@@ -19125,6 +19126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 15
+  rbFly: {fileID: 943613297}
   direction: {x: 1, y: 0, z: 0}
 --- !u!1 &462335882
 GameObject:
@@ -20484,6 +20486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
+  rbFly: {fileID: 1945074987}
   direction: {x: 1, y: 0, z: 0}
 --- !u!4 &618789160
 Transform:
@@ -20594,7 +20597,6 @@ Transform:
   m_Children:
   - {fileID: 731522600}
   - {fileID: 2056676832}
-  - {fileID: 1154269656}
   - {fileID: 1578444865}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -20908,7 +20910,6 @@ GameObject:
   m_Component:
   - component: {fileID: 644898006}
   - component: {fileID: 644898009}
-  - component: {fileID: 644898008}
   - component: {fileID: 644898007}
   m_Layer: 11
   m_Name: BulletImpart
@@ -20946,34 +20947,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletCtrl: {fileID: 2146133746}
   circleCollider2D: {fileID: 644898009}
-  rb: {fileID: 644898008}
---- !u!50 &644898008
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 644898005}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 1
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 4
+  rb: {fileID: 2146133747}
 --- !u!58 &644898009
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -21009,7 +20983,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0.001151979, y: 0}
-  m_Radius: 0.19022167
+  m_Radius: 0.09
 --- !u!4 &657964049 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4356390709483980405, guid: cc72d53156874184588db6364716824d, type: 3}
@@ -23281,6 +23255,7 @@ GameObject:
   m_Component:
   - component: {fileID: 943613295}
   - component: {fileID: 943613296}
+  - component: {fileID: 943613297}
   m_Layer: 11
   m_Name: Bullet_2
   m_TagString: Bullet
@@ -23324,6 +23299,33 @@ MonoBehaviour:
   bulletDamSender: {fileID: 201470048}
   bulletDespawn: {fileID: 111618073}
   shooter: {fileID: 0}
+--- !u!50 &943613297
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943613294}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!1 &965229604
 GameObject:
   m_ObjectHideFlags: 0
@@ -23426,9 +23428,9 @@ Transform:
   m_GameObject: {fileID: 970966576}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3, z: 0}
-  m_LocalScale: {x: 1.08, y: 1.08, z: 1.08}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1967626650}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -23480,7 +23482,7 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 2
+  m_DrawMode: 0
   m_Size: {x: 70, y: 19.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -23563,6 +23565,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4599261779626158878, guid: 05e4d2eb39bdfbd45b6fc4e3fb332cc3, type: 3}
   m_PrefabInstance: {fileID: 978138057}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &987827127
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 987827128}
+  - component: {fileID: 987827130}
+  - component: {fileID: 987827129}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &987827128
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 987827127}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2030707400}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &987827129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 987827127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &987827130
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 987827127}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1003624951
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24661,6 +24738,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   rb: {fileID: 466336113}
+  col: {fileID: 0}
   animator: {fileID: 164603531}
 --- !u!4 &1112471191 stripped
 Transform:
@@ -24671,11 +24749,6 @@ Transform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1557530408586686488, guid: 1dc41ce35fb163446b91c15d5f663ada, type: 3}
   m_PrefabInstance: {fileID: 4138527443439771380}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1154269656 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 757299277458051149, guid: a8dfe85d06047f8449bec079990648c6, type: 3}
-  m_PrefabInstance: {fileID: 2249694643728574324}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1164759383
 GameObject:
@@ -26800,7 +26873,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1411210023}
   - component: {fileID: 1411210026}
-  - component: {fileID: 1411210025}
   - component: {fileID: 1411210024}
   m_Layer: 11
   m_Name: BulletImpart
@@ -26838,34 +26910,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletCtrl: {fileID: 943613296}
   circleCollider2D: {fileID: 1411210026}
-  rb: {fileID: 1411210025}
---- !u!50 &1411210025
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1411210022}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 1
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 4
+  rb: {fileID: 943613297}
 --- !u!58 &1411210026
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -26901,7 +26946,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0.19228826, y: 0}
-  m_Radius: 0.07195957
+  m_Radius: 0.09
 --- !u!1 &1412162827
 GameObject:
   m_ObjectHideFlags: 0
@@ -29800,11 +29845,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   rb: {fileID: 129862708}
+  col: {fileID: 129862710}
   animator: {fileID: 1066458731}
   jumpForce: 16
   isJumping: 0
   doubleJump: 0
   isGround: 0
+  contactFilter:
+    useTriggers: 0
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 64
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
 --- !u!1001 &1812764829
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30607,7 +30667,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1923212883}
   - component: {fileID: 1923212886}
-  - component: {fileID: 1923212885}
   - component: {fileID: 1923212884}
   m_Layer: 11
   m_Name: BulletImpart
@@ -30645,34 +30704,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletCtrl: {fileID: 1945074986}
   circleCollider2D: {fileID: 1923212886}
-  rb: {fileID: 1923212885}
---- !u!50 &1923212885
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1923212882}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 1
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 4
+  rb: {fileID: 1945074987}
 --- !u!58 &1923212886
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -30708,7 +30740,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0.4255522, y: -0.00808531}
-  m_Radius: 0.26168418
+  m_Radius: 0.09
 --- !u!1 &1926240378
 GameObject:
   m_ObjectHideFlags: 0
@@ -31217,6 +31249,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1945074985}
   - component: {fileID: 1945074986}
+  - component: {fileID: 1945074987}
   m_Layer: 11
   m_Name: Bullet_3
   m_TagString: Untagged
@@ -31260,6 +31293,33 @@ MonoBehaviour:
   bulletDamSender: {fileID: 1513703812}
   bulletDespawn: {fileID: 700911523}
   shooter: {fileID: 0}
+--- !u!50 &1945074987
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945074984}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!1 &1946932074
 GameObject:
   m_ObjectHideFlags: 0
@@ -31965,6 +32025,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 987827128}
   - {fileID: 559735886}
   m_Father: {fileID: 106045695}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -32000,7 +32061,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  tutorialImages: []
+  tutorialImages: {fileID: 987827129}
   tutorialMessages:
   - Tap this button to jump a certain height\nOr tap twice to perform a Double Jump
   - Tap this button to attack enemies\n(At close range, use a katana slash; at long
@@ -33120,6 +33181,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2146133745}
+  - component: {fileID: 2146133747}
   - component: {fileID: 2146133746}
   m_Layer: 11
   m_Name: Bullet_1
@@ -33164,6 +33226,33 @@ MonoBehaviour:
   bulletDamSender: {fileID: 2015748088}
   bulletDespawn: {fileID: 71655275}
   shooter: {fileID: 0}
+--- !u!50 &2146133747
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146133744}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!1 &2146735169
 GameObject:
   m_ObjectHideFlags: 0
@@ -33461,63 +33550,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6703b440463b6949bd36589c6cfcd4f, type: 3}
---- !u!1001 &2249694643728574324
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 631588911}
-    m_Modifications:
-    - target: {fileID: 757299277458051149, guid: a8dfe85d06047f8449bec079990648c6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 757299277458051149, guid: a8dfe85d06047f8449bec079990648c6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 757299277458051149, guid: a8dfe85d06047f8449bec079990648c6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 757299277458051149, guid: a8dfe85d06047f8449bec079990648c6, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 757299277458051149, guid: a8dfe85d06047f8449bec079990648c6, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 757299277458051149, guid: a8dfe85d06047f8449bec079990648c6, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 757299277458051149, guid: a8dfe85d06047f8449bec079990648c6, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 757299277458051149, guid: a8dfe85d06047f8449bec079990648c6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 757299277458051149, guid: a8dfe85d06047f8449bec079990648c6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 757299277458051149, guid: a8dfe85d06047f8449bec079990648c6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2745746158172975745, guid: a8dfe85d06047f8449bec079990648c6, type: 3}
-      propertyPath: m_Name
-      value: AdsManager
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a8dfe85d06047f8449bec079990648c6, type: 3}
 --- !u!1001 &4138527443439771380
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33609,6 +33641,10 @@ PrefabInstance:
     - target: {fileID: 4448265309153734586, guid: 1dc41ce35fb163446b91c15d5f663ada, type: 3}
       propertyPath: sceneIndex
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6790937759196687762, guid: 1dc41ce35fb163446b91c15d5f663ada, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

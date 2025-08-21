@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.Advertisements;
-using UnityEngine.Serialization;
 
 public class AdsManager : MonoBehaviour
 {
@@ -13,9 +11,15 @@ public class AdsManager : MonoBehaviour
 
     private void Awake()
     {
-        if (AdsManager.Instance != null) Debug.LogError("Only 1 AdsManager allow to exist");
+        if (AdsManager.Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         AdsManager.Instance = this;
-        
+        DontDestroyOnLoad(gameObject);
+
         bannerAds.LoadBannerAd();
         interstitialAds.LoadInterstitialAd();
         rewardedAds.LoadRewardedAd();

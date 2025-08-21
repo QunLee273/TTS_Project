@@ -91,10 +91,12 @@ public class MapSelect : GameBehaviour
     
     private void OnPlayButtonClick(int levelIndex)
     {
+        bool activeAds = PlayerPrefs.GetInt(PlayerPrefsString.ActiveAds, 0) == 1;
+        
         _playCountAds = PlayerPrefs.GetInt(PlayerPrefsString.PlayCountAds, 0);
         _playCountAds++;
 
-        if (_playCountAds >= 3)
+        if (_playCountAds >= 3 && !activeAds)
         {
             _playCountAds = 0;
 

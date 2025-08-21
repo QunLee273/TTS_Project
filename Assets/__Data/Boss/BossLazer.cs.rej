@@ -1,0 +1,15 @@
+diff a/Assets/__Data/Boss/BossLazer.cs b/Assets/__Data/Boss/BossLazer.cs	(rejected hunks)
+@@ -84,9 +84,9 @@
+     private void UpdateLineRenderer()
+     {
+         var startPointLocal = lineRenderer.transform.InverseTransformPoint(firePoint.position);
+-        var endPointLocal = lineRenderer.transform.InverseTransformPoint(endPoint);
+-        
++        var endPointLocal = lineRenderer.transform.InverseTransformPoint(_currentEndPoint);
++
+         lineRenderer.SetPosition(0, startPointLocal);
+         lineRenderer.SetPosition(1, endPointLocal);
+     }
+-}
+\ No newline at end of file
++}

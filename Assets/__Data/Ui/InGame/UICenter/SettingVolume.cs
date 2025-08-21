@@ -50,11 +50,11 @@ public class SettingVolume : GameBehaviour
         sfxSlider.onValueChanged.AddListener(UpdateSfxVolume);
     }
 
-    private void Update()
-    {
-        Debug.Log("musicEnabled: " + PlayerPrefs.GetInt(PlayerPrefsString.MusicEnabled));
-        Debug.Log("SfxEnabled: " + PlayerPrefs.GetInt(PlayerPrefsString.SFXEnabled));
-    }
+    // private void Update()
+    // {
+    //     Debug.Log("musicEnabled: " + PlayerPrefs.GetInt(PlayerPrefsString.MusicEnabled));
+    //     Debug.Log("SfxEnabled: " + PlayerPrefs.GetInt(PlayerPrefsString.SFXEnabled));
+    // }
 
     private void InitializeVolume()
     {

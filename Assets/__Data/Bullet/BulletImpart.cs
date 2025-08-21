@@ -2,7 +2,6 @@ using __Data;
 using UnityEngine;
 
 [RequireComponent(typeof(CircleCollider2D))]
-[RequireComponent(typeof(Rigidbody2D))]
 public class BulletImpart : GameBehaviour
 {
     [Header("Bullet Impart")]
@@ -39,7 +38,7 @@ public class BulletImpart : GameBehaviour
     protected virtual void LoadRigibody()
     {
         if (rb != null) return;
-        rb = GetComponent<Rigidbody2D>();
+        rb = transform.parent.GetComponent<Rigidbody2D>();
         rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         Debug.Log(transform.name + ": LoadRigibody", gameObject);
     }
