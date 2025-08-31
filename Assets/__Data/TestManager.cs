@@ -5,12 +5,13 @@ using UnityEngine;
 public class TestManager : MonoBehaviour
 {
     public bool pause;
+    public bool addCoin;
     public bool resetPlayerPref;
 
     private void Start()
     {
-        //PlayerPrefs.SetInt(PlayerPrefsString.AmountCoins, 999999999);
         ResetPlayerPref();
+        AddCoinPlayerPref();
     }
 
     private void Update()
@@ -22,6 +23,13 @@ public class TestManager : MonoBehaviour
     {
         if (!resetPlayerPref) return;
         PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
+    }
+    
+    private void AddCoinPlayerPref()
+    {
+        if (!addCoin) return;
+        PlayerPrefs.SetInt(PlayerPrefsString.AmountCoins, 999999999);
         PlayerPrefs.Save();
     }
 
