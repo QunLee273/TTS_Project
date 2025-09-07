@@ -10,7 +10,7 @@ public class PlayerMove : ObjMovement
     private bool _isMoveLeft, _isMoveRight;
 
     [SerializeField] protected bool isGround;
-    [SerializeField] protected RaycastHit2D[] hits = new RaycastHit2D[7];
+    protected RaycastHit2D[] hits = new RaycastHit2D[7];
     [SerializeField] protected ContactFilter2D contactFilter;
     public bool IsGround
     {

@@ -7665,9 +7665,9 @@ MonoBehaviour:
   canUseAbility: 1
   isInvisible: 0
   btns:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1922422311}
+  - {fileID: 429672804}
+  - {fileID: 853344618}
 --- !u!1 &294036881
 GameObject:
   m_ObjectHideFlags: 0
@@ -16358,6 +16358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   rb: {fileID: 466336113}
+  col: {fileID: 466336114}
   animator: {fileID: 164603531}
 --- !u!1001 &1094176802
 PrefabInstance:
@@ -20849,11 +20850,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   rb: {fileID: 129862708}
+  col: {fileID: 129862710}
   animator: {fileID: 1066458731}
   jumpForce: 16
   isJumping: 0
   doubleJump: 0
   isGround: 0
+  contactFilter:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
 --- !u!1001 &1819754857
 PrefabInstance:
   m_ObjectHideFlags: 0
