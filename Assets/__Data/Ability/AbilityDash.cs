@@ -57,6 +57,8 @@ public class AbilityDash : AbilityAttack
         _dashDirection = new Vector3(Mathf.Sign(transform.parent.parent.localScale.x), 0f, 0f);
         StartCoroutine(CreateGhostTrail());
         Invoke(nameof(EndDash), dashDuration);
+        
+        UIBottomRight.Instance.BtnDash.GetComponent<UICooldown>().StartCooldown(_dashCooldown);
     }
 
     private void ContinueDash()

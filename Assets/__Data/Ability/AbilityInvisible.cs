@@ -68,19 +68,25 @@ public class AbilityInvisible : AbilityAbstract
     {
         canUseAbility = false;
         
+        var invisUI = UIBottomRight.Instance.BtnInvisible.GetComponent<UICooldown>();
+        
         ChangeLog();
-
+        invisUI.StartActive(_logControlTime);   // Thanh active chạy
         yield return new WaitForSeconds(_logControlTime);
 
         ChangePlayer();
-        
+        invisUI.StartCooldown(_cooldownTime);   // Overlay hồi chiêu
         yield return new WaitForSeconds(_cooldownTime);
         canUseAbility = true;
     }
 
-    IEnumerator StarPlayer()
+    private IEnumerator StarPlayer()
     {
+        var invisUI = UIBottomRight.Instance.BtnInvisible.GetComponent<UICooldown>();
+        
+        invisUI.StopActive();
         ChangePlayer();
+        invisUI.StartCooldown(_cooldownTime);
         yield return new WaitForSeconds(_cooldownTime);
         canUseAbility = true;
     }
