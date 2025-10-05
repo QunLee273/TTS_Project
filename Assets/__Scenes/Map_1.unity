@@ -32375,6 +32375,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1810767303}
+    - target: {fileID: 1066066536216839408, guid: bd87b4603c22901498495ad40069f308, type: 3}
+      propertyPath: disguise
+      value: 
+      objectReference: {fileID: 1091918954}
     - target: {fileID: 4713507969657354725, guid: bd87b4603c22901498495ad40069f308, type: 3}
       propertyPath: m_Name
       value: BGController

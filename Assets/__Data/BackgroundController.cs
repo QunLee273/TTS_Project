@@ -1,4 +1,3 @@
-using System;
 using __Data;
 using UnityEngine;
 
@@ -9,8 +8,30 @@ public class BackgroundController : GameBehaviour
     
     [SerializeField] protected float bgSpeed = 0.01f;
     [SerializeField] protected PlayerMove player;
+    [SerializeField] protected DisguiseMovement disguise;
 
     private Vector3 _firstBgOffset;
+
+    protected override void LoadComponents()
+    {
+        base.LoadComponents();
+        LoadPlayerMove();
+        LoadDisguiseMove();
+    }
+
+    private void LoadPlayerMove()
+    {
+        if(player != null) return;
+        player = GameObject.FindWithTag("Player").GetComponentInChildren<PlayerMove>();
+        Debug.LogWarning(transform.name + ": LoadPlayerMove", gameObject);
+    }
+    
+    private void LoadDisguiseMove()
+    {
+        if (disguise != null) return;
+        disguise = FindObjectOfType<DisguiseMovement>();
+        Debug.LogWarning(transform.name + ": LoadDisguiseMove", gameObject);
+    }
 
     private void OnDrawGizmosSelected()
     {
@@ -67,9 +88,11 @@ public class BackgroundController : GameBehaviour
     
     private float GetPlayerMoveDirection()
     {
-        if (player == null) return 0;
+        float vx = 0;
 
-        float vx = player.Rb.linearVelocity.x;
+        if (player != null) vx = player.Rb.linearVelocity.x;
+        else if (disguise != null) vx = disguise.Rb.linearVelocity.x;
+
         if (vx > 0.1f) return -0.5f;
         if (vx < -0.1f) return 0.5f;
         return 0;
